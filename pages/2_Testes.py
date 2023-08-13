@@ -11,14 +11,6 @@ st.set_page_config(page_title="Testes", page_icon=":house:")
 image = Image.open("./src/img/ibovespa.jpg")
 st.image(image)
 
-# Carregar os dados
-data = pd.read_csv('caminho_para_seu_arquivo.csv', sep=';', parse_dates=['Data'], index_col='Data')
-
-# Inverter a série temporal (se necessário)
-data = data[::-1]
-
-# Visualizar os primeiros registros
-print(data.head())
 
 
 tab1, tab2, tab3, tab4, tab5  =st.tabs(["ARIMA","SARIMA", "LSTM","Prophet","Modelos de Regressão com Variáveis ​​de Tempo Retardado"])
