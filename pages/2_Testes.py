@@ -1,10 +1,7 @@
 import streamlit as st
 from PIL import Image
 import pandas as pd
-from statsmodels.tsa.arima.model import ARIMA
-from sklearn.metrics import mean_squared_error
-from math import sqrt
-import matplotlib.pyplot as plt
+
 
 st.set_page_config(page_title="Testes", page_icon=":house:")
 
