@@ -53,7 +53,7 @@ with tab1:
     <p>A decomposição de uma série temporal é uma técnica estatística que transforma uma série temporal em múltiplos componentes diferentes. Cada um desses componentes representa uma parte específica da informação contida na série original. Ao fazer isso, podemos entender melhor a complexidade e a estrutura subjacente da série.</p>
 
     ##Componentes da Decomposição:
-
+    
     <ol>
         <li><strong>Série Temporal Observada:</strong> Esta é a série original, o conjunto de dados que estamos analisando.</li>
         <li><strong>Tendência:</strong> A tendência mostra um padrão subjacente na série. Em outras palavras, é uma linha suavizada que captura a direção em que nossos dados estão se movendo.</li>
@@ -62,6 +62,7 @@ with tab1:
     </ol>    
     """, unsafe_allow_html=True)
 
+    
     decomposicao = seasonal_decompose(ibovespa['Fechamento'], model='additive', period=12)
 
     # Criando subplots com espaçamento vertical
@@ -172,3 +173,27 @@ with tab2:
 
     Isso é importante porque muitos modelos de séries temporais, como ARIMA, assumem que a série é estacionária. Se a série não for estacionária, pode ser necessário aplicar transformações, como diferenciação, para torná-la estacionária antes de modelar.
     """)
+    st.markdown("""
+    ### Transformando a Série em Estacionária através da Diferenciação
+
+    A diferenciação é uma técnica comum usada para tornar uma série temporal estacionária. Uma série estacionária é aquela cujas propriedades estatísticas, como média e variância, permanecem constantes ao longo do tempo. Muitos modelos de séries temporais, como ARIMA, exigem que a série seja estacionária para fazer previsões precisas.
+
+    Ao aplicar a diferenciação, estamos basicamente subtraindo a observação atual da observação anterior. Isso pode ajudar a remover tendências e padrões sazonais, tornando a série mais estacionária.
+
+    Vamos visualizar a série após aplicar uma primeira diferenciação para entender melhor como ela se transformou.
+    """)
+
+    ibovespa_diff1 = ibovespa.diff().dropna()    
+    # Gráfico usando Plotly
+    fig = go.Figure()
+
+    fig.add_trace(go.Scatter(x=ibovespa_diff1.index, y=ibovespa_diff1['Fechamento'], mode='lines', name='1º Diferenciação'))
+
+    fig.update_layout(
+        title="Série com 1º Diferenciação",
+        xaxis_title="Anos",
+        yaxis_title="Valor",
+        template="plotly_dark"
+    )
+
+    st.plotly_chart(fig)
