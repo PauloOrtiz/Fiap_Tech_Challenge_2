@@ -173,6 +173,7 @@ with tab2:
 
     Isso é importante porque muitos modelos de séries temporais, como ARIMA, assumem que a série é estacionária. Se a série não for estacionária, pode ser necessário aplicar transformações, como diferenciação, para torná-la estacionária antes de modelar.
     """)
+    
     st.markdown("""
     ### Transformando a Série em Estacionária através da Diferenciação
 
