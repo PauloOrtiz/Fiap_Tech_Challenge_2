@@ -18,6 +18,7 @@ body {
 }
 h1 {
     color: #CD8D00;
+    text-aling: center;
 }
 h2 {
     color: #306998;
