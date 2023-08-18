@@ -17,7 +17,7 @@ body {
     background-color: #4B8BBE;
 }
 h1 {
-    color: #FFD43B;
+    color: #CD8D00;
 }
 h2 {
     color: #306998;
