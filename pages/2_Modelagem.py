@@ -4,6 +4,7 @@ import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from statsmodels.tsa.seasonal import seasonal_decompose
+from statsmodels.tsa.stattools import adfuller
 
 st.set_page_config(page_title="Modelagem", page_icon=":house:")
 
@@ -19,7 +20,7 @@ ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%d.%m.%Y')
 ibovespa = ibovespa[::-1]
 
 
-tab1, tab2 = st.tabs(["Modelagem", "???"])
+tab1, tab2 = st.tabs(["Modelagem", "Dickey-Fuller"])
 
 with tab1:
 
@@ -100,3 +101,74 @@ with tab1:
     <p>Em resumo, antes de mergulhar em modelos avançados, é sempre uma boa prática decompor a série para entender seus componentes. Isso não apenas melhora nossa compreensão dos dados, mas também nos guia na escolha do modelo mais adequado para fazer previsões futuras.</p>
     """,  unsafe_allow_html=True)
 
+with tab2:
+    st.markdown("""
+    <style>
+        body {
+            color: #ffffff;
+            background-color: #4B8BBE;
+        }
+        h1 {
+            color: #CD8D00;
+            text-align: center;
+        }
+        h2 {
+            color: #306998;
+        }
+        p{
+            text-indent: 40px;
+        }
+    </style>
+    """,unsafe_allow_html=True )
+
+    # Título da seção
+   
+    st.markdown("""
+    # Estacionariedade e a Importância do Teste de Dickey-Fuller       
+                
+                 
+    ## Teste de Dickey-Fuller
+                
+    Ao trabalhar com séries temporais, um dos conceitos mais cruciais é a estacionariedade. Uma série temporal é dita estacionária se suas propriedades estatísticas, como média, variância e autocorrelação, são constantes ao longo do tempo. A maioria dos modelos de séries temporais, como ARIMA, assume que a série é estacionária. Uma série não estacionária pode ser problemática porque pode ser difícil modelar e prever.
+
+    O Teste de Dickey-Fuller Aumentado (ADF) é um dos métodos mais comuns para verificar a estacionariedade de uma série temporal. A hipótese nula do teste é que a série temporal é não estacionária. Se o valor-p do teste for menor ou igual a um nível de significância (geralmente 0,05), rejeitamos a hipótese nula e concluímos que a série é estacionária.
+
+    Vamos agora realizar o Teste de Dickey-Fuller em nossa série temporal do Ibovespa e interpretar os resultados:
+    """,unsafe_allow_html=True)
+
+    # Função para realizar o teste
+    def perform_adf_test(series):
+        result = adfuller(series)
+        return result
+
+    # Executando o teste
+    ibovespa_series = ibovespa['Fechamento']
+    result = perform_adf_test(ibovespa_series)
+
+    # Mostrando os resultados no Streamlit
+    st.markdown("**Resultado do Teste Dickey-Fuller:**")
+    st.markdown(f'**Estatística de teste:** {result[0]}')
+    st.markdown(f'**Valor-p:** {result[1]}')
+    st.markdown(f'**Número de defasagens usadas:** {result[2]}')
+    st.markdown(f'**Número de observações:** {result[3]}')
+    st.markdown("**Valores críticos:**")
+    for key, value in result[4].items():
+        st.markdown(f'   **{key}:** {value}')
+
+    if result[1] <= 0.05:
+        st.markdown("**Conclusão:** A Série é estacionária (rejeita-se a hipótese nula)")
+    else:
+        st.markdown("**Conclusão:** A Série não é estacionária (não rejeita-se a hipótese nula)")
+
+    st.markdown("""
+    #### Com base no Teste Dickey-Fuller, podemos observar o seguinte:
+
+    - A **Estatística de teste** é de aproximadamente -0.862, que é maior do que todos os valores críticos (1%, 5% e 10%). 
+    - O **Valor-p** é de 0.8003, que é significativamente maior que 0.05. 
+
+    Em testes estatísticos, um valor-p menor que 0.05 é frequentemente usado para rejeitar a hipótese nula. No contexto do Teste Dickey-Fuller, a hipótese nula é de que a série temporal possui uma raiz unitária e, portanto, não é estacionária.
+
+    Como o valor-p é maior que 0.05 e a estatística de teste é maior que os valores críticos, **não rejeitamos a hipótese nula**. Isso sugere que a série temporal não é estacionária.
+
+    Isso é importante porque muitos modelos de séries temporais, como ARIMA, assumem que a série é estacionária. Se a série não for estacionária, pode ser necessário aplicar transformações, como diferenciação, para torná-la estacionária antes de modelar.
+    """)

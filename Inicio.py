@@ -26,9 +26,10 @@ h2 {
 </style>
 """, unsafe_allow_html=True)
 
-st.title("Previsão do Fechamento do Ibovespa")
+
 
 st.write("""
+# Previsão do Fechamento do Ibovespa
 ## Bem-vindo à nossa aventura no mundo financeiro!
 <p style="text-indent: 40px;"> Você já se perguntou como seria se pudéssemos prever o futuro do mercado de ações? Embora não possamos garantir previsões perfeitas, podemos usar a ciência de dados e o aprendizado de máquina para tentar prever tendências e movimentos futuros.<p> 
 
