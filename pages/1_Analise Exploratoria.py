@@ -16,7 +16,7 @@ ibovespa = ibovespa.rename(columns={'Último':'Fechamento'})
 ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%d.%m.%Y')
 ibovespa = ibovespa[::-1]
 
-tab1, tab2 = st.tabs(["Introdução", "Descritivo"])
+tab1, tab2, tab3 = st.tabs(["Introdução", "Descritivo","Tendência"])
 
 with tab1:
     st.markdown("""
@@ -159,3 +159,52 @@ with tab2:
         ### Conclusão
         A análise descritiva é a primeira etapa para entender a história da Ibovespa. Ela nos fornece uma visão geral do comportamento do índice ao longo do tempo e nos prepara para análises mais profundas e modelagem preditiva.
     """)
+with tab3:
+    # Calcular médias móveis
+    ibovespa['MM50'] = ibovespa['Fechamento'].rolling(window=50).mean()
+    ibovespa['MM200'] = ibovespa['Fechamento'].rolling(window=200).mean()
+
+    # Criar o gráfico
+    fig = go.Figure()
+
+    # Adicionar as séries ao gráfico
+    fig.add_trace(go.Scatter(x=ibovespa['Data'], y=ibovespa['Fechamento'], mode='lines', name='Ibovespa'))
+    fig.add_trace(go.Scatter(x=ibovespa['Data'], y=ibovespa['MM50'], mode='lines', name='Média Móvel 50 Dias', line=dict(color='orange')))
+    fig.add_trace(go.Scatter(x=ibovespa['Data'], y=ibovespa['MM200'], mode='lines', name='Média Móvel 200 Dias', line=dict(color='red')))
+
+    # Estilização
+    fig.update_layout(
+        xaxis_title='Anos',
+        yaxis_title="Pontuação",
+        xaxis=dict(
+            tickvals=ibovespa['Data'][::365],
+            ticktext=ibovespa['Data'][::365].dt.year,
+            tickangle=-45,
+            title_font=dict(size=18, color='#CD8D00'),
+            tickfont=dict(size=14, color='#333')
+        ),
+        yaxis=dict(
+            title_font=dict(size=18, color='#CD8D00'),
+            tickfont=dict(size=14, color='#333')
+        ),
+        title={
+            'text': 'Série Temporal aplicando a media movel',
+            'y':0.95,
+            'x':0.5,
+            'xanchor': 'center',
+            'yanchor': 'top',
+            'font': {
+                'size': 20,
+                'color': '#306998'
+            }
+        },
+        legend=dict(
+            title ="Lengeda",
+            x=0.5,
+            y=-0.3,
+            xanchor='center',
+            yanchor='top'),
+        
+    )
+
+    st.plotly_chart(fig)

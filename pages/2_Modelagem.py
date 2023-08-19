@@ -13,7 +13,7 @@ st.image(image)
 
 
 
-ibovespa = pd.read_csv('./src/data/BD.csv', sep=',', decimal=',', thousands='.')
+ibovespa = pd.read_csv('./src/data/BD.csv', sep=',')
 ibovespa = ibovespa.iloc[:, :2]
 ibovespa = ibovespa.rename(columns={'Último':'Fechamento'})
 ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%d.%m.%Y')

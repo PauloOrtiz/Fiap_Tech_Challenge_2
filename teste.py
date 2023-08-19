@@ -5,4 +5,5 @@ ibovespa = ibovespa.iloc[:, :2]
 ibovespa = ibovespa.rename(columns={'Último':'Fechamento'})
 ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%d.%m.%Y')
 ibovespa = ibovespa[::-1]
-ibovespa.to_csv('./src/data/ibovespa.csv', index=False)
+
+print(ibovespa)
