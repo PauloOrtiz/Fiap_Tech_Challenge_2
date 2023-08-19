@@ -160,6 +160,21 @@ with tab2:
         A análise descritiva é a primeira etapa para entender a história da Ibovespa. Ela nos fornece uma visão geral do comportamento do índice ao longo do tempo e nos prepara para análises mais profundas e modelagem preditiva.
     """)
 with tab3:
+    st.title('Tendência da Ibovespa')
+
+    st.markdown("""
+    ## Por que usar médias móveis?
+
+    A análise de séries temporais, como os preços diários de fechamento da Ibovespa, pode ser desafiadora devido à volatilidade inerente desses dados. Flutuações diárias podem ser influenciadas por uma miríade de fatores, desde notícias econômicas globais até eventos políticos locais.
+
+    A **média móvel** é uma ferramenta estatística que suaviza essas flutuações, tornando mais fácil identificar tendências de longo prazo. Ao calcular a média de preços em uma janela de tempo específica que se move ao longo do tempo, obtemos uma linha suavizada que pode ajudar a:
+
+    1. **Identificar Tendências**: Uma média móvel ascendente sugere uma tendência de alta, enquanto uma descendente indica uma tendência de baixa.
+    2. **Reduzir o Ruído**: Ao suavizar flutuações de curto prazo, a média móvel ajuda a focar em movimentos de longo prazo.
+    3. **Determinar Pontos de Entrada e Saída**: Em análise técnica, quando uma média móvel de curto prazo cruza acima de uma média móvel de longo prazo, isso pode indicar um bom momento para comprar. O oposto pode sugerir um momento de venda.
+    """)
+
+
     # Calcular médias móveis
     ibovespa['MM50'] = ibovespa['Fechamento'].rolling(window=50).mean()
     ibovespa['MM200'] = ibovespa['Fechamento'].rolling(window=200).mean()
