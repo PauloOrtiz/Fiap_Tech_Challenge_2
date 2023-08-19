@@ -54,9 +54,7 @@ A economia global enfrentou desafios, desde a crise financeira global até a des
 ## O Presente (2018-2023)
 Nos anos mais recentes, o Ibovespa experimentou novas dinâmicas, com avanços tecnológicos, mudanças políticas e eventos globais moldando seu curso. O que o futuro reserva? Só o tempo dirá.
 
-
 """, unsafe_allow_html=True)
-
 
 fig = go.Figure()
 
@@ -98,5 +96,5 @@ st.plotly_chart(fig)
 
 st.write("""
 ## Em Direção à Modelagem
-<p>Agora que temos uma visão clara da trajetória do Ibovespa ao longo dos anos, é hora de mergulhar mais fundo. Vamos usar técnicas avançadas de Machine Learning para prever o futuro deste índice icônico. Junte-se a nós nesta emocionante jornada de descoberta!</p>
+Agora que temos uma visão clara da trajetória do Ibovespa ao longo dos anos, é hora de mergulhar mais fundo. Vamos usar técnicas avançadas de Machine Learning para prever o futuro deste índice icônico. Junte-se a nós nesta emocionante jornada de descoberta!
 """,unsafe_allow_html=True )
