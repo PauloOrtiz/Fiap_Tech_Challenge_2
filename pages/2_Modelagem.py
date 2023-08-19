@@ -52,7 +52,7 @@ with tab1:
 
     <p>A decomposição de uma série temporal é uma técnica estatística que transforma uma série temporal em múltiplos componentes diferentes. Cada um desses componentes representa uma parte específica da informação contida na série original. Ao fazer isso, podemos entender melhor a complexidade e a estrutura subjacente da série.</p>
 
-    ##Componentes da Decomposição:
+    ## Componentes da Decomposição:
     
     <ol>
         <li><strong>Série Temporal Observada:</strong> Esta é a série original, o conjunto de dados que estamos analisando.</li>
