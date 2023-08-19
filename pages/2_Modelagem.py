@@ -173,7 +173,7 @@ with tab2:
 
     Isso é importante porque muitos modelos de séries temporais, como ARIMA, assumem que a série é estacionária. Se a série não for estacionária, pode ser necessário aplicar transformações, como diferenciação, para torná-la estacionária antes de modelar.
     """)
-    
+
     st.markdown("""
     ### Transformando a Série em Estacionária através da Diferenciação
 
@@ -186,15 +186,49 @@ with tab2:
 
     ibovespa_diff1 = ibovespa.diff().dropna()    
     # Gráfico usando Plotly
-    fig = go.Figure()
+    if 'Data' not in ibovespa_diff1.columns:
+        st.write("A coluna 'Data' não existe em ibovespa_diff1!")
+    # Definindo 'Data' como índice para ibovespa antes da diferenciação
+    ibovespa.set_index('Data', inplace=True)
+    ibovespa_diff1 = ibovespa.diff().dropna()
 
+    # Verificando se a coluna 'Data' é do tipo datetime
+    if not pd.api.types.is_datetime64_any_dtype(ibovespa_diff1.index):
+        st.write("O índice de ibovespa_diff1 não é do tipo datetime!")
+    # Se não for datetime, você pode converter o índice para datetime aqui, se necessário
+
+    # Plotando o gráfico
+    fig = go.Figure()
     fig.add_trace(go.Scatter(x=ibovespa_diff1.index, y=ibovespa_diff1['Fechamento'], mode='lines', name='1º Diferenciação'))
 
+    # Configurando o layout do gráfico
+    unique_years = ibovespa_diff1.index.year.unique()
     fig.update_layout(
-        title="Série com 1º Diferenciação",
-        xaxis_title="Anos",
+        title={
+        'text': "Série com 1º Diferenciação",
+        'y':0.95,
+        'x':0.5,
+        'xanchor': 'center',
+        'yanchor': 'top',
+        'font': {
+            'size': 20,
+            'color': '#306998'
+        }},
+        xaxis_title='Anos',
         yaxis_title="Valor",
-        template="plotly_dark"
+        xaxis=dict(
+            tickvals=pd.to_datetime([f'{year}-01-01' for year in unique_years]),  # Escolhe um ponto para cada ano único
+            ticktext=unique_years,  # Mostra apenas o ano
+            tickangle=-45,  # Inclina os rótulos para melhor visualização
+            title_font=dict(size=18, color='#CD8D00'),
+            tickfont=dict(size=14, color='#333')
+        ),
+        template="plotly_dark",
+        yaxis=dict(
+            title_font=dict(size=18, color='#CD8D00'),
+            tickfont=dict(size=14, color='#333')
+        )
     )
 
     st.plotly_chart(fig)
+
