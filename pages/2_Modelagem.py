@@ -175,7 +175,7 @@ with tab2:
     """)
 
     st.markdown("""
-    ### Transformando a Série em Estacionária através da Diferenciação
+    ## Transformando a Série em Estacionária através da Diferenciação
 
     A diferenciação é uma técnica comum usada para tornar uma série temporal estacionária. Uma série estacionária é aquela cujas propriedades estatísticas, como média e variância, permanecem constantes ao longo do tempo. Muitos modelos de séries temporais, como ARIMA, exigem que a série seja estacionária para fazer previsões precisas.
 
@@ -233,7 +233,7 @@ with tab2:
     st.plotly_chart(fig)
 
     st.markdown("""
-    ### Por que realizar o Teste Dickey-Fuller após a diferenciação?
+    ## Por que realizar o Teste Dickey-Fuller após a diferenciação?
 
     Quando trabalhamos com modelos de séries temporais, como o ARIMA, é essencial que a série seja estacionária. Uma série estacionária é aquela cujas propriedades estatísticas, como média e variância, não variam com o tempo. Modelos de séries temporais, como o ARIMA, têm a suposição implícita de estacionariedade. Se essa suposição não for satisfeita, os resultados do modelo podem ser imprecisos e enganosos.
 
