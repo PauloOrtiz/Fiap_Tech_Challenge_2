@@ -232,3 +232,37 @@ with tab2:
 
     st.plotly_chart(fig)
 
+    st.markdown("""
+    ### Por que realizar o Teste Dickey-Fuller após a diferenciação?
+
+    Quando trabalhamos com modelos de séries temporais, como o ARIMA, é essencial que a série seja estacionária. Uma série estacionária é aquela cujas propriedades estatísticas, como média e variância, não variam com o tempo. Modelos de séries temporais, como o ARIMA, têm a suposição implícita de estacionariedade. Se essa suposição não for satisfeita, os resultados do modelo podem ser imprecisos e enganosos.
+
+    A diferenciação é uma técnica comum para transformar uma série não estacionária em estacionária. No entanto, após a diferenciação, é crucial retestar a série para confirmar se ela se tornou estacionária. O Teste Dickey-Fuller é uma ferramenta poderosa para essa verificação.
+    """)
+
+    # Função para realizar o teste
+    def perform_adf_test(series):
+        result = adfuller(series)
+        st.markdown("**Resultado do Teste Dickey-Fuller:**")
+        st.markdown(f'**Estatística de teste:** {result[0]}')
+        st.markdown(f'**Valor-p:** {result[1]}')
+        st.markdown(f'**Número de defasagens usadas:** {result[2]}')
+        st.markdown(f'**Número de observações:** {result[3]}')
+        st.markdown("**Valores críticos:**")
+        for key, value in result[4].items():
+            st.markdown(f'   **{key}:** {value}')
+
+        if result[1] <= 0.05:
+            st.markdown("**Conclusão:** A Série é estacionária (rejeita-se a hipótese nula)")
+        else:
+            st.markdown("**Conclusão:** A Série não é estacionária (não rejeita-se a hipótese nula)")
+
+    # Chamando a função
+    perform_adf_test(ibovespa_diff1['Fechamento'])
+
+    # Conclusão
+    st.markdown("""
+    ### Conclusão:
+
+    Após a diferenciação, a série tornou-se estacionária, conforme confirmado pelo Teste Dickey-Fuller. Com um valor-p de 0.0, rejeitamos a hipótese nula, indicando que a série é estacionária. Isso é um bom sinal, pois agora podemos prosseguir com a modelagem ARIMA, sabendo que a suposição de estacionariedade foi atendida.
+    """)
