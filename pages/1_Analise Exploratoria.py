@@ -156,9 +156,18 @@ with tab2:
     st.markdown(f"**Máximo:** {maximo:.2f}")
 
     st.markdown("""
-        ### Conclusão
-        A análise descritiva é a primeira etapa para entender a história da Ibovespa. Ela nos fornece uma visão geral do comportamento do índice ao longo do tempo e nos prepara para análises mais profundas e modelagem preditiva.
+    ### Conclusão da Análise Descritiva
+
+    A partir da análise descritiva realizada, observamos os seguintes pontos-chave sobre o índice Ibovespa:
+
+    - **Média**: O valor médio do índice ao longo do período analisado é de 53,115.97, indicando o nível geral em torno do qual o índice oscilou.
+    - **Mediana**: O valor mediano de 53,766.50 sugere que, em metade das ocasiões, o índice estava acima deste valor e, na outra metade, abaixo. Isso também indica que a distribuição dos valores não é fortemente inclinada, pois a média e a mediana estão próximas.
+    - **Desvio Padrão**: Um desvio padrão de 33,539.88 mostra a volatilidade do índice. Quanto maior o desvio padrão, maior a variação em relação à média.
+    - **Mínimo e Máximo**: O índice atingiu um mínimo de 116.00 e um máximo de 130,776.00 durante o período analisado, mostrando a vasta gama de variação que o Ibovespa experimentou.
+
+    Estes insights nos fornecem uma compreensão clara do comportamento histórico do índice Ibovespa. Com esta base, estamos bem posicionados para realizar análises mais detalhadas, identificar tendências e, eventualmente, avançar para a modelagem preditiva.
     """)
+    
 with tab3:
     st.title('Tendência da Ibovespa')
 
