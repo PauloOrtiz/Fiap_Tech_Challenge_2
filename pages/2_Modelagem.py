@@ -13,7 +13,7 @@ st.image(image)
 
 
 
-ibovespa = pd.read_csv('./src/data/BD.csv', sep=',')
+ibovespa = pd.read_csv('./src/data/BD.csv', sep=',', decimal=',', thousands='.')
 ibovespa = ibovespa.iloc[:, :2]
 ibovespa = ibovespa.rename(columns={'Último':'Fechamento'})
 ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%d.%m.%Y')
@@ -37,6 +37,9 @@ with tab1:
     h2 {
         color: #306998;
     }
+    h3 {
+        color: #E3A15D;
+    }
     p{
         text-indent: 40px;
     }
@@ -52,7 +55,7 @@ with tab1:
 
     <p>A decomposição de uma série temporal é uma técnica estatística que transforma uma série temporal em múltiplos componentes diferentes. Cada um desses componentes representa uma parte específica da informação contida na série original. Ao fazer isso, podemos entender melhor a complexidade e a estrutura subjacente da série.</p>
 
-    ## Componentes da Decomposição:
+    ### Componentes da Decomposição:
     
     <ol>
         <li><strong>Série Temporal Observada:</strong> Esta é a série original, o conjunto de dados que estamos analisando.</li>
@@ -103,24 +106,7 @@ with tab1:
     """,  unsafe_allow_html=True)
 
 with tab2:
-    st.markdown("""
-    <style>
-        body {
-            color: #ffffff;
-            background-color: #4B8BBE;
-        }
-        h1 {
-            color: #CD8D00;
-            text-align: center;
-        }
-        h2 {
-            color: #306998;
-        }
-        p{
-            text-indent: 40px;
-        }
-    </style>
-    """,unsafe_allow_html=True )
+    
 
     # Título da seção
    
@@ -162,7 +148,7 @@ with tab2:
         st.markdown("**Conclusão:** A Série não é estacionária (não rejeita-se a hipótese nula)")
 
     st.markdown("""
-    #### Com base no Teste Dickey-Fuller, podemos observar o seguinte:
+    ### Com base no Teste Dickey-Fuller, podemos observar o seguinte:
 
     - A **Estatística de teste** é de aproximadamente -0.862, que é maior do que todos os valores críticos (1%, 5% e 10%). 
     - O **Valor-p** é de 0.8003, que é significativamente maior que 0.05. 
