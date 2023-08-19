@@ -39,21 +39,20 @@ p{
 
 # A Jornada do Ibovespa
 
-<p>Ao olhar para o vasto mundo dos mercados financeiros, um índice se destaca no Brasil: o Ibovespa. Ele é o principal indicador do desempenho médio das cotações das ações negociadas na B3, a bolsa de valores brasileira. Mas, o que realmente aconteceu com o Ibovespa ao longo dos anos? Vamos embarcar em uma viagem no tempo e descobrir!</p>
+Ao olhar para o vasto mundo dos mercados financeiros, um índice se destaca no Brasil: o Ibovespa. Ele é o principal indicador do desempenho médio das cotações das ações negociadas na B3, a bolsa de valores brasileira. Mas, o que realmente aconteceu com o Ibovespa ao longo dos anos? Vamos embarcar em uma viagem no tempo e descobrir!
 
 ## O Início (2000-2005)
-<p>No início do novo milênio, o Brasil enfrentou desafios econômicos, mas também oportunidades. O país estava se adaptando à globalização e às mudanças tecnológicas. O Ibovespa refletiu essas dinâmicas, mostrando flutuações à medida que o mercado reagia a eventos nacionais e internacionais.</p>
+No início do novo milênio, o Brasil enfrentou desafios econômicos, mas também oportunidades. O país estava se adaptando à globalização e às mudanças tecnológicas. O Ibovespa refletiu essas dinâmicas, mostrando flutuações à medida que o mercado reagia a eventos nacionais e internacionais.
 
 ## O Boom das Commodities (2006-2011)
-<p>Com a crescente demanda global por commodities, o Brasil, rico em recursos naturais, se beneficiou enormemente. O Ibovespa atingiu novos patamares à medida que as empresas ligadas a commodities, como a Vale e a Petrobras, viram suas ações subirem.</p>
+Com a crescente demanda global por commodities, o Brasil, rico em recursos naturais, se beneficiou enormemente. O Ibovespa atingiu novos patamares à medida que as empresas ligadas a commodities, como a Vale e a Petrobras, viram suas ações subirem.
 
 ## Desafios e Resiliência (2012-2017)
-<p style="font-size: 18px;">
 A economia global enfrentou desafios, desde a crise financeira global até a desaceleração do crescimento em mercados emergentes. O Ibovespa não foi imune a esses desafios, mas mostrou resiliência, refletindo a capacidade do mercado brasileiro de se adaptar e superar adversidades.
-</p>
+
 
 ## O Presente (2018-2023)
-<p> Nos anos mais recentes, o Ibovespa experimentou novas dinâmicas, com avanços tecnológicos, mudanças políticas e eventos globais moldando seu curso. O que o futuro reserva? Só o tempo dirá.</p>
+Nos anos mais recentes, o Ibovespa experimentou novas dinâmicas, com avanços tecnológicos, mudanças políticas e eventos globais moldando seu curso. O que o futuro reserva? Só o tempo dirá.
 
 
 """, unsafe_allow_html=True)
