@@ -10,13 +10,12 @@ st.image(image)
 
 
 
-ibovespa = pd.read_csv('./src/data/BD.csv', sep=',')
-ibovespa = ibovespa.iloc[:, :2]
-ibovespa = ibovespa.rename(columns={'Último':'Fechamento'})
-ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%d.%m.%Y')
-ibovespa = ibovespa[::-1]
 
-tab1, tab2, tab3 = st.tabs(["Introdução", "Descritivo","Tendência"])
+ibovespa = pd.read_csv('./src/data/ibovespa.csv', sep=',')
+ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%Y-%m-%d')
+ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
+
+tab1, tab2, tab3 = st.tabs(["Introdução", "Descritivo","Médias Móveis"])
 
 with tab1:
     st.markdown("""
@@ -81,7 +80,7 @@ with tab1:
         }
     },
     xaxis_title='Anos',
-    yaxis_title='Fechamentos diários do índice',
+    yaxis_title='Pontos',
     xaxis=dict(
         tickvals=ibovespa['Data'][::365],  # Escolhe um ponto a cada 365 dias (aproximadamente 1 ano)
         ticktext=ibovespa['Data'][::365].dt.year,  # Mostra apenas o ano
@@ -105,14 +104,11 @@ with tab1:
     Agora que temos uma visão clara da trajetória do Ibovespa ao longo dos anos, é hora de mergulhar mais fundo. Vamos usar técnicas avançadas de Machine Learning para prever o futuro deste índice icônico. Junte-se a nós nesta emocionante jornada de descoberta!
     """,unsafe_allow_html=True )
 
+    st.write(ibovespa.dtypes)
+  
+
 with tab2:
-    ibovespa['Fechamento'] = ibovespa['Fechamento'].astype(str)
-
-    # Removendo o ponto (.) usado como separador de milhares
-    ibovespa['Fechamento'] = ibovespa['Fechamento'].str.replace('.', '')
-
-    # Convertendo a coluna 'Fechamento' de volta para float
-    ibovespa['Fechamento'] = ibovespa['Fechamento'].astype(float)
+    
 
     fechamento = ibovespa['Fechamento']
     
@@ -122,52 +118,40 @@ with tab2:
     minimo = fechamento.min()
     maximo = fechamento.max()
 
-    st.title('Análise Descritiva da Ibovespa')
-
-    st.markdown("""
-    ## Introdução
-    A **análise descritiva** é uma das primeiras e mais importantes etapas na exploração de dados. Ela nos permite compreender a estrutura e as características fundamentais dos dados, fornecendo uma base sólida para análises subsequentes.
-
-    Neste contexto, vamos explorar o comportamento da **Ibovespa**, o principal indicador do mercado de ações brasileiro. Através de métricas simples, como média, mediana, desvio padrão, e valores extremos, conseguiremos ter uma visão clara da trajetória deste índice ao longo do tempo.
-
-    Ao final desta análise, esperamos ter uma compreensão mais profunda das tendências, volatilidades e características distintivas da Ibovespa, preparando o terreno para análises mais avançadas e modelagens preditivas.
-    """)
-
-    st.markdown("""
-        ## Média:
-        A média do fechamento diário nos dá uma ideia do valor central da Ibovespa ao longo do período analisado. Se a média for significativamente diferente da mediana, isso pode indicar a presença de outliers ou uma distribuição assimétrica.
-    """)
-    st.markdown(f"**Média:** {media:.2f}")
-    st.markdown("""
-        ## Mediana:
-        A mediana nos mostra o valor do meio quando todos os fechamentos diários são organizados em ordem. É menos suscetível a outliers do que a média e pode oferecer uma visão mais "realista" do valor típico.
-    """)
-    st.markdown(f"**Mediana:** {mediana:.2f}")
-    st.markdown("""
-        ## Desvio Padrão:
-        O desvio padrão mede a dispersão ou volatilidade da Ibovespa. Um desvio padrão alto indica que os fechamentos diários variaram muito em relação à média, enquanto um desvio padrão baixo sugere que os fechamentos foram consistentemente próximos da média.
-    """)
-    st.markdown(f"**Desvio Padrão:** {desvio_padrao:.2f}")
-    st.markdown("""
-        ## Mínimo e Máximo:
-        Os valores mínimo e máximo nos dão uma ideia da amplitude dos fechamentos diários. Eles podem nos ajudar a identificar eventos extremos, como crises financeiras ou booms econômicos.
-    """)
-    st.markdown(f"**Mínimo:** {minimo:.2f}")
-    st.markdown(f"**Máximo:** {maximo:.2f}")
-
-    st.markdown("""
-    ### Conclusão da Análise Descritiva
-
-    A partir da análise descritiva realizada, observamos os seguintes pontos-chave sobre o índice Ibovespa:
-
-    - **Média**: O valor médio do índice ao longo do período analisado é de 53,115.97, indicando o nível geral em torno do qual o índice oscilou.
-    - **Mediana**: O valor mediano de 53,766.50 sugere que, em metade das ocasiões, o índice estava acima deste valor e, na outra metade, abaixo. Isso também indica que a distribuição dos valores não é fortemente inclinada, pois a média e a mediana estão próximas.
-    - **Desvio Padrão**: Um desvio padrão de 33,539.88 mostra a volatilidade do índice. Quanto maior o desvio padrão, maior a variação em relação à média.
-    - **Mínimo e Máximo**: O índice atingiu um mínimo de 116.00 e um máximo de 130,776.00 durante o período analisado, mostrando a vasta gama de variação que o Ibovespa experimentou.
-
-    Estes insights nos fornecem uma compreensão clara do comportamento histórico do índice Ibovespa. Com esta base, estamos bem posicionados para realizar análises mais detalhadas, identificar tendências e, eventualmente, avançar para a modelagem preditiva.
-    """)
     
+
+    st.markdown("""
+        <h1>Análise Descritiva da Ibovespa: Uma Visão Detalhada</h1>
+        
+        <h2>Introdução</h2>
+        <p>A análise descritiva é o alicerce da exploração de dados. Ela desvenda a natureza e a estrutura dos dados, pavimentando o caminho para investigações mais profundas. Neste relatório, mergulhamos no universo da Ibovespa, o barômetro do mercado de ações brasileiro, para entender sua dinâmica ao longo do tempo.</p>
+        
+        <h2>Panorama Geral</h2>
+        <p>A Ibovespa é mais do que apenas um número; é o reflexo da economia brasileira. Através de métricas chave, como média, mediana, desvio padrão e extremos, podemos decifrar sua trajetória e as histórias que ela conta.</p>
+        
+        <h2>Métricas Centrais</h2>
+        <p><strong>Média:</strong> Representando o valor central, a média do fechamento diário é de <strong>58,721.11</strong>. Uma discrepância significativa entre média e mediana pode sinalizar outliers ou uma distribuição inclinada.</p>
+        <p><strong>Mediana:</strong> O ponto médio da nossa série, <strong>56,381.00</strong>, oferece uma perspectiva equilibrada, minimizando o impacto de valores extremos.</p>
+        
+        <h2>Volatilidade e Variação</h2>
+        <p><strong>Desvio Padrão:</strong> Com um valor de <strong>30,957.87</strong>, esta métrica revela a volatilidade da Ibovespa. Uma maior dispersão indica períodos de incerteza, enquanto uma menor sugere estabilidade.</p>
+        <p><strong>Extremos:</strong></p>
+        <ul>
+            <li><strong>Mínimo:</strong> <strong>8,371.00</strong> - Momentos de retração ou crises.</li>
+            <li><strong>Máximo:</strong> <strong>130,776.00</strong> - Picos de otimismo e crescimento.</li>
+        </ul>
+        
+        <h2>Reflexões Finais</h2>
+        <p>A Ibovespa, através de suas flutuações, narra a saga econômica do Brasil. Nossas observações:</p>
+        <ul>
+            <li>A proximidade entre média e mediana sugere uma distribuição equilibrada, com poucos períodos de extremos desproporcionais.</li>
+            <li>A vasta diferença entre os valores mínimo e máximo destaca a resiliência e a capacidade de recuperação do mercado brasileiro.</li>
+            <li>O desvio padrão considerável aponta para períodos de volatilidade, refletindo as diversas fases econômicas que o país atravessou.</li>
+        </ul>
+        
+        <h2>Conclusão</h2>
+        <p>Esta análise descritiva fornece uma visão panorâmica da Ibovespa, capturando sua essência e evolução. Com este entendimento, estamos prontos para aprofundar nossa análise, identificar padrões subjacentes e, possivelmente, prever futuras tendências.</p>
+    """, unsafe_allow_html=True)
 with tab3:
     st.title('Tendência da Ibovespa')
 
@@ -185,16 +169,16 @@ with tab3:
 
 
     # Calcular médias móveis
-    ibovespa['MM50'] = ibovespa['Fechamento'].rolling(window=50).mean()
-    ibovespa['MM200'] = ibovespa['Fechamento'].rolling(window=200).mean()
+    ibovespa['MM30'] = ibovespa['Fechamento'].rolling(window=30).mean()
+    ibovespa['MM180'] = ibovespa['Fechamento'].rolling(window=180).mean()
 
     # Criar o gráfico
     fig = go.Figure()
 
     # Adicionar as séries ao gráfico
     fig.add_trace(go.Scatter(x=ibovespa['Data'], y=ibovespa['Fechamento'], mode='lines', name='Ibovespa'))
-    fig.add_trace(go.Scatter(x=ibovespa['Data'], y=ibovespa['MM50'], mode='lines', name='Média Móvel 50 Dias', line=dict(color='orange')))
-    fig.add_trace(go.Scatter(x=ibovespa['Data'], y=ibovespa['MM200'], mode='lines', name='Média Móvel 200 Dias', line=dict(color='red')))
+    fig.add_trace(go.Scatter(x=ibovespa['Data'], y=ibovespa['MM30'], mode='lines', name='Média Móvel 30 Dias', line=dict(color='orange')))
+    fig.add_trace(go.Scatter(x=ibovespa['Data'], y=ibovespa['MM180'], mode='lines', name='Média Móvel 180 Dias', line=dict(color='red')))
 
     # Estilização
     fig.update_layout(

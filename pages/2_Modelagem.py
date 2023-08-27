@@ -13,11 +13,9 @@ st.image(image)
 
 
 
-ibovespa = pd.read_csv('./src/data/BD.csv', sep=',')
-ibovespa = ibovespa.iloc[:, :2]
-ibovespa = ibovespa.rename(columns={'Último':'Fechamento'})
-ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%d.%m.%Y')
-ibovespa = ibovespa[::-1]
+ibovespa = pd.read_csv('./src/data/ibovespa.csv', sep=',')
+ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%Y-%m-%d')
+ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
 
 
 tab1, tab2 = st.tabs(["Modelagem", "Dickey-Fuller"])
@@ -65,7 +63,7 @@ with tab1:
     </ol>    
     """, unsafe_allow_html=True)
 
-    
+    ibovespa.dropna(inplace=True)
     decomposicao = seasonal_decompose(ibovespa['Fechamento'], model='additive', period=12)
 
     # Criando subplots com espaçamento vertical
@@ -104,7 +102,7 @@ with tab1:
 
     <p>Em resumo, antes de mergulhar em modelos avançados, é sempre uma boa prática decompor a série para entender seus componentes. Isso não apenas melhora nossa compreensão dos dados, mas também nos guia na escolha do modelo mais adequado para fazer previsões futuras.</p>
     """,  unsafe_allow_html=True)
-
+    st.dataframe(ibovespa)
 with tab2:
     
 
