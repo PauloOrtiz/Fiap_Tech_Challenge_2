@@ -63,7 +63,7 @@ with tab1:
     </ol>    
     """, unsafe_allow_html=True)
 
-    ibovespa.dropna(inplace=True)
+    
     decomposicao = seasonal_decompose(ibovespa['Fechamento'], model='additive', period=12)
 
     # Criando subplots com espaçamento vertical
