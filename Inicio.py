@@ -3,7 +3,7 @@ from PIL import Image
 
 st.set_page_config(page_title="Main Page", page_icon=":house:")
 
-image = Image.open("./src/img/ibovespa.jpg")
+image = Image.open("./src/img/b3.jpg")
 st.image(image)
 
 

@@ -6,7 +6,7 @@ from plotly.subplots import make_subplots
 from statsmodels.tsa.seasonal import seasonal_decompose
 from statsmodels.tsa.stattools import adfuller
 
-st.set_page_config(page_title="Modelagem", page_icon=":house:")
+st.set_page_config(page_title="Premissas da Modelagem", page_icon=":house:")
 
 image = Image.open("./src/img/ibovespa.jpg")
 st.image(image)
@@ -18,7 +18,7 @@ ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%Y-%m-%d')
 ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
 
 
-tab1, tab2 = st.tabs(["Modelagem", "Dickey-Fuller"])
+tab1, tab2 = st.tabs(["Modelagem", "Estacionariedade"])
 
 with tab1:
 

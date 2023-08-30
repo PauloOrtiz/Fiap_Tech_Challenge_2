@@ -1,6 +1,7 @@
 import pandas as pd
 from statsmodels.tsa.arima.model import ARIMA
 import plotly.graph_objects as go
+from sklearn.metrics import mean_squared_error, mean_absolute_error
 
 
 ibovespa = pd.read_csv('./src/data/ibovespa.csv', sep=',')
