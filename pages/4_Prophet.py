@@ -66,14 +66,15 @@ with tab1:
         st.latex(r"""
             y(t) = g(t) + s(t) + h(t) + \epsilon_t
         """)
-    st.markdown("""
-        Onde:
-        - \( y(t) \) é a previsão.
-        - \( g(t) \) representa a tendência.
-        - \( s(t) \) captura a sazonalidade.
-        - \( h(t) \) representa os efeitos dos feriados.
-        - \( \epsilon_t \) é o erro.
-        """)
+        st.markdown("""
+            Onde:
+            - \( y(t) \) é a previsão.
+            - \( g(t) \) representa a tendência.
+            - \( s(t) \) captura a sazonalidade.
+            - \( h(t) \) representa os efeitos dos feriados.
+            - \( \epsilon_t \) é o erro.
+            """)
+        
 with tab2:
     pass
 
