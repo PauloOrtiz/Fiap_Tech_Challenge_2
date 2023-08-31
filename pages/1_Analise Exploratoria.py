@@ -156,6 +156,7 @@ with tab2:
         <h2>Conclusão</h2>
         <p>Esta análise descritiva fornece uma visão panorâmica da Ibovespa, capturando sua essência e evolução. Com este entendimento, estamos prontos para aprofundar nossa análise, identificar padrões subjacentes e, possivelmente, prever futuras tendências.</p>
     """, unsafe_allow_html=True)
+    
 with tab3:
     st.title('Tendência da Ibovespa')
 
@@ -211,12 +212,118 @@ with tab3:
             }
         },
         legend=dict(
-            title ="Lengeda",
+            title ="Legenda",
             x=0.5,
             y=-0.3,
             xanchor='center',
             yanchor='top'),
         
     )
+
+    st.plotly_chart(fig)
+    
+    st.title('Volatilidade da Ibovespa')
+
+    st.markdown("""
+    ## Por que usar desvio padrão móvel?
+
+    A volatilidade é uma característica inerente aos mercados financeiros. O desvio padrão móvel é uma ferramenta que nos permite visualizar essa volatilidade ao longo do tempo. Ao calcular o desvio padrão dos preços em uma janela de tempo específica que se move ao longo do tempo, obtemos uma linha que indica a volatilidade:
+
+    1. **Identificar Volatilidade**: Um desvio padrão móvel crescente sugere aumento da volatilidade, enquanto um decrescente indica estabilização.
+    2. **Entender Riscos**: Períodos de alta volatilidade podem ser considerados mais arriscados.
+    3. **Tomada de Decisão**: Investidores podem usar a volatilidade para ajustar suas estratégias de investimento.
+    """)
+
+    # Calcular desvio padrão móvel
+    window = 30  # Janela de 30 dias
+    ibovespa['DesvioPadrao'] = ibovespa['Fechamento'].rolling(window=window).std()
+
+    # Criar o gráfico
+    fig2 = go.Figure()
+
+    # Adicionar as séries ao gráfico
+    fig2.add_trace(go.Scatter(x=ibovespa['Data'], y=ibovespa['Fechamento'], mode='lines', name='Ibovespa'))
+    fig2.add_trace(go.Scatter(x=ibovespa['Data'], y=ibovespa['DesvioPadrao'], mode='lines', name='Desvio Padrão Móvel 30 Dias', line=dict(color='green')))
+
+    # Estilização
+    fig2.update_layout(
+        xaxis_title='Anos',
+        yaxis_title="Pontuação",
+        xaxis=dict(
+            tickvals=ibovespa['Data'][::365],
+            ticktext=ibovespa['Data'][::365].dt.year,
+            tickangle=-45,
+            title_font=dict(size=18, color='#CD8D00'),
+            tickfont=dict(size=14, color='#333')
+        ),
+        yaxis=dict(
+            title_font=dict(size=18, color='#CD8D00'),
+            tickfont=dict(size=14, color='#333')
+        ),
+        title={
+            'text': 'Série Temporal com Desvio Padrão Móvel',
+            'y':0.95,
+            'x':0.5,
+            'xanchor': 'center',
+            'yanchor': 'top',
+            'font': {
+                'size': 20,
+                'color': '#306998'
+            }
+        },
+        legend=dict(
+            title ="Legenda",
+            x=0.5,
+            y=-0.3,
+            xanchor='center',
+            yanchor='top'),
+    )
+
+    st.plotly_chart(fig2)
+    
+    st.title('')
+
+    st.markdown("""
+    ## Análise de Bollinger Bands para Ibovespa
+    
+    ### O que são Bollinger Bands?
+
+    Bollinger Bands, ou Bandas de Bollinger, é uma ferramenta de análise técnica criada por John Bollinger. Elas são compostas por uma média móvel no centro e duas bandas de preço, acima e abaixo da média móvel, que representam os desvios padrão.
+
+    ### Por que usar Bollinger Bands?
+
+    1. **Identificar períodos de alta e baixa volatilidade**: As bandas se expandem durante períodos de alta volatilidade e se contraem durante períodos de baixa volatilidade.
+    2. **Identificar potenciais pontos de compra e venda**: Quando o preço toca ou ultrapassa uma das bandas, pode ser um sinal de sobrecompra ou sobrevenda, respectivamente.
+    3. **Tendências de mercado**: Quando os preços se movem fora das bandas, é um forte indicativo de continuação da tendência atual.
+
+    ### Como interpretar?
+
+    - **Toque ou ultrapassagem da banda superior**: Pode indicar que o ativo está sobrecomprado e pode estar pronto para uma reversão ou queda.
+    - **Toque ou ultrapassagem da banda inferior**: Pode indicar que o ativo está sobrevendido e pode estar pronto para uma reversão ou alta.
+    - **Preços se movendo acima da média móvel**: Indica uma tendência de alta.
+    - **Preços se movendo abaixo da média móvel**: Indica uma tendência de baixa.
+
+    
+    """)
+    
+    window = 30
+    ibovespa['MM30'] = ibovespa['Fechamento'].rolling(window=window).mean()
+    ibovespa['Desvio'] = ibovespa['Fechamento'].rolling(window=window).std()
+
+    # Calculando as Bollinger Bands
+    k = 2
+    ibovespa['Banda Superior'] = ibovespa['MM30'] + (ibovespa['Desvio'] * k)
+    ibovespa['Banda Inferior'] = ibovespa['MM30'] - (ibovespa['Desvio'] * k)
+
+    # Plotando o gráfico
+    fig = go.Figure()
+
+    fig.add_trace(go.Scatter(x=ibovespa.index, y=ibovespa['Fechamento'], mode='lines', name='Ibovespa'))
+    fig.add_trace(go.Scatter(x=ibovespa.index, y=ibovespa['MM30'], mode='lines', name='Média Móvel 30 Dias', line=dict(color='orange')))
+    fig.add_trace(go.Scatter(x=ibovespa.index, y=ibovespa['Banda Superior'], mode='lines', name='Banda Superior', line=dict(color='red')))
+    fig.add_trace(go.Scatter(x=ibovespa.index, y=ibovespa['Banda Inferior'], mode='lines', name='Banda Inferior', line=dict(color='green')))
+
+    # Configurações adicionais do gráfico
+    # (Você pode ajustar conforme o que já tinha feito anteriormente)
 
     st.plotly_chart(fig)

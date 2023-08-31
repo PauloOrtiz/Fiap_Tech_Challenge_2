@@ -13,18 +13,25 @@ st.image(image)
 
 
 st.markdown("""
-<style>
-body {
-    color: #ffffff;
-    background-color: #4B8BBE;
-}
-h1 {
-    color: #FFD43B;
-}
-h2 {
-    color: #306998;
-}
-</style>
+    <style>
+        body {
+            color: #ffffff;
+            background-color: #4B8BBE;
+        }
+        h1 {
+            color: #CD8D00;
+            text-align: center;
+        }
+        h2 {
+            color: #306998;
+        }
+        h3 {
+            color: #E3A15D;
+        }
+        p{
+            text-indent: 40px;
+        }
+    </style>
 """, unsafe_allow_html=True)
 
 st.title("Testando o Modelo ARIMA")
