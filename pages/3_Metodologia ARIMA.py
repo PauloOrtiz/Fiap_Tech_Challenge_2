@@ -4,7 +4,6 @@ import pandas as pd
 import statsmodels.api as sm
 import numpy as np
 from statsmodels.tsa.arima.model import ARIMA       
-from pmdarima.arima import auto_arima
 import plotly.graph_objects as go
 
 
