@@ -250,3 +250,8 @@ with tab2:
 
     Após a diferenciação, a série tornou-se estacionária, conforme confirmado pelo Teste Dickey-Fuller. Com um valor-p de 0.0, rejeitamos a hipótese nula, indicando que a série é estacionária. Isso é um bom sinal, pois agora podemos prosseguir com a modelagem ARIMA, sabendo que a suposição de estacionariedade foi atendida.
     """)
+
+    st.write("""
+    ## Em Direção à Modelagem
+    Agora que temos uma visão clara da trajetória do Ibovespa ao longo dos anos, é hora de mergulhar mais fundo. Vamos usar técnicas avançadas de Machine Learning para prever o futuro deste índice icônico. Junte-se a nós nesta emocionante jornada de descoberta!
+    """,unsafe_allow_html=True )
