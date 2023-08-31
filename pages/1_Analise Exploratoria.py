@@ -103,10 +103,7 @@ with tab1:
     # Mostrando o gráfico
     st.plotly_chart(fig)
 
-    st.write("""
-    ## Em Direção à Modelagem
-    Agora que temos uma visão clara da trajetória do Ibovespa ao longo dos anos, é hora de mergulhar mais fundo. Vamos usar técnicas avançadas de Machine Learning para prever o futuro deste índice icônico. Junte-se a nós nesta emocionante jornada de descoberta!
-    """,unsafe_allow_html=True )
+    
 
     
   
