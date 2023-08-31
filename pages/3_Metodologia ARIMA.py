@@ -9,7 +9,7 @@ image = Image.open("./src/img/ibovespa.jpg")
 st.image(image)
 
 
-
+tab1, tab2, tab3 = st.tabs(["Arima", "Treino", "Teste"])
 
 
 st.markdown("""
