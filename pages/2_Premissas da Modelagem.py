@@ -102,7 +102,7 @@ with tab1:
 
     <p>Em resumo, antes de mergulhar em modelos avançados, é sempre uma boa prática decompor a série para entender seus componentes. Isso não apenas melhora nossa compreensão dos dados, mas também nos guia na escolha do modelo mais adequado para fazer previsões futuras.</p>
     """,  unsafe_allow_html=True)
-    st.dataframe(ibovespa)
+    
 with tab2:
     
 
