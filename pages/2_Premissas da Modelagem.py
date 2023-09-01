@@ -8,7 +8,7 @@ from statsmodels.tsa.stattools import adfuller
 
 st.set_page_config(page_title="Premissas da Modelagem", page_icon=":house:")
 
-image = Image.open("./src/img/ibovespa.jpg")
+image = Image.open("./src/img/Model.jpg")
 st.image(image)
 
 
