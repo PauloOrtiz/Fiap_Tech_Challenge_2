@@ -79,36 +79,7 @@ with tab1:
         
 with tab2:
     
-    ibovespa = ibovespa.rename(columns={"Fechamento": "y"})
-    
-    
-
-    df = pd.DataFrame(ibovespa)
-    unique_years = ibovespa['ds'].year.unique()
-    model = Prophet()
-    model.fit(df)
-    future = model.make_future_dataframe(periods=30)
-    forecast = model.predict(future)
-
-    fig = make_subplots(rows=2, cols=1, subplot_titles=('Tendência', 'Sazonalidade'))
-
-    fig.add_trace(go.Scatter(x=forecast['ds'], y=forecast['trend'], name='Tendência'), row=1, col=1)
-    fig.add_trace(go.Scatter(x=forecast['ds'], y=forecast['yearly'], name='Sazonalidade'), row=2, col=1)
-
-   
-    fig.update_layout(
-    title={
-    'text': "Decomposição da Série Temporal",
-    'y':0.95,
-    'x':0.5,
-    'xanchor': 'center',
-    'yanchor': 'top',
-    'font': {
-        'size': 20,
-        'color': '#306998'
-    }})
-    
-    st.plotly_chart(fig)
+    pass
 
 
 
