@@ -383,6 +383,12 @@ with tab4:
     conf_int = 1.96/np.sqrt(len(ibovespa2021['Fechamento']))
 
     st.markdown("""
+        ##Redução da Série Temporal
+        Com o objetivo de simplificar a análise e facilitar os ajustes nos modelos diante da série de eventos caóticos que afetaram o fechamento diário do índice Bovespa, como as significativas quedas ocorridas durante a crise imobiliária dos EUA em 2008 e a pandemia em 2020, seguidas por períodos de recuperação, decidimos restringir a série temporal a um intervalo que vai de 04 de janeiro de 2021 a 01 de agosto de 2023. Isso proporcionará uma base mais estável e recente para nossa análise.
+        
+    """)
+       
+    st.markdown("""
     # Autocorrelação: ACF e PACF
     Ao mergulharmos no vasto oceano dos dados, é essencial entender as ondas e correntes que os movem. No mundo das séries temporais, essas "ondas" são muitas vezes as autocorrelações. Elas nos dão uma visão sobre como os valores em diferentes pontos no tempo estão relacionados entre si.
 
