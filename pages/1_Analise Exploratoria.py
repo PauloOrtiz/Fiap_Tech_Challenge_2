@@ -15,10 +15,9 @@ ibovespa = pd.read_csv('./src/data/ibovespa.csv', sep=',')
 ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%Y-%m-%d')
 ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
 
-tab1, tab2, tab3 = st.tabs(["Introdução", "Descritivo","Médias Móveis e Desvios"])
+tab1, tab2, tab3, tab4 = st.tabs(["Introdução", "Descritivo","Médias Móveis e Desvios","Autocorrelação"])
 
-with tab1:
-    st.markdown("""
+st.markdown("""
     <style>
     body {
         color: #ffffff;
@@ -39,6 +38,9 @@ with tab1:
     }
     </style>
     """, unsafe_allow_html=True)
+
+with tab1:
+    
 
     st.markdown(
     """
@@ -324,3 +326,6 @@ with tab3:
     # (Você pode ajustar conforme o que já tinha feito anteriormente)
 
     st.plotly_chart(fig)
+
+with tab4: 
+    pass
