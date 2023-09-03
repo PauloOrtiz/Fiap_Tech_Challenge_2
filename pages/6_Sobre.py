@@ -58,7 +58,7 @@ st.markdown("""
         
     ## Referências 📚
 
-     FOLHA DE S.PAULO. **Crise de energia derruba ações**. 2001. Disponível em: [link](https://www1.folha.uol.com.br/fsp/invest/in1405200121.htm). Acesso em: [data de acesso].
+    - FOLHA DE S.PAULO. **Crise de energia derruba ações**. 2001. Disponível em: [link](https://www1.folha.uol.com.br/fsp/invest/in1405200121.htm). Acesso em: [data de acesso].
   
     - INFOMONEY. **Primeiro semestre de 2001 é caracterizado pela desvalorização cambial e crise energética**. Disponível em: [link](https://www.infomoney.com.br/mercados/primeiro-semestre-de-2001-e-caracterizado-pela-desvalorizacao-cambial-e-crise-energetica/). Acesso em: [data de acesso].
 
