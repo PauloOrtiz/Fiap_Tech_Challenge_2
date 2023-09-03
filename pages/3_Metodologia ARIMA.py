@@ -205,7 +205,7 @@ with tab2:
 
     A fórmula para calcular o BIC é:
 
-    \[ BIC = -2\ln(L) + k \times \ln(n) \]
+    \[ BIC = -2\$ln(L)$ + k \times \ln(n) \]
 
     Onde:
 
