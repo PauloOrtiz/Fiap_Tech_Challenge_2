@@ -32,7 +32,7 @@ st.markdown("""
 st.markdown("""
     # Sobre o Projeto
     
-    Este projeto foi desenvolvido como parte do 1º Tech Challenge da turma de Data Science da FIAP. Foi uma oportunidade incrível para aprimorar nossas habilidades em análise de dados e colaboração em equipe, e gostaríamos de expressar nossa gratidão a todos que participaram deste desafio.
+    Este projeto foi desenvolvido como parte do 2º Tech Challenge da turma de Data Science da FIAP. Foi uma oportunidade incrível para aprimorar nossas habilidades em análise de dados e colaboração em equipe, e gostaríamos de expressar nossa gratidão a todos que participaram deste desafio.
 
     ## Equipe do Projeto 
     
