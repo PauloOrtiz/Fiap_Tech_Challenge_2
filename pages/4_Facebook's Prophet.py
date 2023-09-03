@@ -78,9 +78,9 @@ with tab1:
             """)
         
 with tab2:
-    
+    ibovespa = ibovespa.rename(columns={"Data": "ds", "Fechamento": "y"})
     df = pd.DataFrame(ibovespa)
-    df = df.rename(columns={"Data": "ds", "Fechamento": "y"})
+    
     st.dataframe(df)
     model = Prophet()
     model.fit(df)
