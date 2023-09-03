@@ -225,7 +225,7 @@ with tab2:
 
     st.write("""
     ### Conclusão:
-    A tabela acima apresenta diferentes combinações de parâmetros para o modelo ARIMA e suas respectivas métricas AIC e BIC. O Critério de Informação de Akaike (AIC) e o Critério de Informação Bayesiano (BIC) são utilizados para avaliar a qualidade de um modelo estatístico. Menores valores de AIC e BIC indicam modelos potencialmente melhores.
+    A tabela acima apresenta diferentes combinações de parâmetros para o modelo ARIMA e suas respectivas métricas AIC e BIC. 
 
     Observando os dados, a combinação com parâmetros AR(p)=1, Integração(d)=0 e MA(q)=0 apresenta o menor valor de AIC, sugerindo que esta pode ser a melhor configuração para o modelo ARIMA, considerando os dados disponíveis. No entanto, é importante também considerar outros fatores e testes ao finalizar a seleção do modelo.
     """)
