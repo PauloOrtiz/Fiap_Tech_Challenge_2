@@ -65,7 +65,7 @@ with tab1:
         """)
         
         st.markdown("""
-            1. **\( Y_t \)**: Valor atual da série temporal.
+            1. **st.latex(\( Y_t \))**: Valor atual da série temporal.
             2. **\( c \)**: Constante representando o valor médio da série sem efeitos AR e MA.
             3. **Termos AR**: Relacionam a observação atual com suas anteriores. O número de termos é determinado por \( p \).
             4. **Termos MA**: Relacionam o erro da observação atual com erros passados. O número de termos é determinado por \( q \).
