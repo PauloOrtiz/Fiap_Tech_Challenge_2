@@ -65,24 +65,14 @@ with tab1:
         """)
         
         st.markdown("""
-        
-        1. **\( Y_t \)**: É o valor da série temporal no momento \( t \).
+            1. **\( Y_t \)**: Valor atual da série temporal.
+            2. **\( c \)**: Constante representando o valor médio da série sem efeitos AR e MA.
+            3. **Termos AR**: Relacionam a observação atual com suas anteriores. O número de termos é determinado por \( p \).
+            4. **Termos MA**: Relacionam o erro da observação atual com erros passados. O número de termos é determinado por \( q \).
+            5. **\( e_t \)**: Erro no tempo \( t \), diferença entre valor observado e previsto.
 
-        2. **\( c \)**: É uma constante que representa o valor médio da série quando os efeitos dos termos AR e MA são zero.
-
-        3. **Termos AR (Autoregressivos)**:
-        - \( \phi_1 Y_{t-1}, \phi_2 Y_{t-2}, ... \): Estes são os termos autoregressivos. O modelo ARIMA pode considerar vários desses termos, dependendo do valor de \( p \) (ordem do componente AR).
-        - \( \phi_1, \phi_2, ... \): São os coeficientes dos termos autoregressivos. Eles indicam a relação entre a observação atual e suas observações anteriores.
-
-        4. **Termos MA (Média Móvel)**:
-        - \( \theta_1 e_{t-1}, \theta_2 e_{t-2}, ... \): Estes são os termos de média móvel. O modelo ARIMA pode considerar vários desses termos, dependendo do valor de \( q \) (ordem do componente MA).
-        - \( \theta_1, \theta_2, ... \): São os coeficientes dos termos de média móvel. Eles indicam a relação entre o erro da observação atual e os erros das observações anteriores.
-        - \( e_{t-1}, e_{t-2}, ... \): São os erros (ou resíduos) das previsões passadas.
-
-        5. **\( e_t \)**: É o erro (ou resíduo) no tempo \( t \). Representa a diferença entre o valor observado e o valor previsto pelo modelo no momento \( t \).
-
-        Em resumo, o modelo ARIMA combina os efeitos autoregressivos e de média móvel para prever valores futuros de uma série temporal. A ordem do componente AR é determinada por \( p \) e indica quantos termos autoregressivos são incluídos no modelo. Da mesma forma, a ordem do componente MA é determinada por \( q \) e indica quantos termos de média móvel são incluídos no modelo.
-        """, unsafe_allow_html=True)
+            Em essência, ARIMA usa termos autoregressivos e de média móvel para prever a série temporal. A quantidade de termos é definida pelos valores de \( p \) e \( q \).
+            """, unsafe_allow_html=True)
 
     st.write("""
     ## Usando ARIMA em Python
