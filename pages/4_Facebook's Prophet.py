@@ -6,6 +6,7 @@ from plotly.subplots import make_subplots
 from prophet import Prophet
 
 
+
 st.set_page_config(page_title="Prophet", page_icon=":house:")
 
 image = Image.open("./src/img/Prophet.png")
