@@ -18,7 +18,7 @@ ibovespa = ibovespa.rename(columns={'Data':'ds'})
 ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
 
 
-tab1, tab2, tab3 = st.tabs(["Prophet", "Decomposição da série", "Modelos e Previsões"])
+tab1, tab2, tab3 = st.tabs(["Prophet", "Previsões e Decomposição", "Modelos e Previsões"])
 
 with tab1:
     st.markdown("""
@@ -80,14 +80,34 @@ with tab1:
 with tab2:
     
     ibovespa = ibovespa.rename(columns={"Fechamento": "y"})
-    
-    
-
     df = pd.DataFrame(ibovespa)
     model = Prophet()
     model.fit(df)
     future = model.make_future_dataframe(periods=30)
     forecast = model.predict(future)
+    
+
+    trace1 = go.Scatter(x=forecast['ds'], y=forecast['yhat'], mode='lines', name='Previsão')
+    trace2 = go.Scatter(x=df['ds'], y=df['y'], mode='lines', name='Observações Originais')
+
+    layout = go.Layout(title='Previsão do Ibovespa com Prophet', xaxis=dict(title='Data'), yaxis=dict(title='Valor'))
+    fig = go.Figure(data=[trace1, trace2], layout=layout)
+    st.plotly_chart(fig)
+
+    train_size = int(0.8 * len(ibovespa))
+    train_df = ibovespa.iloc[:train_size]
+    test_df = ibovespa.iloc[train_size:]
+        
+    trace1 = go.Scatter(x=forecast['ds'], y=forecast['yhat'], mode='lines', name='Previsão')
+    trace2 = go.Scatter(x=train_df['ds'], y=train_df['y'], mode='lines', name='Treinamento')
+    trace3 = go.Scatter(x=test_df['ds'], y=test_df['y'], mode='lines', name='Teste')
+
+    layout = go.Layout(title='Previsão com Prophet (Treinamento e Teste)', xaxis=dict(title='Data'), yaxis=dict(title='Pontos do Ibovespa'))
+    fig = go.Figure(data=[trace1, trace2, trace3], layout=layout)
+
+    st.plotly_chart(fig)
+
+
 
     fig = make_subplots(rows=2, cols=1, subplot_titles=('Tendência', 'Sazonalidade'))
 
