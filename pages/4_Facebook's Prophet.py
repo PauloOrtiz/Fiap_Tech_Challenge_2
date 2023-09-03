@@ -85,7 +85,6 @@ with tab2:
 
     df = pd.DataFrame(ibovespa)
     
-    st.dataframe(df)
     model = Prophet()
     model.fit(df)
     future = model.make_future_dataframe(periods=30)
