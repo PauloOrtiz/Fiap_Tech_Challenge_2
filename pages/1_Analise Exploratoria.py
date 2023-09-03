@@ -348,9 +348,10 @@ with tab4:
     """,unsafe_allow_html=True)
         
     fig_acf = go.Figure()
-    fig_acf.add_trace(go.Scatter(x=list(range(len(lag_acf))), y=lag_acf, mode='lines+markers', name='ACF'))
-    fig_acf.add_shape(type="line", x0=0, x1=40, y0=conf_int, y1=conf_int, line=dict(color="red", width=0.5))
-    fig_acf.add_shape(type="line", x0=0, x1=40, y0=-conf_int, y1=-conf_int, line=dict(color="red", width=0.5))
+    fig_acf.add_trace(go.Scatter(y=lag_acf, mode='lines+markers'))
+    fig_acf.update_layout(title='Autocorrelation Function (ACF)',
+                      xaxis_title='Lag',
+                      yaxis_title='Autocorrelation')
     st.plotly_chart(fig_acf)
     
     st.markdown("""
