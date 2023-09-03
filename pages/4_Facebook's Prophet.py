@@ -86,8 +86,8 @@ with tab2:
 
     fig = make_subplots(rows=2, cols=1, subplot_titles=('Tendência', 'Sazonalidade'))
 
-    fig.add_trace(go.Scatter(x=forecast['ds'], y=forecast['trend'], name='Tendência'), row=1, col=1)
-    fig.add_trace(go.Scatter(x=forecast['ds'], y=forecast['yearly'], name='Sazonalidade'), row=2, col=1)
+    fig.add_trace(go.Scatter(x=forecast['Data'], y=forecast['trend'], name='Tendência'), row=1, col=1)
+    fig.add_trace(go.Scatter(x=forecast['Data'], y=forecast['yearly'], name='Sazonalidade'), row=2, col=1)
 
    
     fig.update_layout(title='Decomposição da Série Temporal',
