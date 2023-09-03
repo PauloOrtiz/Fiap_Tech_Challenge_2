@@ -376,7 +376,6 @@ with tab4:
         xaxis_title='Lag',
         yaxis_title="Autocorrelação",
         xaxis=dict(
-            tickangle=-45,
             title_font=dict(size=18, color='#CD8D00'),
             tickfont=dict(size=14, color='#333')
         ),
@@ -411,7 +410,6 @@ with tab4:
         xaxis_title='Lag',
         yaxis_title="Autocorrelação",
         xaxis=dict(
-            tickangle=-45,
             title_font=dict(size=18, color='#CD8D00'),
             tickfont=dict(size=14, color='#333')
         ),
