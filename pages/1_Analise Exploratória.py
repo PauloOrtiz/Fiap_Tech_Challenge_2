@@ -460,30 +460,9 @@ with tab4:
 
 
 with tab5:
-    st.markdown("""
-    <style>
-    body {
-        color: #ffffff;
-        background-color: #4B8BBE;
-    }
-    h1 {
-        color: #CD8D00;
-        text-align: center;
-    }
-    h2 {
-        color: #306998;
-    }
-    h3 {
-        color: #E3A15D;
-    }
-    p{
-        text-indent: 40px;
-    }
-    </style>
-    """, unsafe_allow_html=True)
 
     st.markdown("""
-    # Iniciando a Modelagem
+    # Decompondo a Série do Ibovespa
 
     <p>Ao embarcar na jornada de modelagem de séries temporais, é essencial entender a natureza dos dados com os quais estamos lidando. Uma série temporal é uma sequência de pontos de dados, medidos tipicamente em intervalos de tempo sucessivos. No nosso caso, estamos analisando o fechamento diário do índice Bovespa.</p>
 
