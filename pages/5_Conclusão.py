@@ -3,7 +3,7 @@ from PIL import Image
 
 st.set_page_config(page_title="Conclusão", page_icon=":house:")
 
-image = Image.open("./src/img/Consclusao.png")
+image = Image.open("./src/img/Conclusao.png")
 st.image(image)
 
 st.markdown("""
