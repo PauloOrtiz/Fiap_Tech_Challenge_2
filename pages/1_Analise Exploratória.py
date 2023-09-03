@@ -62,8 +62,6 @@ with tab1:
 
     st.title("Jornada Econômica do Brasil: Uma Visão Geral")
 
-    st.title("Jornada Econômica do Brasil: Uma Visão Detalhada")
-
     st.header("O Início (2001-2005)")
     st.write("""
     O início do milênio foi marcado por desafios significativos para a economia brasileira. Em 2001, o país enfrentou uma crise energética que causou instabilidade na bolsa, com setores elétrico e metalúrgico sofrendo grandes perdas. O impacto dos ataques de 11 de setembro em Nova York também reverberou no Brasil, com muitas ações atingindo suas cotações mínimas. Em 2002, o cenário político trouxe incertezas com a eleição de Lula, mas até 2004, a economia mostrou sinais de recuperação, crescendo 5,2%.
