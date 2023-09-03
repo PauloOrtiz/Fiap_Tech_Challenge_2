@@ -90,6 +90,8 @@ with tab2:
 
     fig_acf = go.Figure()
     fig_acf.add_trace(go.Scatter(y=lag_acf, mode='lines+markers'))
+    fig_acf.add_shape(type="line", x0=0, x1=40, y0=conf_int, y1=conf_int, line=dict(color="red", width=0.5))
+    fig_acf.add_shape(type="line", x0=0, x1=40, y0=-conf_int, y1=-conf_int, line=dict(color="red", width=0.5))
     fig_acf.update_layout(
         xaxis_title='Lag',
         yaxis_title="Autocorrelação",
