@@ -321,10 +321,10 @@ with tab3:
     # Plotando o gráfico
     fig = go.Figure()
 
-    fig.add_trace(go.Scatter(x=ibovespa.index, y=ibovespa['Fechamento'], mode='lines', name='Ibovespa'))
-    fig.add_trace(go.Scatter(x=ibovespa.index, y=ibovespa['MM30'], mode='lines', name='Média Móvel 30 Dias', line=dict(color='orange')))
-    fig.add_trace(go.Scatter(x=ibovespa.index, y=ibovespa['Banda Superior'], mode='lines', name='Banda Superior', line=dict(color='red')))
-    fig.add_trace(go.Scatter(x=ibovespa.index, y=ibovespa['Banda Inferior'], mode='lines', name='Banda Inferior', line=dict(color='green')))
+    fig.add_trace(go.Scatter(x=ibovespa['Data'], y=ibovespa['Fechamento'], mode='lines', name='Ibovespa'))
+    fig.add_trace(go.Scatter(x=ibovespa['Data'], y=ibovespa['MM30'], mode='lines', name='Média Móvel 30 Dias', line=dict(color='orange')))
+    fig.add_trace(go.Scatter(x=ibovespa['Data'], y=ibovespa['Banda Superior'], mode='lines', name='Banda Superior', line=dict(color='red')))
+    fig.add_trace(go.Scatter(x=ibovespa['Data'], y=ibovespa['Banda Inferior'], mode='lines', name='Banda Inferior', line=dict(color='green')))
 
     fig.update_layout(
         xaxis_title='Anos',
