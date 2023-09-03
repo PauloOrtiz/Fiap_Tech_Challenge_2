@@ -153,8 +153,6 @@ st.plotly_chart(fig)
 st.markdown("""
 ## Por que realizar o Teste Dickey-Fuller após a diferenciação?
 
-Quando trabalhamos com modelos de séries temporais, como o ARIMA, é essencial que a série seja estacionária. Uma série estacionária é aquela cujas propriedades estatísticas, como média e variância, não variam com o tempo. Modelos de séries temporais, como o ARIMA, têm a suposição implícita de estacionariedade. Se essa suposição não for satisfeita, os resultados do modelo podem ser imprecisos e enganosos.
-
 A diferenciação é uma técnica comum para transformar uma série não estacionária em estacionária. No entanto, após a diferenciação, é crucial retestar a série para confirmar se ela se tornou estacionária. O Teste Dickey-Fuller é uma ferramenta poderosa para essa verificação.
 """)
 
