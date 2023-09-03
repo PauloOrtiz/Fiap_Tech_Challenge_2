@@ -84,8 +84,8 @@ else:
 st.markdown("""
 ### Com base no Teste Dickey-Fuller, podemos observar o seguinte:
 
-- A **Estatística de teste** é de aproximadamente -0.862, que é maior do que todos os valores críticos (1%, 5% e 10%). 
-- O **Valor-p** é de 0.8003, que é significativamente maior que 0.05. 
+- A **Estatística de teste** é de aproximadamente -2.39, que é maior do que todos os valores críticos (1%, 5% e 10%). 
+- O **Valor-p** é de 0.8003, que é significativamente maior que 0.142. 
 
 Em testes estatísticos, um valor-p menor que 0.05 é frequentemente usado para rejeitar a hipótese nula. No contexto do Teste Dickey-Fuller, a hipótese nula é de que a série temporal possui uma raiz unitária e, portanto, não é estacionária.
 
@@ -180,7 +180,7 @@ perform_adf_test(ibovespa_diff1['Fechamento'])
 st.markdown("""
 ### Conclusão:
 
-Após a diferenciação, a série tornou-se estacionária, conforme confirmado pelo Teste Dickey-Fuller. Com um valor-p de 0.0, rejeitamos a hipótese nula, indicando que a série é estacionária. Isso é um bom sinal, pois agora podemos prosseguir com a modelagem ARIMA, sabendo que a suposição de estacionariedade foi atendida.
+Após a diferenciação, a série tornou-se estacionária, conforme confirmado pelo Teste Dickey-Fuller. Como o valor-p tende a 0.0, rejeitamos a hipótese nula, indicando que a série é estacionária. Isso é um bom sinal, pois agora podemos prosseguir com a modelagem ARIMA, sabendo que a suposição de estacionariedade foi atendida.
 """)
 
 st.write("""
