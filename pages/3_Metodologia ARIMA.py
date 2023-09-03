@@ -17,7 +17,7 @@ ibovespa = pd.read_csv('./src/data/ibovespa2021.csv', sep=',')
 ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%Y-%m-%d')
 ibovespa.set_index('Data', inplace=True) 
 ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
-AIC_BIC = pd.read_csv('./src/data/df_AIC_BIC.csv', sep=';')
+AIC_BIC = pd.read_csv('./src/data/df_AIC_BIC.csv', sep=';', index_col=None)
 
 
 tab1, tab2, tab3 = st.tabs(["ARIMA", "Escolha do modelo", "Modelos"])
