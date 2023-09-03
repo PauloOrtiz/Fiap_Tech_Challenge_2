@@ -19,7 +19,7 @@ ibovespa.set_index('Data', inplace=True)
 ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
 
 
-tab1, tab2, tab3 = st.tabs(["Arima", "Treino e Teste", "Modelos"])
+tab1, tab2, tab3 = st.tabs(["ARIMA", "Treino e Teste", "Modelos"])
 
 with tab1:
     st.markdown("""
@@ -44,7 +44,7 @@ with tab1:
         </style>
     """, unsafe_allow_html=True)
 
-    st.title("Testando o Modelo ARIMA")
+    st.title("O Modelo ARIMA")
 
     st.write("""
     ## ARIMA: Uma Jornada no Tempo
@@ -63,6 +63,26 @@ with tab1:
         st.latex(r"""
         Y_t = c + \phi_1 Y_{t-1} + \phi_2 Y_{t-2} + ... + \phi_p Y_{t-p} + \theta_1 e_{t-1} + \theta_2 e_{t-2} + ... + \theta_q e_{t-q} + e_t
         """)
+        
+        st.markdown("""
+        
+        1. **\( Y_t \)**: É o valor da série temporal no momento \( t \).
+
+        2. **\( c \)**: É uma constante que representa o valor médio da série quando os efeitos dos termos AR e MA são zero.
+
+        3. **Termos AR (Autoregressivos)**:
+        - \( \phi_1 Y_{t-1}, \phi_2 Y_{t-2}, ... \): Estes são os termos autoregressivos. O modelo ARIMA pode considerar vários desses termos, dependendo do valor de \( p \) (ordem do componente AR).
+        - \( \phi_1, \phi_2, ... \): São os coeficientes dos termos autoregressivos. Eles indicam a relação entre a observação atual e suas observações anteriores.
+
+        4. **Termos MA (Média Móvel)**:
+        - \( \theta_1 e_{t-1}, \theta_2 e_{t-2}, ... \): Estes são os termos de média móvel. O modelo ARIMA pode considerar vários desses termos, dependendo do valor de \( q \) (ordem do componente MA).
+        - \( \theta_1, \theta_2, ... \): São os coeficientes dos termos de média móvel. Eles indicam a relação entre o erro da observação atual e os erros das observações anteriores.
+        - \( e_{t-1}, e_{t-2}, ... \): São os erros (ou resíduos) das previsões passadas.
+
+        5. **\( e_t \)**: É o erro (ou resíduo) no tempo \( t \). Representa a diferença entre o valor observado e o valor previsto pelo modelo no momento \( t \).
+
+        Em resumo, o modelo ARIMA combina os efeitos autoregressivos e de média móvel para prever valores futuros de uma série temporal. A ordem do componente AR é determinada por \( p \) e indica quantos termos autoregressivos são incluídos no modelo. Da mesma forma, a ordem do componente MA é determinada por \( q \) e indica quantos termos de média móvel são incluídos no modelo.
+        """, unsafe_allow_html=True)
 
     st.write("""
     ## Usando ARIMA em Python
