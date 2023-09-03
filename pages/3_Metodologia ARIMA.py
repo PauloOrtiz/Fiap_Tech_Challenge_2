@@ -175,6 +175,43 @@ with tab2:
     Ao observar os gráficos de ACF e PACF, notamos que ambos representam consistentemente o intervalo de confiança em todos os lags. Isso sugere que, após a diferenciação, a série temporal não apresenta autocorrelações significativas em seus lags. Esse é um bom indicativo de que a diferenciação foi eficaz em remover padrões e tendências da série, tornando-a estacionária e, assim, mais adequada para modelagem ARIMA.
     """,unsafe_allow_html=True)
 
+    # AIC
+    st.markdown("""
+    ### Critério de Informação de Akaike (AIC)
+
+    O critério de informação de Akaike (AIC) é uma métrica estatística que avalia a qualidade de modelos estatísticos com base na quantidade de informação que eles capturam dos dados. Foi desenvolvido por Hirotugu Akaike e é amplamente utilizado para seleção de modelos, como em contextos de regressão.
+
+    A fórmula para calcular o AIC é:
+
+    \[ AIC = 2k - 2\ln(L) \]
+
+    Onde:
+
+    - $k$ é o número de parâmetros no modelo.
+    - $\ln(L)$ é o logaritmo natural da função de verossimilhança do modelo, indicando quão bem o modelo se ajusta aos dados.
+
+    O objetivo do AIC é equilibrar a capacidade do modelo de se ajustar aos dados (quantificada pela verossimilhança) e a penalização pela complexidade do modelo (quantificada pelo número de parâmetros). Modelos com valores menores de AIC são preferidos, pois sugerem um bom equilíbrio entre ajuste e parcimônia.
+    """)
+
+    # BIC
+    st.markdown("""
+    ### Critério de Informação Bayesiano (BIC)
+
+    O Critério de Informação Bayesiano (BIC) é outra métrica estatística que avalia modelos estatísticos, considerando tanto a adequação aos dados quanto a complexidade do modelo. É uma alternativa ao AIC e é frequentemente usado em contextos similares.
+
+    A fórmula para calcular o BIC é:
+
+    \[ BIC = -2\ln(L) + k \times \ln(n) \]
+
+    Onde:
+
+    - $\ln(L)$ é o logaritmo natural da função de verossimilhança do modelo.
+    - $k$ é o número de parâmetros no modelo.
+    - $n$ é o tamanho da amostra, ou seja, o número de observações nos dados.
+
+    O BIC penaliza a complexidade do modelo de forma mais rigorosa que o AIC. Isso significa que o BIC tende a favorecer modelos mais simples. Assim, ao comparar vários modelos, o modelo com o menor valor de BIC é geralmente considerado o melhor, pois equilibra ajuste aos dados e simplicidade.
+    """)
+
 
 with tab3:
     st.markdown(
