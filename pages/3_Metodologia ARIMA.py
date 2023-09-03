@@ -88,6 +88,20 @@ with tab2:
     lag_pacf = pacf(ibovespa_diff1['Fechamento'], nlags=40, method='ols')
     conf_int = 1.96/np.sqrt(len(ibovespa_diff1['Fechamento']))
 
+    st.markdown("""
+    # Introdução
+
+    Ao trabalhar com modelos ARIMA, uma etapa crucial é entender a autocorrelação presente nos dados. A autocorrelação refere-se à correlação de uma série temporal com uma versão atrasada de si mesma. Para entender e visualizar essa autocorrelação, utilizamos as funções de autocorrelação (ACF) e autocorrelação parcial (PACF).
+
+    A análise foi realizada em um conjunto de dados que abrange de janeiro de 2021 a 1 de agosto de 2023. Para tornar a série estacionária, aplicamos uma diferenciação. Vamos agora observar os gráficos resultantes da ACF e PACF após essa diferenciação.
+    """,unsafe_allow_html=True)
+
+    st.markdown("""
+    ## Função de Autocorrelação (ACF)
+
+    A Função de Autocorrelação, ou ACF, nos dá valores de autocorrelação de uma série temporal com seus lags. Em outras palavras, ela nos mostra como uma observação está correlacionada com suas observações anteriores.
+    """,unsafe_allow_html=True)
+
     fig_acf = go.Figure()
     fig_acf.add_trace(go.Scatter(y=lag_acf, mode='lines+markers'))
     fig_acf.add_shape(type="line", x0=0, x1=40, y0=conf_int, y1=conf_int, line=dict(color="red", width=0.5))
@@ -117,6 +131,12 @@ with tab2:
     )
     st.plotly_chart(fig_acf)
 
+    st.markdown("""
+    ## Função de Autocorrelação Parcial (PACF)
+
+    A Função de Autocorrelação Parcial, ou PACF, nos dá a correlação parcial de uma série temporal com seus lags. Ela nos mostra a correlação entre observações que estão separadas por um número específico de períodos, desconsiderando as correlações de períodos intermediários.
+    """, unsafe_allow_html=True)
+
     fig_pacf = go.Figure()
     fig_pacf.add_trace(go.Scatter(x=list(range(len(lag_pacf))), y=lag_pacf, mode='lines+markers', name='PACF'))
     fig_pacf.add_shape(type="line", x0=0, x1=40, y0=conf_int, y1=conf_int, line=dict(color="red", width=0.5))
@@ -145,7 +165,15 @@ with tab2:
         },
     )
 
+    
+
     st.plotly_chart(fig_pacf)
+
+    st.markdown("""
+    ### Conclusão
+
+    Ao observar os gráficos de ACF e PACF, notamos que ambos representam consistentemente o intervalo de confiança em todos os lags. Isso sugere que, após a diferenciação, a série temporal não apresenta autocorrelações significativas em seus lags. Esse é um bom indicativo de que a diferenciação foi eficaz em remover padrões e tendências da série, tornando-a estacionária e, assim, mais adequada para modelagem ARIMA.
+    """,unsafe_allow_html=True)
 
 
 
