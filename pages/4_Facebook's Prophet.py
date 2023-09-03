@@ -94,7 +94,7 @@ with tab2:
     fig = go.Figure(data=[trace1, trace2], layout=layout)
     st.plotly_chart(fig)
 
-    train_size = int(0.8 * len(ibovespa))
+    train_size = int(0.95 * len(ibovespa))
     train_df = ibovespa.iloc[:train_size]
     test_df = ibovespa.iloc[train_size:]
         
