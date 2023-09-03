@@ -81,6 +81,7 @@ with tab2:
     
     df = pd.DataFrame(ibovespa)
     df = df.rename(columns={"Data": "ds", "Fechamento": "y"})
+    st.dataframe(df)
     model = Prophet()
     model.fit(df)
     future = model.make_future_dataframe(periods=30)
