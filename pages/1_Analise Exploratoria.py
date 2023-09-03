@@ -349,9 +349,30 @@ with tab4:
         
     fig_acf = go.Figure()
     fig_acf.add_trace(go.Scatter(y=lag_acf, mode='lines+markers'))
-    fig_acf.update_layout(title='Autocorrelation Function (ACF)',
-                      xaxis_title='Lag',
-                      yaxis_title='Autocorrelation')
+    fig_acf.update_layout(
+        xaxis_title='Lag',
+        yaxis_title="Autocorrelação",
+        xaxis=dict(
+            tickangle=-45,
+            title_font=dict(size=18, color='#CD8D00'),
+            tickfont=dict(size=14, color='#333')
+        ),
+        yaxis=dict(
+            title_font=dict(size=18, color='#CD8D00'),
+            tickfont=dict(size=14, color='#333')
+        ),
+        title={
+            'text': 'ACF (Autocorrelation Function)',
+            'y':0.95,
+            'x':0.5,
+            'xanchor': 'center',
+            'yanchor': 'top',
+            'font': {
+                'size': 20,
+                'color': '#306998'
+            }
+        },
+    )
     st.plotly_chart(fig_acf)
     
     st.markdown("""
