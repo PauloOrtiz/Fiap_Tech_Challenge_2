@@ -147,6 +147,16 @@ with tab2:
     
     st.plotly_chart(fig)
 
+    
+       
+    def mpl_to_plotly(mpl_fig):
+        return go.Figure(go.FigureWidget(mpl_fig).to_dict())
+
+
+    components = model.plot_components(forecast)
+    plotly_fig = mpl_to_plotly(components)
+    st.plotly_chart(plotly_fig)
+
 
 
 with tab3:
