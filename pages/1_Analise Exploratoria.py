@@ -1,9 +1,10 @@
 import streamlit as st
 from PIL import Image
+import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 from statsmodels.tsa.stattools import acf, pacf
-import numpy as pd
+
 
 
 st.set_page_config(page_title="Analise Exploratoria", page_icon=":house:")
