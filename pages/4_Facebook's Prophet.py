@@ -99,7 +99,7 @@ with tab2:
     fig = go.Figure(data=[trace1, trace2, trace3], layout=layout)
     fig.update_layout(
     title={
-    'text': "Decomposição da Série Temporal",
+    'text': "Previsão com Prophet (Treinamento e Teste)",
     'y':0.95,
     'x':0.5,
     'xanchor': 'center',
