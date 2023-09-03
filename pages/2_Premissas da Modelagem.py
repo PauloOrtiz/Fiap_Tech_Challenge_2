@@ -85,7 +85,7 @@ st.markdown("""
 ### Com base no Teste Dickey-Fuller, podemos observar o seguinte:
 
 - A **Estatística de teste** é de aproximadamente -2.39, que é maior do que todos os valores críticos (1%, 5% e 10%). 
-- O **Valor-p** é de 0.8003, que é significativamente maior que 0.142. 
+- O **Valor-p** é de 0.142, que é significativamente maior que 0.05. 
 
 Em testes estatísticos, um valor-p menor que 0.05 é frequentemente usado para rejeitar a hipótese nula. No contexto do Teste Dickey-Fuller, a hipótese nula é de que a série temporal possui uma raiz unitária e, portanto, não é estacionária.
 
