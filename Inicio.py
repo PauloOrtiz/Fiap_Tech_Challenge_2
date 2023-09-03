@@ -40,7 +40,7 @@ Nesta jornada, nosso protagonista é o Ibovespa, o principal indicador de desemp
 Nossa missão é realizar uma análise preditiva do fechamento do Ibovespa. Vamos explorar dados históricos, mergulhar profundamente na análise desses dados e treinar modelos de aprendizado de máquina para prever o fechamento do Ibovespa. Nosso objetivo é alcançar uma precisão de 70% ou superior em nossas previsões. Esta é uma tarefa desafiadora, mas estamos prontos para enfrentá-la!
 
 ## Os dados 
-Nossa aventura começa com a coleta de dados. Conseguimos obter dados históricos do Ibovespa atraves da bilbioteca yfinance. Esses dados são como um diário do Ibovespa, registrando seus altos e baixos ao longo de um período significativo de 02 de janeiro de 2001 a 1º de agosto de 2023. Esses dados serão a base para nossas previsões. Imagine-os como o mapa do tesouro que nos guiará em nossa jornada.
+Nossa aventura começa com a coleta de dados. Conseguimos obter dados históricos do Ibovespa atraves da bilbioteca `yfinance`. Esses dados são como um diário do Ibovespa, registrando seus altos e baixos ao longo de um período significativo de 02 de janeiro de 2001 a 1º de agosto de 2023. Esses dados serão a base para nossas previsões. Imagine-os como o mapa do tesouro que nos guiará em nossa jornada.
 
 ## Navegação
 Esta jornada é dividida em várias etapas, cada uma delas explorando um aspecto diferente do nosso estudo. Use o menu à esquerda para navegar pelas diferentes seções. Cada passo da jornada é crucial para alcançar nosso objetivo final: prever o fechamento do Ibovespa.
