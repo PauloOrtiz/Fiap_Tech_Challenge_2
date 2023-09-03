@@ -26,3 +26,11 @@ ibovespa['Fechamento'] = ibovespa['Fechamento'].str.replace('.', '')
 # Convertendo a coluna 'Fechamento' de volta para float
 ibovespa['Fechamento'] = ibovespa['Fechamento'].astype(int)
 '''
+
+fechamento = ibovespa['Fechamento']
+    
+media = fechamento.mean()
+mediana = fechamento.median()
+desvio_padrao = fechamento.std()
+minimo = fechamento.min()
+maximo = fechamento.max()

@@ -116,14 +116,7 @@ with tab1:
 
 with tab2:
     
-
-    fechamento = ibovespa['Fechamento']
     
-    media = fechamento.mean()
-    mediana = fechamento.median()
-    desvio_padrao = fechamento.std()
-    minimo = fechamento.min()
-    maximo = fechamento.max()
 
     
 
@@ -137,15 +130,15 @@ with tab2:
         A Ibovespa é mais do que apenas um número; é o reflexo da economia brasileira. Através de métricas chave, como média, mediana, desvio padrão e extremos, podemos decifrar sua trajetória e as histórias que ela conta.
         
         ## Métricas Centrais</h2>
-        **Média:** Representando o valor central, a média do fechamento diário é de <strong>58,721.11</strong>. Uma discrepância significativa entre média e mediana pode sinalizar outliers ou uma distribuição inclinada.
-        <strong>Mediana:</strong> O ponto médio da nossa série, <strong>56,381.00</strong>, oferece uma perspectiva equilibrada, minimizando o impacto de valores extremos.
+        **Média:** Representando o valor central, a média do fechamento diário é de **58.721**. Uma discrepância significativa entre média e mediana pode sinalizar outliers ou uma distribuição inclinada.
+        **Mediana:** O ponto médio da nossa série, **56.381.00**, oferece uma perspectiva equilibrada, minimizando o impacto de valores extremos.
         
         ## Volatilidade e Variação
-        <strong>Desvio Padrão:</strong> Com um valor de <strong>30,957.87</strong>, esta métrica revela a volatilidade da Ibovespa. Uma maior dispersão indica períodos de incerteza, enquanto uma menor sugere estabilidade.
-        <strong>Extremos:</strong>
+        **Desvio Padrão:** Com um valor de **30.957**, esta métrica revela a volatilidade da Ibovespa. Uma maior dispersão indica períodos de incerteza, enquanto uma menor sugere estabilidade.
+        **Extremos:**
         <ul>
-            <li><strong>Mínimo:</strong> <strong>8,371.00</strong> - Momentos de retração ou crises.</li>
-            <li><strong>Máximo:</strong> <strong>130,776.00</strong> - Picos de otimismo e crescimento.</li>
+            <li>**Mínimo: 8.371** - Momentos de retração ou crises.</li>
+            <li>**Máximo: 130.776** - Picos de otimismo e crescimento.</li>
         </ul>
         
         ## Reflexões Finais
