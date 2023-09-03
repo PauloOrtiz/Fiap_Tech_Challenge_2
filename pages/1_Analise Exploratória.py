@@ -15,9 +15,9 @@ image = Image.open("./src/img/ibovespa.jpg")
 st.image(image)
 tabs_font_css = """
 <style>
-.stTabs .tabulator-tabs {
-            gap: 10px;  /* Ajuste este valor conforme necessário */
-        }
+button[data-baseweb="tab"] {
+   text-indent: 0px;
+}
 </style>
 """
 
@@ -48,7 +48,7 @@ st.markdown("""
         color: #E3A15D;
     }
     p{
-       
+        text-indent: 40px;
     }
     </style>
     """, unsafe_allow_html=True)
