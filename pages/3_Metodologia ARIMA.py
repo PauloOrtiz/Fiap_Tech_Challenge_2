@@ -11,7 +11,7 @@ import plotly.graph_objects as go
 
 st.set_page_config(page_title="Arima", page_icon=":house:")
 
-image = Image.open("./src/img/ibovespa.jpg")
+image = Image.open("./src/img/Arima.jpg")
 st.image(image)
 
 ibovespa = pd.read_csv('./src/data/ibovespa.csv', sep=',')
