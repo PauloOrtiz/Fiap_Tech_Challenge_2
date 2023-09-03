@@ -2,7 +2,8 @@ import streamlit as st
 from PIL import Image
 import pandas as pd
 import plotly.graph_objects as go
-import numpy as np
+from plotly.subplots import make_subplots
+from prophet import Prophet
 
 
 st.set_page_config(page_title="Prophet", page_icon=":house:")
@@ -16,7 +17,7 @@ ibovespa.set_index('Data', inplace=True)
 ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
 
 
-tab1, tab2, tab3 = st.tabs(["Prophet", "Treino e Teste", "Modelos e Previsões"])
+tab1, tab2, tab3 = st.tabs(["Prophet", "Decomposição da série", "Modelos e Previsões"])
 
 with tab1:
     st.markdown("""
@@ -76,7 +77,22 @@ with tab1:
             """)
         
 with tab2:
-    pass
+    df = pd.DataFrame(ibovespa)
+    model = Prophet()
+    model.fit(df)
+    future = model.make_future_dataframe(periods=30)
+    forecast = model.predict(future)
+
+    fig = make_subplots(rows=2, cols=1, subplot_titles=('Tendência', 'Sazonalidade'))
+
+    fig.add_trace(go.Scatter(x=forecast['ds'], y=forecast['trend'], name='Tendência'), row=1, col=1)
+    fig.add_trace(go.Scatter(x=forecast['ds'], y=forecast['yearly'], name='Sazonalidade'), row=2, col=1)
+
+   
+    fig.update_layout(title='Decomposição da Série Temporal',
+                    showlegend=True)
+        
+    st.plotly_chart(fig)
 
 
 
