@@ -86,14 +86,7 @@ with tab2:
     future = model.make_future_dataframe(periods=30)
     forecast = model.predict(future)
     
-
-    trace1 = go.Scatter(x=forecast['ds'], y=forecast['yhat'], mode='lines', name='Previsão')
-    trace2 = go.Scatter(x=df['ds'], y=df['y'], mode='lines', name='Observações Originais')
-
-    layout = go.Layout(title='Previsão do Ibovespa com Prophet', xaxis=dict(title='Data'), yaxis=dict(title='Valor'))
-    fig = go.Figure(data=[trace1, trace2], layout=layout)
-    st.plotly_chart(fig)
-
+   
     train_size = int(0.95 * len(ibovespa))
     train_df = ibovespa.iloc[:train_size]
     test_df = ibovespa.iloc[train_size:]
@@ -104,6 +97,30 @@ with tab2:
 
     layout = go.Layout(title='Previsão com Prophet (Treinamento e Teste)', xaxis=dict(title='Data'), yaxis=dict(title='Pontos do Ibovespa'))
     fig = go.Figure(data=[trace1, trace2, trace3], layout=layout)
+    fig.update_layout(
+    title={
+    'text': "Decomposição da Série Temporal",
+    'y':0.95,
+    'x':0.5,
+    'xanchor': 'center',
+    'yanchor': 'top',
+    'font': {
+        'size': 20,
+        'color': '#306998'
+    }},xaxis_title='Anos',
+    yaxis_title="Pontuação`",
+    xaxis=dict(
+        tickangle=-45,  # Inclina os rótulos para melhor visualização
+        title_font=dict(size=18, color='#CD8D00'),
+        tickfont=dict(size=14, color='#333')
+    ),
+    template="plotly_dark",
+    yaxis=dict(
+        title_font=dict(size=18, color='#CD8D00'),
+        tickfont=dict(size=14, color='#333')
+    )
+    
+    )
 
     st.plotly_chart(fig)
 
