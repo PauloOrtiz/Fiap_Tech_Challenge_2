@@ -2,8 +2,6 @@ import streamlit as st
 from PIL import Image
 import pandas as pd
 import plotly.graph_objects as go
-from plotly.subplots import make_subplots
-from statsmodels.tsa.seasonal import seasonal_decompose
 from statsmodels.tsa.stattools import adfuller
 
 st.set_page_config(page_title="Premissas da Modelagem", page_icon=":house:")
