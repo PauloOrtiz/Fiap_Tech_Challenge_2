@@ -187,7 +187,7 @@ with tab2:
 
     A fórmula para calcular o AIC é:
 
-    [ AIC = 2k - 2$ln(L)$]
+    **[ AIC = 2k - 2$ln(L)$]**
 
     Onde:
 
@@ -205,7 +205,7 @@ with tab2:
 
     A fórmula para calcular o BIC é:
 
-    [ BIC = -2$ln(L)$ + k * $ln(n)$]
+    **[ BIC = -2$ln(L)$ + k * $ln(n)$]**
 
     Onde:
 
