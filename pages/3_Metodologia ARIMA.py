@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 import pandas as pd
-import statsmodels.api as sm
+from statsmodels.tsa.stattools import acf, pacf
 import numpy as np
 from statsmodels.tsa.arima.model import ARIMA       
 import plotly.graph_objects as go
@@ -13,7 +13,7 @@ st.set_page_config(page_title="Arima", page_icon=":house:")
 image = Image.open("./src/img/Arima.png")
 st.image(image)
 
-ibovespa = pd.read_csv('./src/data/ibovespa.csv', sep=',')
+ibovespa = pd.read_csv('./src/data/ibovespa2021.csv', sep=',')
 ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%Y-%m-%d')
 ibovespa.set_index('Data', inplace=True) 
 ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
@@ -81,6 +81,67 @@ with tab1:
     Agora, vamos testar o modelo ARIMA em nossos dados do Ibovespa!
     """)
 with tab2:
+    
+    ibovespa_diff1 = ibovespa.diff().dropna() 
+
+    lag_acf = acf(ibovespa['Fechamento'], nlags=40)
+    lag_pacf = pacf(ibovespa['Fechamento'], nlags=40, method='ols')
+    conf_int = 1.96/np.sqrt(len(ibovespa['Fechamento']))
+
+    fig_acf = go.Figure()
+    fig_acf.add_trace(go.Scatter(y=lag_acf, mode='lines+markers'))
+    fig_acf.update_layout(
+        xaxis_title='Lag',
+        yaxis_title="Autocorrelação",
+        xaxis=dict(
+            title_font=dict(size=18, color='#CD8D00'),
+            tickfont=dict(size=14, color='#333')
+        ),
+        yaxis=dict(
+            title_font=dict(size=18, color='#CD8D00'),
+            tickfont=dict(size=14, color='#333')
+        ),
+        title={
+            'text': 'ACF (Autocorrelation Function)',
+            'y':0.95,
+            'x':0.5,
+            'xanchor': 'center',
+            'yanchor': 'top',
+            'font': {
+                'size': 20,
+                'color': '#306998'
+            }
+        },
+    )
+    st.plotly_chart(fig_acf)
+
+    fig_pacf = go.Figure()
+    fig_pacf.add_trace(go.Scatter(x=list(range(len(lag_pacf))), y=lag_pacf, mode='lines+markers', name='PACF'))
+    fig_pacf.add_shape(type="line", x0=0, x1=40, y0=conf_int, y1=conf_int, line=dict(color="red", width=0.5))
+    fig_pacf.add_shape(type="line", x0=0, x1=40, y0=-conf_int, y1=-conf_int, line=dict(color="red", width=0.5))
+    fig_pacf.update_layout(
+        xaxis_title='Lag',
+        yaxis_title="Autocorrelação",
+        xaxis=dict(
+            title_font=dict(size=18, color='#CD8D00'),
+            tickfont=dict(size=14, color='#333')
+        ),
+        yaxis=dict(
+            title_font=dict(size=18, color='#CD8D00'),
+            tickfont=dict(size=14, color='#333')
+        ),
+        title={
+            'text': 'PACF (Partial Autocorrelation Function)',
+            'y':0.95,
+            'x':0.5,
+            'xanchor': 'center',
+            'yanchor': 'top',
+            'font': {
+                'size': 20,
+                'color': '#306998'
+            }
+        },
+    )
 
 
     ibovespa_mensal = ibovespa['Fechamento'].resample("30D").mean()
