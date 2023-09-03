@@ -363,11 +363,35 @@ with tab4:
     fig_pacf.add_trace(go.Scatter(x=list(range(len(lag_pacf))), y=lag_pacf, mode='lines+markers', name='PACF'))
     fig_pacf.add_shape(type="line", x0=0, x1=40, y0=conf_int, y1=conf_int, line=dict(color="red", width=0.5))
     fig_pacf.add_shape(type="line", x0=0, x1=40, y0=-conf_int, y1=-conf_int, line=dict(color="red", width=0.5))
+    fig_pacf.update_layout(
+        xaxis_title='Lag',
+        yaxis_title="Autocorrelação",
+        xaxis=dict(
+            tickangle=-45,
+            title_font=dict(size=18, color='#CD8D00'),
+            tickfont=dict(size=14, color='#333')
+        ),
+        yaxis=dict(
+            title_font=dict(size=18, color='#CD8D00'),
+            tickfont=dict(size=14, color='#333')
+        ),
+        title={
+            'text': 'PACF (Partial Autocorrelation Function)',
+            'y':0.95,
+            'x':0.5,
+            'xanchor': 'center',
+            'yanchor': 'top',
+            'font': {
+                'size': 20,
+                'color': '#306998'
+            }
+        },
+    )
 
     st.plotly_chart(fig_pacf)
 
     st.markdown("""
-    ## Por que usar ACF e PACF?<
+    ## Por que usar ACF e PACF?
     <ul>
         <li><b>Entender os Dados</b>: ACF e PACF nos ajudam a entender a estrutura temporal dos dados, revelando padrões e tendências.</p></li>
         <li><b>Modelagem</b>: Eles são ferramentas essenciais ao decidir os termos de um modelo ARIMA. Por exemplo, o ACF pode nos ajudar a identificar a ordem de média móvel (MA), enquanto o PACF pode nos ajudar com a ordem autoregressiva (AR).</li>
