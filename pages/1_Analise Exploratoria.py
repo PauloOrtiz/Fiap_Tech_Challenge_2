@@ -2,6 +2,7 @@ import streamlit as st
 from PIL import Image
 import pandas as pd
 import plotly.graph_objects as go
+from statsmodels.tsa.stattools import acf, pacf
 
 st.set_page_config(page_title="Analise Exploratoria", page_icon=":house:")
 
@@ -328,6 +329,9 @@ with tab3:
     st.plotly_chart(fig)
 
 with tab4: 
+    lag_acf = acf(ibovespa['Fechamento'], nlags=40)
+    lag_pacf = pacf(ibovespa['Fechamento'], nlags=40, method='ols')
+
     st.markdown("""
     # Autocorrelação: ACF e PACF
     Ao mergulharmos no vasto oceano dos dados, é essencial entender as ondas e correntes que os movem. No mundo das séries temporais, essas "ondas" são muitas vezes as autocorrelações. Elas nos dão uma visão sobre como os valores em diferentes pontos no tempo estão relacionados entre si.
@@ -337,10 +341,28 @@ with tab4:
 
     ## ACF (Autocorrelation Function)
     A Função de Autocorrelação, ou ACF, nos dá uma visão geral da autocorrelação em todos os atrasos. É como olhar para o lago de cima e ver todas as ondas que a pedra criou. O ACF nos mostra a correlação entre a série e sua versão defasada.
+    """,unsafe_allow_html=True)
 
+    fig_acf = go.Figure()
+    fig_acf.add_trace(go.Scatter(y=lag_acf, mode='lines+markers'))
+    fig_acf.update_layout(title='Autocorrelation Function (ACF)',
+                        xaxis_title='Lag',
+                        yaxis_title='Autocorrelation')
+    st.plotly_chart(fig_acf)
+    
+    st.markdown("""
     ## PACF (Partial Autocorrelation Function)
     A Função de Autocorrelação Parcial, ou PACF, é um pouco mais específica. Ela nos mostra a autocorrelação em um atraso, controlando os atrasos anteriores. Usando nossa analogia do lago, é como focar em uma onda específica, ignorando todas as outras.
+    """,unsafe_allow_html=True)
 
+    fig_pacf = go.Figure()
+    fig_pacf.add_trace(go.Scatter(y=lag_pacf, mode='lines+markers'))
+    fig_pacf.update_layout(title='Partial Autocorrelation Function (PACF)',
+                        xaxis_title='Lag',
+                        yaxis_title='Partial Autocorrelation')
+    st.plotly_chart(fig_pacf)
+
+    st.markdown("""
     ## Por que usar ACF e PACF?<
     <ul>
         <li><b>Entender os Dados</b>: ACF e PACF nos ajudam a entender a estrutura temporal dos dados, revelando padrões e tendências.</p></li>
