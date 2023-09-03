@@ -68,11 +68,11 @@ with tab1:
         """)
         st.markdown("""
             Onde:
-            - \( y(t) \) é a previsão.
-            - \( g(t) \) representa a tendência.
-            - \( s(t) \) captura a sazonalidade.
-            - \( h(t) \) representa os efeitos dos feriados.
-            - \( \epsilon_t \) é o erro.
+            - $y(t)$ é a previsão.
+            - $g(t)$ representa a tendência.
+            - $s(t)$ captura a sazonalidade.
+            - $h(t)$ representa os efeitos dos feriados.
+            - $epsilon_t$ é o erro.
             """)
         
 with tab2:
