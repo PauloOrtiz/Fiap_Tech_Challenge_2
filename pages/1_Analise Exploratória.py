@@ -197,7 +197,7 @@ with tab3:
             tickfont=dict(size=14, color='#333')
         ),
         title={
-            'text': 'Série Temporal aplicando a media movel',
+            'text': 'Série Temporal aplicando a Média Móvel',
             'y':0.95,
             'x':0.5,
             'xanchor': 'center',
@@ -334,7 +334,7 @@ with tab3:
             tickfont=dict(size=14, color='#333')
         ),
         title={
-            'text': 'Série Temporal com Bollinger Bands',
+            'text': 'Série do Ibovespa com as bandas de Bollinger',
             'y':0.95,
             'x':0.5,
             'xanchor': 'center',
