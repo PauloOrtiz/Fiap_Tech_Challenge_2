@@ -62,34 +62,36 @@ with tab1:
 
     st.title("Jornada Econômica do Brasil: Uma Visão Geral")
 
+    st.title("Jornada Econômica do Brasil: Uma Visão Detalhada")
+
     st.header("O Início (2001-2005)")
     st.write("""
-    A crise energética de 2001 e a queda das torres gêmeas em 2001 marcaram um período de instabilidade. Em 2002, com a eleição de Lula, o Brasil enfrentou desafios econômicos, mas em 2004, a economia cresceu 5,2%, mostrando sinais de recuperação.
+    O início do milênio foi marcado por desafios significativos para a economia brasileira. Em 2001, o país enfrentou uma crise energética que causou instabilidade na bolsa, com setores elétrico e metalúrgico sofrendo grandes perdas. O impacto dos ataques de 11 de setembro em Nova York também reverberou no Brasil, com muitas ações atingindo suas cotações mínimas. Em 2002, o cenário político trouxe incertezas com a eleição de Lula, mas até 2004, a economia mostrou sinais de recuperação, crescendo 5,2%.
     """)
 
     st.header("Crise Imobiliária dos EUA (2006-2008)")
     st.write("""
-    O crescimento econômico do Brasil em 2006 foi ofuscado pela crise imobiliária dos EUA em 2008. Medidas de estímulo foram implementadas, resultando em um crescimento de 7,5% em 2010.
+    A economia brasileira mostrou-se resiliente em 2006, com crescimento sustentado. No entanto, a crise imobiliária dos EUA em 2008 teve repercussões globais. A quebra do Lehman Brothers desencadeou uma retirada massiva de investimentos, afetando também o Brasil. O dólar disparou, mas medidas de estímulo ajudaram a mitigar os impactos, levando a um crescimento robusto de 7,5% em 2010.
     """)
 
     st.header("Boom das Commodities (2009-2011)")
     st.write("""
-    A economia brasileira viu uma retomada em 2009 e 2010, com destaque no cenário global. A exploração do pré-sal e o aumento das exportações de commodities marcaram este período.
+    A retomada econômica em 2009 foi marcada pelo crescimento consistente, especialmente no segundo semestre. Em 2010, o Brasil brilhou no cenário global, com destaque no grupo BRICS. A exploração do pré-sal pela Petrobrás e o aumento nas exportações de commodities, como minério de ferro e soja, fortaleceram a economia. Em 2011, apesar dos desafios globais, o Brasil mostrou resiliência, com o PIB crescendo 2,7%.
     """)
 
     st.header("Desafios e Resiliência (2012-2019)")
     st.write("""
-    Este período foi marcado por desafios econômicos, com destaque para a recessão de 2016. No entanto, a economia mostrou sinais de recuperação em 2017 e 2018, apesar dos desafios políticos e econômicos.
+    Este período foi desafiador para a bolsa brasileira, com uma queda acumulada de 39% entre 2012 e 2015. A crise política, a Operação Lava Jato e a recessão econômica impactaram negativamente. Em 2016, o Brasil enfrentou sua pior recessão, mas mostrou sinais de recuperação nos anos seguintes. A greve dos caminhoneiros em 2018 e a volatilidade do dólar trouxeram mais incertezas, mas a economia manteve-se resiliente.
     """)
 
     st.header("Covid-19 (2020-2022)")
     st.write("""
-    A pandemia de COVID-19 trouxe desafios sem precedentes para a economia global e brasileira. A queda do PIB e o impacto em diversos setores marcaram este período turbulento.
+    A pandemia de COVID-19 em 2020 trouxe desafios sem precedentes. A economia brasileira, como muitas outras, sofreu impactos significativos. Setores foram afetados de maneira desigual, e o PIB registrou uma queda de 3,2%. A pandemia continuou a influenciar a economia nos anos subsequentes, com efeitos profundos em diversos setores.
     """)
 
     st.header("O Presente (2023)")
     st.write("""
-    Atualmente, a economia brasileira mostra sinais de recuperação, apoiada por medidas fiscais e políticas de crédito. O cenário é de expectativa e reflexão sobre o futuro econômico do país.
+    Em 2023, o Brasil mostra sinais de recuperação, com perspectivas econômicas otimistas. A queda das cotações de commodities e a valorização do real sugerem uma inflação controlada. No entanto, o cenário ainda é de cautela e expectativa. O Ibovespa, reflexo da economia brasileira, aguarda os próximos capítulos da história econômica global.
     """)
 
     st.write("O que o futuro reserva para a economia brasileira? Só o tempo dirá.")
