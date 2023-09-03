@@ -13,7 +13,16 @@ st.set_page_config(page_title="Analise Exploratoria", page_icon=":house:")
 
 image = Image.open("./src/img/ibovespa.jpg")
 st.image(image)
+tabs_font_css = """
+<style>
+button[data-baseweb="tab"] {
+  font-size: 26px;
+  padding:0px;
+}
+</style>
+"""
 
+st.write(tabs_font_css, unsafe_allow_html=True)
 
 
 
