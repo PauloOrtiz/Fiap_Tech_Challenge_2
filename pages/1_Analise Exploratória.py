@@ -30,7 +30,7 @@ ibovespa = pd.read_csv('./src/data/ibovespa.csv', sep=',')
 ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%Y-%m-%d')
 ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
 
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["Histórico","Estatísticas Descritivas","Médias Móveis e Desvios","Autocorrelação","Decomposição"])
+tab1,tab2,tab3,tab4,tab5 = st.tabs(["Histórico","Estatísticas Descritivas","Médias Móveis e Desvios","Autocorrelação","Decomposição"])
 
 st.markdown("""
     <style>
