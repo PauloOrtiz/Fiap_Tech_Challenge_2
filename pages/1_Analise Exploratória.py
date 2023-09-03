@@ -137,8 +137,8 @@ with tab2:
         **Desvio Padrão:** Com um valor de **30.957**, esta métrica revela a volatilidade da Ibovespa. Uma maior dispersão indica períodos de incerteza, enquanto uma menor sugere estabilidade.
         **Extremos:**
         <ul>
-            <li>**Mínimo:** **8.371** - Momentos de retração ou crises.</li>
-            <li>**Máximo:** **130.776** - Picos de otimismo e crescimento.</li>
+            <li><b>Mínimo:</b> <b>8.371</b> - Momentos de retração ou crises.</li>
+            <li><b>Máximo:</b> <b>130.776</b> - Picos de otimismo e crescimento.</li>
         </ul>
         
         ## Reflexões Finais
