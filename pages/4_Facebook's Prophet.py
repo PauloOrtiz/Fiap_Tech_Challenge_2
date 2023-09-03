@@ -81,6 +81,7 @@ with tab2:
     
     ibovespa = ibovespa.rename(columns={"Fechamento": "y", "Data": "ds"})
     st.write(ibovespa.columns)
+    st.write(ibovespa.index)
 
     df = pd.DataFrame(ibovespa)
     
