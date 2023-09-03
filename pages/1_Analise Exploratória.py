@@ -149,7 +149,7 @@ with tab2:
             <li>O desvio padrão considerável aponta para períodos de volatilidade, refletindo as diversas fases econômicas que o país atravessou.</li>
         </ul>
         
-        ## Conclusão
+        ### Conclusão
         Esta análise descritiva fornece uma visão panorâmica da Ibovespa, capturando sua essência e evolução. Com este entendimento, estamos prontos para aprofundar nossa análise, identificar padrões subjacentes e, possivelmente, prever futuras tendências.
     """, unsafe_allow_html=True)
     
