@@ -154,8 +154,7 @@ with tab2:
 
 
     components = model.plot_components(forecast)
-    plotly_fig = mpl_to_plotly(components)
-    st.plotly_chart(plotly_fig)
+    st.plotly_chart(components)
 
 
 
