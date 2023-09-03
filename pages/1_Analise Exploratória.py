@@ -19,7 +19,7 @@ ibovespa = pd.read_csv('./src/data/ibovespa.csv', sep=',')
 ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%Y-%m-%d')
 ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
 
-tab1, tab2, tab3, tab4 = st.tabs(["Introdução", "Descritivo","Médias Móveis e Desvios","Autocorrelação"])
+tab1, tab2, tab3, tab4 = st.tabs(["Histórico", "Estatísticas Descritivas","Médias Móveis e Desvios","Autocorrelação"])
 
 st.markdown("""
     <style>
@@ -128,36 +128,36 @@ with tab2:
     
 
     st.markdown("""
-        <h1>Análise Descritiva da Ibovespa: Uma Visão Detalhada</h1>
+        # Análise Descritiva da Ibovespa: Uma Visão Detalhada
         
-        <h2>Introdução</h2>
-        <p>A análise descritiva é o alicerce da exploração de dados. Ela desvenda a natureza e a estrutura dos dados, pavimentando o caminho para investigações mais profundas. Neste relatório, mergulhamos no universo da Ibovespa, o barômetro do mercado de ações brasileiro, para entender sua dinâmica ao longo do tempo.</p>
+        ## Introdução
+        A análise descritiva é o alicerce da exploração de dados. Ela desvenda a natureza e a estrutura dos dados, pavimentando o caminho para investigações mais profundas. Neste relatório, mergulhamos no universo da Ibovespa, o barômetro do mercado de ações brasileiro, para entender sua dinâmica ao longo do tempo.
         
-        <h2>Panorama Geral</h2>
-        <p>A Ibovespa é mais do que apenas um número; é o reflexo da economia brasileira. Através de métricas chave, como média, mediana, desvio padrão e extremos, podemos decifrar sua trajetória e as histórias que ela conta.</p>
+        ## Panorama Geral
+        A Ibovespa é mais do que apenas um número; é o reflexo da economia brasileira. Através de métricas chave, como média, mediana, desvio padrão e extremos, podemos decifrar sua trajetória e as histórias que ela conta.
         
-        <h2>Métricas Centrais</h2>
-        <p><strong>Média:</strong> Representando o valor central, a média do fechamento diário é de <strong>58,721.11</strong>. Uma discrepância significativa entre média e mediana pode sinalizar outliers ou uma distribuição inclinada.</p>
-        <p><strong>Mediana:</strong> O ponto médio da nossa série, <strong>56,381.00</strong>, oferece uma perspectiva equilibrada, minimizando o impacto de valores extremos.</p>
+        ## Métricas Centrais</h2>
+        **Média:** Representando o valor central, a média do fechamento diário é de <strong>58,721.11</strong>. Uma discrepância significativa entre média e mediana pode sinalizar outliers ou uma distribuição inclinada.
+        <strong>Mediana:</strong> O ponto médio da nossa série, <strong>56,381.00</strong>, oferece uma perspectiva equilibrada, minimizando o impacto de valores extremos.
         
-        <h2>Volatilidade e Variação</h2>
-        <p><strong>Desvio Padrão:</strong> Com um valor de <strong>30,957.87</strong>, esta métrica revela a volatilidade da Ibovespa. Uma maior dispersão indica períodos de incerteza, enquanto uma menor sugere estabilidade.</p>
-        <p><strong>Extremos:</strong></p>
+        ## Volatilidade e Variação
+        <strong>Desvio Padrão:</strong> Com um valor de <strong>30,957.87</strong>, esta métrica revela a volatilidade da Ibovespa. Uma maior dispersão indica períodos de incerteza, enquanto uma menor sugere estabilidade.
+        <strong>Extremos:</strong>
         <ul>
             <li><strong>Mínimo:</strong> <strong>8,371.00</strong> - Momentos de retração ou crises.</li>
             <li><strong>Máximo:</strong> <strong>130,776.00</strong> - Picos de otimismo e crescimento.</li>
         </ul>
         
-        <h2>Reflexões Finais</h2>
-        <p>A Ibovespa, através de suas flutuações, narra a saga econômica do Brasil. Nossas observações:</p>
+        ## Reflexões Finais
+        A Ibovespa, através de suas flutuações, narra a saga econômica do Brasil. Nossas observações:
         <ul>
             <li>A proximidade entre média e mediana sugere uma distribuição equilibrada, com poucos períodos de extremos desproporcionais.</li>
             <li>A vasta diferença entre os valores mínimo e máximo destaca a resiliência e a capacidade de recuperação do mercado brasileiro.</li>
             <li>O desvio padrão considerável aponta para períodos de volatilidade, refletindo as diversas fases econômicas que o país atravessou.</li>
         </ul>
         
-        <h2>Conclusão</h2>
-        <p>Esta análise descritiva fornece uma visão panorâmica da Ibovespa, capturando sua essência e evolução. Com este entendimento, estamos prontos para aprofundar nossa análise, identificar padrões subjacentes e, possivelmente, prever futuras tendências.</p>
+        ## Conclusão
+        Esta análise descritiva fornece uma visão panorâmica da Ibovespa, capturando sua essência e evolução. Com este entendimento, estamos prontos para aprofundar nossa análise, identificar padrões subjacentes e, possivelmente, prever futuras tendências.
     """, unsafe_allow_html=True)
     
 with tab3:
