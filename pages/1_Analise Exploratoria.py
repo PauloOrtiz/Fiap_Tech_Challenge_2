@@ -349,8 +349,8 @@ with tab4:
         
     fig_acf = go.Figure()
     fig_acf.add_trace(go.Scatter(x=list(range(len(lag_acf))), y=lag_acf, mode='lines+markers', name='ACF'))
-    fig_acf.add_shape(go.Shape(type="line", x0=0, x1=40, y0=conf_int, y1=conf_int, line=dict(color="red", width=0.5)))
-    fig_acf.add_shape(go.Shape(type="line", x0=0, x1=40, y0=-conf_int, y1=-conf_int, line=dict(color="red", width=0.5)))
+    fig_acf.add_shape(type="line", x0=0, x1=40, y0=conf_int, y1=conf_int, line=dict(color="red", width=0.5))
+    fig_acf.add_shape(type="line", x0=0, x1=40, y0=-conf_int, y1=-conf_int, line=dict(color="red", width=0.5))
     st.plotly_chart(fig_acf)
     
     st.markdown("""
@@ -360,8 +360,9 @@ with tab4:
 
     fig_pacf = go.Figure()
     fig_pacf.add_trace(go.Scatter(x=list(range(len(lag_pacf))), y=lag_pacf, mode='lines+markers', name='PACF'))
-    fig_pacf.add_shape(go.Shape(type="line", x0=0, x1=40, y0=conf_int, y1=conf_int, line=dict(color="red", width=0.5)))
-    fig_pacf.add_shape(go.Shape(type="line", x0=0, x1=40, y0=-conf_int, y1=-conf_int, line=dict(color="red", width=0.5)))
+    fig_pacf.add_shape(type="line", x0=0, x1=40, y0=conf_int, y1=conf_int, line=dict(color="red", width=0.5))
+    fig_pacf.add_shape(type="line", x0=0, x1=40, y0=-conf_int, y1=-conf_int, line=dict(color="red", width=0.5))
+
     st.plotly_chart(fig_pacf)
 
     st.markdown("""
