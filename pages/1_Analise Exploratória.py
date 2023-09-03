@@ -131,7 +131,7 @@ with tab2:
         
         ## Métricas Centrais</h2>
         **Média:** Representando o valor central, a média do fechamento diário é de **58.721**. Uma discrepância significativa entre média e mediana pode sinalizar outliers ou uma distribuição inclinada.
-        **Mediana:** O ponto médio da nossa série, **56.381.00**, oferece uma perspectiva equilibrada, minimizando o impacto de valores extremos.
+        **Mediana:** O ponto médio da nossa série, **56.381**, oferece uma perspectiva equilibrada, minimizando o impacto de valores extremos.
         
         ## Volatilidade e Variação
         **Desvio Padrão:** Com um valor de **30.957**, esta métrica revela a volatilidade da Ibovespa. Uma maior dispersão indica períodos de incerteza, enquanto uma menor sugere estabilidade.
