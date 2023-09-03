@@ -326,9 +326,39 @@ with tab3:
     fig.add_trace(go.Scatter(x=ibovespa.index, y=ibovespa['Banda Superior'], mode='lines', name='Banda Superior', line=dict(color='red')))
     fig.add_trace(go.Scatter(x=ibovespa.index, y=ibovespa['Banda Inferior'], mode='lines', name='Banda Inferior', line=dict(color='green')))
 
-    # Configurações adicionais do gráfico
-    # (Você pode ajustar conforme o que já tinha feito anteriormente)
-
+    fig.update_layout(
+        xaxis_title='Anos',
+        yaxis_title="Pontuação",
+        xaxis=dict(
+            tickvals=ibovespa['Data'][::365],
+            ticktext=ibovespa['Data'][::365].dt.year,
+            tickangle=-45,
+            title_font=dict(size=18, color='#CD8D00'),
+            tickfont=dict(size=14, color='#333')
+        ),
+        yaxis=dict(
+            title_font=dict(size=18, color='#CD8D00'),
+            tickfont=dict(size=14, color='#333')
+        ),
+        title={
+            'text': 'Série Temporal com Desvio Padrão Móvel',
+            'y':0.95,
+            'x':0.5,
+            'xanchor': 'center',
+            'yanchor': 'top',
+            'font': {
+                'size': 20,
+                'color': '#306998'
+            }
+        },
+        legend=dict(
+            title ="Legenda",
+            x=0.5,
+            y=-0.3,
+            xanchor='center',
+            yanchor='top'),
+    )
+    
     st.plotly_chart(fig)
 
 with tab4: 
