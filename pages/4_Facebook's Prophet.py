@@ -84,7 +84,7 @@ with tab2:
     
 
     df = pd.DataFrame(ibovespa)
-    
+    unique_years = ibovespa.ds.year.unique()
     model = Prophet()
     model.fit(df)
     future = model.make_future_dataframe(periods=30)
@@ -96,8 +96,32 @@ with tab2:
     fig.add_trace(go.Scatter(x=forecast['ds'], y=forecast['yearly'], name='Sazonalidade'), row=2, col=1)
 
    
-    fig.update_layout(title='Decomposição da Série Temporal',
-                    showlegend=True)
+    fig.update_layout(
+    title={
+    'text': "Decomposição da Série Temporal",
+    'y':0.95,
+    'x':0.5,
+    'xanchor': 'center',
+    'yanchor': 'top',
+    'font': {
+        'size': 20,
+        'color': '#306998'
+    }},
+    xaxis_title='Anos',
+    yaxis_title="Pontuação",
+    xaxis=dict(
+        tickvals=pd.to_datetime([f'{year}-01-01' for year in unique_years]),  # Escolhe um ponto para cada ano único
+        ticktext=unique_years,  # Mostra apenas o ano
+        tickangle=-45,  # Inclina os rótulos para melhor visualização
+        title_font=dict(size=18, color='#CD8D00'),
+        tickfont=dict(size=14, color='#333')
+    ),
+    template="plotly_dark",
+    yaxis=dict(
+        title_font=dict(size=18, color='#CD8D00'),
+        tickfont=dict(size=14, color='#333')
+    )
+    ) 
         
     st.plotly_chart(fig)
 
