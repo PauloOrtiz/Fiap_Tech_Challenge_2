@@ -6,7 +6,15 @@ import numpy as np
 from statsmodels.tsa.arima.model import ARIMA       
 import plotly.graph_objects as go
 
+tabs_font_css = """
+<style>
+button[data-baseweb="tab"] {
+  font-size: 26px;
+}
+</style>
+"""
 
+st.write(tabs_font_css, unsafe_allow_html=True)
 
 
 st.set_page_config(page_title="Arima", page_icon=":house:")
