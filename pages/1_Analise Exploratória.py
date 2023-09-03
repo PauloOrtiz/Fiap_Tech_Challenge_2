@@ -17,7 +17,7 @@ tabs_font_css = """
 <style>
 button[data-baseweb="tab"] {
   font-size: 26px;
-  gap: 20px;
+  gap: 10px;
 }
 </style>
 """
