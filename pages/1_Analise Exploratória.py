@@ -15,8 +15,6 @@ image = Image.open("./src/img/ibovespa.jpg")
 st.image(image)
 
 
-st.write(tabs_font_css, unsafe_allow_html=True)
-
 
 
 ibovespa = pd.read_csv('./src/data/ibovespa.csv', sep=',')
