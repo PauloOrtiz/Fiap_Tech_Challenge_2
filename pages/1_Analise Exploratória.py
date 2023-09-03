@@ -16,7 +16,7 @@ st.image(image)
 tabs_font_css = """
 <style>
 .stTabs .tabulator-tabs {
-            gap: 20px;  /* Ajuste este valor conforme necessário */
+            gap: 10px;  /* Ajuste este valor conforme necessário */
         }
 </style>
 """
