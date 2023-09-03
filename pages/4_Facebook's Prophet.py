@@ -14,7 +14,8 @@ st.image(image)
 
 ibovespa = pd.read_csv('./src/data/ibovespa2021.csv', sep=',')
 ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%Y-%m-%d')
-ibovespa.set_index('Data', inplace=True) 
+ibovespa = ibovespa.rename(columns={'Data':'ds'})
+ibovespa.set_index('ds', inplace=True) 
 ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
 
 
