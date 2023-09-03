@@ -143,6 +143,9 @@ with tab2:
         },
     )
 
+    st.plotly_chart(fig_pacf)
+
+
 
     ibovespa_mensal = ibovespa['Fechamento'].resample("30D").mean()
     ibovespa_mensal = ibovespa_mensal.to_frame(name="Fechamento")
