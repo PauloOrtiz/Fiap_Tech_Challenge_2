@@ -12,7 +12,7 @@ st.set_page_config(page_title="Prophet", page_icon=":house:")
 image = Image.open("./src/img/Prophet.png")
 st.image(image)
 
-ibovespa = pd.read_csv('./src/data/ibovespa.csv', sep=',')
+ibovespa = pd.read_csv('./src/data/ibovespa2021.csv', sep=',')
 ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%Y-%m-%d')
 ibovespa.set_index('Data', inplace=True) 
 ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
@@ -78,7 +78,9 @@ with tab1:
             """)
         
 with tab2:
+    
     df = pd.DataFrame(ibovespa)
+    df = df.rename(columns={"Data": "ds", "Fechamento": "y"})
     model = Prophet()
     model.fit(df)
     future = model.make_future_dataframe(periods=30)
@@ -86,8 +88,8 @@ with tab2:
 
     fig = make_subplots(rows=2, cols=1, subplot_titles=('Tendência', 'Sazonalidade'))
 
-    fig.add_trace(go.Scatter(x=forecast['Data'], y=forecast['trend'], name='Tendência'), row=1, col=1)
-    fig.add_trace(go.Scatter(x=forecast['Data'], y=forecast['yearly'], name='Sazonalidade'), row=2, col=1)
+    fig.add_trace(go.Scatter(x=forecast['ds'], y=forecast['trend'], name='Tendência'), row=1, col=1)
+    fig.add_trace(go.Scatter(x=forecast['ds'], y=forecast['yearly'], name='Sazonalidade'), row=2, col=1)
 
    
     fig.update_layout(title='Decomposição da Série Temporal',
