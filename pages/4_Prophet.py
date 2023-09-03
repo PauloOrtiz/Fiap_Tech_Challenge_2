@@ -7,7 +7,7 @@ import numpy as np
 
 st.set_page_config(page_title="Prophet", page_icon=":house:")
 
-image = Image.open("./src/img/Prophet.jpg")
+image = Image.open("./src/img/Prophet.png")
 st.image(image)
 
 ibovespa = pd.read_csv('./src/data/ibovespa.csv', sep=',')
