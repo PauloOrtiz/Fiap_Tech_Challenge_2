@@ -328,4 +328,27 @@ with tab3:
     st.plotly_chart(fig)
 
 with tab4: 
-    pass
+    st.markdown("""
+    <h1>Desvendando a Autocorrelação: ACF e PACF</h1>
+    <p>Ao mergulharmos no vasto oceano dos dados, é essencial entender as ondas e correntes que os movem. No mundo das séries temporais, essas "ondas" são muitas vezes as autocorrelações. Elas nos dão uma visão sobre como os valores em diferentes pontos no tempo estão relacionados entre si.</p>
+
+    <h2>O que é Autocorrelação?</h2>
+    <p>Imagine um lago tranquilo. Se você jogar uma pedra nele, as ondas se propagarão em círculos. A autocorrelação é semelhante a isso, mas em vez de ondas em um lago, estamos olhando para como um valor em uma série temporal se relaciona com outros valores em pontos de tempo anteriores.</p>
+
+    <h2>ACF (Autocorrelation Function)</h2>
+    <p>A Função de Autocorrelação, ou ACF, nos dá uma visão geral da autocorrelação em todos os atrasos. É como olhar para o lago de cima e ver todas as ondas que a pedra criou. O ACF nos mostra a correlação entre a série e sua versão defasada.</p>
+
+    <h2>PACF (Partial Autocorrelation Function)</h2>
+    <p>A Função de Autocorrelação Parcial, ou PACF, é um pouco mais específica. Ela nos mostra a autocorrelação em um atraso, controlando os atrasos anteriores. Usando nossa analogia do lago, é como focar em uma onda específica, ignorando todas as outras.</p>
+
+    <h2>Por que usar ACF e PACF?</h2>
+    <ul>
+        <li><p><b>Entender os Dados</b>: ACF e PACF nos ajudam a entender a estrutura temporal dos dados, revelando padrões e tendências.</p></li>
+        <li><p><b>Modelagem</b>: Eles são ferramentas essenciais ao decidir os termos de um modelo ARIMA. Por exemplo, o ACF pode nos ajudar a identificar a ordem de média móvel (MA), enquanto o PACF pode nos ajudar com a ordem autoregressiva (AR).</p></li>
+        <li><p><b>Detectar Estacionariedade</b>: A estacionariedade é uma propriedade crucial para muitos modelos de séries temporais. ACF e PACF podem nos ajudar a identificar se uma série é estacionária ou se precisa de diferenciação.</p></li>
+    </ul>
+
+    <h3>Conclusão</h3>
+    <p>Assim como um marinheiro usa bússolas e mapas para navegar pelos mares, nós usamos ferramentas como ACF e PACF para navegar pelo mundo das séries temporais. Eles nos ajudam a entender, modelar e prever nossos dados, garantindo que sempre tenhamos uma viagem suave através do tempo.</p>
+    """, unsafe_allow_html=True)
+
