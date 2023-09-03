@@ -178,7 +178,7 @@ with tab2:
     # AIC
     st.markdown("""
                 
-    # Estatisticas para a escolha do modelo: 
+    # Estatísticas para a escolha do modelo: 
                             
     ## Critério de Informação de Akaike (AIC)
 
