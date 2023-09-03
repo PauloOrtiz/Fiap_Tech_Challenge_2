@@ -60,30 +60,39 @@ st.markdown("""
 with tab1:
     
 
-    st.markdown(
-    """
-    # A Jornada do Ibovespa
+    st.title("Jornada Econômica do Brasil: Uma Visão Geral")
 
-    Ao olhar para o vasto mundo dos mercados financeiros, um índice se destaca no Brasil: o Ibovespa. Ele é o principal indicador do desempenho médio das cotações das ações negociadas na B3, a bolsa de valores brasileira. Mas, o que realmente aconteceu com o Ibovespa ao longo dos anos? Vamos embarcar em uma viagem no tempo e descobrir!
+    st.header("O Início (2001-2005)")
+    st.write("""
+    A crise energética de 2001 e a queda das torres gêmeas em 2001 marcaram um período de instabilidade. Em 2002, com a eleição de Lula, o Brasil enfrentou desafios econômicos, mas em 2004, a economia cresceu 5,2%, mostrando sinais de recuperação.
+    """)
 
-    ## O Início (2001-2005)
-    No início do novo milênio, o Brasil estava se adaptando à globalização e às mudanças tecnológicas. O Ibovespa refletiu essas dinâmicas, mostrando flutuações à medida que o mercado reagia a eventos nacionais e internacionais.
+    st.header("Crise Imobiliária dos EUA (2006-2008)")
+    st.write("""
+    O crescimento econômico do Brasil em 2006 foi ofuscado pela crise imobiliária dos EUA em 2008. Medidas de estímulo foram implementadas, resultando em um crescimento de 7,5% em 2010.
+    """)
 
-    ## Crise Imobiliária dos EUA (2006-2008)
-    Entre 2006 e 2008, o mundo foi abalado pela crise imobiliária dos EUA. Esta crise teve repercussões em mercados globais, incluindo o Brasil. O Ibovespa, que vinha de um período de crescimento, sentiu o impacto desta crise, com muitas ações experimentando quedas significativas.
+    st.header("Boom das Commodities (2009-2011)")
+    st.write("""
+    A economia brasileira viu uma retomada em 2009 e 2010, com destaque no cenário global. A exploração do pré-sal e o aumento das exportações de commodities marcaram este período.
+    """)
 
-    ## Boom das Commodities (2009-2011)
-    Após a crise, com a crescente demanda global por commodities, o Brasil, rico em recursos naturais, começou a se recuperar. O Ibovespa viu um período de recuperação e crescimento, especialmente para empresas ligadas a commodities, como a Vale e a Petrobras.
+    st.header("Desafios e Resiliência (2012-2019)")
+    st.write("""
+    Este período foi marcado por desafios econômicos, com destaque para a recessão de 2016. No entanto, a economia mostrou sinais de recuperação em 2017 e 2018, apesar dos desafios políticos e econômicos.
+    """)
 
-    ## Desafios e Resiliência (2012-2019)
-    A economia global continuou a enfrentar desafios, desde a desaceleração do crescimento em mercados emergentes até eventos geopolíticos e mudanças políticas. O Ibovespa, no entanto, mostrou resiliência, refletindo a capacidade do mercado brasileiro de se adaptar e superar adversidades.
+    st.header("Covid-19 (2020-2022)")
+    st.write("""
+    A pandemia de COVID-19 trouxe desafios sem precedentes para a economia global e brasileira. A queda do PIB e o impacto em diversos setores marcaram este período turbulento.
+    """)
 
-    ## Covid-19 (2020-2022)
-    O mundo foi atingido pela pandemia da Covid-19, afetando economias e mercados em uma escala global. O Ibovespa não foi exceção, com o mercado reagindo às incertezas e desafios trazidos pela pandemia.
+    st.header("O Presente (2023)")
+    st.write("""
+    Atualmente, a economia brasileira mostra sinais de recuperação, apoiada por medidas fiscais e políticas de crédito. O cenário é de expectativa e reflexão sobre o futuro econômico do país.
+    """)
 
-    ## O Presente (2023)
-    Nos encontramos em um momento de reflexão e expectativa. O Ibovespa, como reflexo da economia brasileira, aguarda os próximos capítulos da história econômica global. O que o futuro reserva? Só o tempo dirá.
-    """, unsafe_allow_html=True)
+    st.write("O que o futuro reserva para a economia brasileira? Só o tempo dirá.")
 
     fig = go.Figure()
 
