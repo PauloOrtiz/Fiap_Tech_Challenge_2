@@ -29,6 +29,10 @@ ibovespa = pd.read_csv('./src/data/ibovespa.csv', sep=',')
 ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%Y-%m-%d')
 ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
 
+ibovespa2021 = pd.read_csv('./src/data/ibovespa2021.csv', sep=',')
+ibovespa2021['Data'] = pd.to_datetime(ibovespa['Data'],format='%Y-%m-%d')
+ibovespa2021['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
+
 tab1,tab2,tab3,tab4,tab5 = st.tabs(["Histórico","Estatísticas Descritivas","Médias Móveis e Desvios","Autocorrelação","Decomposição"])
 
 st.markdown("""
@@ -365,9 +369,9 @@ with tab3:
     st.plotly_chart(fig)
 
 with tab4: 
-    lag_acf = acf(ibovespa['Fechamento'], nlags=40)
-    lag_pacf = pacf(ibovespa['Fechamento'], nlags=40, method='ols')
-    conf_int = 1.96/np.sqrt(len(ibovespa['Fechamento']))
+    lag_acf = acf(ibovespa2021['Fechamento'], nlags=40)
+    lag_pacf = pacf(ibovespa2021['Fechamento'], nlags=40, method='ols')
+    conf_int = 1.96/np.sqrt(len(ibovespa2021['Fechamento']))
 
     st.markdown("""
     # Autocorrelação: ACF e PACF
@@ -481,7 +485,7 @@ with tab5:
     """, unsafe_allow_html=True)
 
     
-    decomposicao = seasonal_decompose(ibovespa['Fechamento'], model='additive', period=12)
+    decomposicao = seasonal_decompose(ibovespa2021['Fechamento'], model='additive', period=12)
 
     # Criando subplots com espaçamento vertical
     fig = make_subplots(rows=4, cols=1, 
