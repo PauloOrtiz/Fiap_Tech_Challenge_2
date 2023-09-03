@@ -15,10 +15,9 @@ image = Image.open("./src/img/ibovespa.jpg")
 st.image(image)
 tabs_font_css = """
 <style>
-button[data-baseweb="tab"] {
-  font-size: 26px;
-  gap: 10px;
-}
+.stTabs .tabulator-tabs {
+            gap: 20px;  /* Ajuste este valor conforme necessário */
+        }
 </style>
 """
 
