@@ -83,7 +83,7 @@ with tab2:
     df = pd.DataFrame(ibovespa)
     model = Prophet()
     model.fit(df)
-    future = model.make_future_dataframe(periods=10)
+    future = model.make_future_dataframe(periods=0)
     forecast = model.predict(future)
     
    
