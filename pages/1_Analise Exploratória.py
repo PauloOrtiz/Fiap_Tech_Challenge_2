@@ -456,9 +456,11 @@ with tab4:
 
     ### Conclusão
     
-    Ao observar o gráfico de autocorrelação, é evidente que os lags decaem lentamente, caracterizando que a série é não estacionária. Isso sugere que a série possui tendência e sazonalidade bem definidas.
+    O decaimento lento na ACF sugere que há dependência temporal nas observações da série ao longo de vários lags anteriores, o que pode ser indicativo de uma componente de tendência ou sazonalidade na série.
 
-    Por outro lado, o gráfico PACF apresenta um corte claro após os lags 7 e 8. Após esse ponto, as correlações se mantêm dentro do intervalo de confiança, indicando que a série possui uma componente autoregressiva. Esta observação é crucial para a modelagem da série temporal, pois nos fornece insights sobre a ordem dos termos autoregressivos que podem ser necessários para capturar a estrutura subjacente dos dados.           
+    O corte abrupto da PACF no terceiro lag sugere que, após considerar os efeitos dos três primeiros lags, a série não possui correlação parcial significativa com lags posteriores. Isso pode indicar que um modelo autorregressivo de ordem 2 (AR(2)) pode ser apropriado, pois os lags 1 e 2 têm correlações parciais significativas, enquanto as correlações parciais com lags posteriores são próximas de zero.
+
+    A combinação de uma ACF com decaimento lento e uma PACF com decaimento exponencial pode ser indicativa de um modelo ARIMA, onde a ordem do termo autorregressivo (p) é 2 (com base na PACF) e a ordem de diferenciação (d) pode ser escolhida para lidar com a tendência ou sazonalidade na série.
     
     """, unsafe_allow_html=True)
 
