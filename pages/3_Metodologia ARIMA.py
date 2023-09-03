@@ -8,6 +8,7 @@ import plotly.graph_objects as go
 
 
 
+
 st.set_page_config(page_title="Arima", page_icon=":house:")
 
 image = Image.open("./src/img/ibovespa.jpg")
@@ -78,7 +79,8 @@ with tab2:
     model = ARIMA(ibovespa_mensal, order=(1, 2, 1))
     res = model.fit()
     st.write(res.summary())
-
+    # Carregando seus dados
+    
 
 with tab3:
     st.markdown(
