@@ -17,6 +17,7 @@ ibovespa = pd.read_csv('./src/data/ibovespa2021.csv', sep=',')
 ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%Y-%m-%d')
 ibovespa.set_index('Data', inplace=True) 
 ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
+AIC_BIC = pd.read_csv('./src/data/df_AIC_BIC.csv', sep=';')
 
 
 tab1, tab2, tab3 = st.tabs(["ARIMA", "Escolha do modelo", "Modelos"])
@@ -214,6 +215,8 @@ with tab2:
 
     O BIC penaliza a complexidade do modelo de forma mais rigorosa que o AIC. Isso significa que o BIC tende a favorecer modelos mais simples. Assim, ao comparar vários modelos, o modelo com o menor valor de BIC é geralmente considerado o melhor, pois equilibra ajuste aos dados e simplicidade.
     """)
+
+    st.table(AIC_BIC)
 
 
 with tab3:
