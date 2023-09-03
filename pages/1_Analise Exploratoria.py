@@ -341,7 +341,7 @@ with tab3:
             tickfont=dict(size=14, color='#333')
         ),
         title={
-            'text': 'Série Temporal com Desvio Padrão Móvel',
+            'text': 'Série Temporal com Bollinger Bands',
             'y':0.95,
             'x':0.5,
             'xanchor': 'center',
