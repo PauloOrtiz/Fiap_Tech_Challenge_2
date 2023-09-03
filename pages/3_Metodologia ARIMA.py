@@ -178,9 +178,9 @@ with tab2:
     # AIC
     st.markdown("""
                 
-    # Estatísticas para a escolha do modelo: 
+    ## Estatísticas para a escolha do modelo: 
                             
-    ## Critério de Informação de Akaike (AIC)
+    ### Critério de Informação de Akaike (AIC)
 
     O critério de informação de Akaike (AIC) é uma métrica estatística que avalia a qualidade de modelos estatísticos com base na quantidade de informação que eles capturam dos dados. Foi desenvolvido por Hirotugu Akaike e é amplamente utilizado para seleção de modelos, como em contextos de regressão.
 
@@ -198,7 +198,7 @@ with tab2:
 
     # BIC
     st.markdown("""
-    ## Critério de Informação Bayesiano (BIC)
+    ### Critério de Informação Bayesiano (BIC)
 
     O Critério de Informação Bayesiano (BIC) é outra métrica estatística que avalia modelos estatísticos, considerando tanto a adequação aos dados quanto a complexidade do modelo. É uma alternativa ao AIC e é frequentemente usado em contextos similares.
 
