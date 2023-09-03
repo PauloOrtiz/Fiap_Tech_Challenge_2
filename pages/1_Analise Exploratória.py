@@ -48,7 +48,7 @@ st.markdown("""
         color: #E3A15D;
     }
     p{
-        text-indent: 40px;
+       
     }
     </style>
     """, unsafe_allow_html=True)
