@@ -84,7 +84,7 @@ with tab2:
     
 
     df = pd.DataFrame(ibovespa)
-    unique_years = ibovespa.ds.year.unique()
+    unique_years = ibovespa['ds'].year.unique()
     model = Prophet()
     model.fit(df)
     future = model.make_future_dataframe(periods=30)
