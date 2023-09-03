@@ -443,6 +443,10 @@ with tab4:
     </ul>
 
     ### Conclusão
-    Assim como um marinheiro usa bússolas e mapas para navegar pelos mares, nós usamos ferramentas como ACF e PACF para navegar pelo mundo das séries temporais. Eles nos ajudam a entender, modelar e prever nossos dados, garantindo que sempre tenhamos uma viagem suave através do tempo.
+    
+    Ao observar o gráfico de autocorrelação, é evidente que os lags decaem lentamente, caracterizando que a série é não estacionária. Isso sugere que a série possui tendência e sazonalidade bem definidas.
+
+    Por outro lado, o gráfico PACF apresenta um corte claro após os lags 7 e 8. Após esse ponto, as correlações se mantêm dentro do intervalo de confiança, indicando que a série possui uma componente autoregressiva. Esta observação é crucial para a modelagem da série temporal, pois nos fornece insights sobre a ordem dos termos autoregressivos que podem ser necessários para capturar a estrutura subjacente dos dados.           
+    
     """, unsafe_allow_html=True)
 
