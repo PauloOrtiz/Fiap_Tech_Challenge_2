@@ -216,10 +216,19 @@ with tab2:
     O BIC penaliza a complexidade do modelo de forma mais rigorosa que o AIC. Isso significa que o BIC tende a favorecer modelos mais simples. Assim, ao comparar vários modelos, o modelo com o menor valor de BIC é geralmente considerado o melhor, pois equilibra ajuste aos dados e simplicidade.
     """)
 
+    st.markdown("""## Análise de Parâmetros ARIMA e Métricas de Qualidade""")
+
     table_html = AIC_BIC.to_html(index=False)
 
     # Exibindo o HTML no Streamlit
     st.write(table_html, unsafe_allow_html=True)
+
+    st.write("""
+    ### Conclusão:
+    A tabela acima apresenta diferentes combinações de parâmetros para o modelo ARIMA e suas respectivas métricas AIC e BIC. O Critério de Informação de Akaike (AIC) e o Critério de Informação Bayesiano (BIC) são utilizados para avaliar a qualidade de um modelo estatístico. Menores valores de AIC e BIC indicam modelos potencialmente melhores.
+
+    Observando os dados, a combinação com parâmetros AR(p)=1, Integração(d)=0 e MA(q)=0 apresenta o menor valor de AIC, sugerindo que esta pode ser a melhor configuração para o modelo ARIMA, considerando os dados disponíveis. No entanto, é importante também considerar outros fatores e testes ao finalizar a seleção do modelo.
+    """)
 
 
 with tab3:
