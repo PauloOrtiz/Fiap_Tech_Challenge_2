@@ -84,9 +84,9 @@ with tab2:
     
     ibovespa_diff1 = ibovespa.diff().dropna() 
 
-    lag_acf = acf(ibovespa['Fechamento'], nlags=40)
-    lag_pacf = pacf(ibovespa['Fechamento'], nlags=40, method='ols')
-    conf_int = 1.96/np.sqrt(len(ibovespa['Fechamento']))
+    lag_acf = acf(ibovespa_diff1['Fechamento'], nlags=40)
+    lag_pacf = pacf(ibovespa_diff1['Fechamento'], nlags=40, method='ols')
+    conf_int = 1.96/np.sqrt(len(ibovespa_diff1['Fechamento']))
 
     fig_acf = go.Figure()
     fig_acf.add_trace(go.Scatter(y=lag_acf, mode='lines+markers'))
