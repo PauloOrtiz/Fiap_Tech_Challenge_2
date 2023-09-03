@@ -153,7 +153,7 @@ st.plotly_chart(fig)
 st.markdown("""
 ## Por que realizar o Teste Dickey-Fuller após a diferenciação?
 
-A diferenciação é uma técnica comum para transformar uma série não estacionária em estacionária. No entanto, após a diferenciação, é crucial retestar a série para confirmar se ela se tornou estacionária. O Teste Dickey-Fuller é uma ferramenta poderosa para essa verificação.
+No entanto, após a diferenciação, é crucial retestar a série para confirmar se ela se tornou estacionária. O Teste Dickey-Fuller é uma ferramenta poderosa para essa verificação.
 """)
 
 # Função para realizar o teste
