@@ -15,8 +15,8 @@ image = Image.open("./src/img/ibovespa.jpg")
 st.image(image)
 tabs_font_css = """
 <style>
-button[data-baseweb="tab"] {
-   text-indent: 0px;
+.st-b3{
+   display: flow;
 }
 </style>
 """
