@@ -19,7 +19,7 @@ ibovespa.set_index('Data', inplace=True)
 ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
 
 
-tab1, tab2, tab3 = st.tabs(["ARIMA", "Treino e Teste", "Modelos"])
+tab1, tab2, tab3 = st.tabs(["ARIMA", "Escolha do modelo", "Modelos"])
 
 with tab1:
     st.markdown("""
