@@ -66,10 +66,10 @@ with tab1:
         
         st.markdown("""
             1. **$Y_t$**: Valor atual da série temporal.
-            2. **\( c \)**: Constante representando o valor médio da série sem efeitos AR e MA.
-            3. **Termos AR**: Relacionam a observação atual com suas anteriores. O número de termos é determinado por \( p \).
-            4. **Termos MA**: Relacionam o erro da observação atual com erros passados. O número de termos é determinado por \( q \).
-            5. **\( e_t \)**: Erro no tempo \( t \), diferença entre valor observado e previsto.
+            2. **$c$**: Constante representando o valor médio da série sem efeitos AR e MA.
+            3. **Termos AR**: Relacionam a observação atual com suas anteriores. O número de termos é determinado por $p$.
+            4. **Termos MA**: Relacionam o erro da observação atual com erros passados. O número de termos é determinado por $q$.
+            5. **$e_t$**: Erro no tempo $t$, diferença entre valor observado e previsto.
 
             Em essência, ARIMA usa termos autoregressivos e de média móvel para prever a série temporal. A quantidade de termos é definida pelos valores de \( p \) e \( q \).
             """, unsafe_allow_html=True)
