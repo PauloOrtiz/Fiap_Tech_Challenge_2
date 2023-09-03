@@ -176,15 +176,6 @@ with tab2:
     """,unsafe_allow_html=True)
 
 
-
-    ibovespa_mensal = ibovespa['Fechamento'].resample("30D").mean()
-    ibovespa_mensal = ibovespa_mensal.to_frame(name="Fechamento")
-    model = ARIMA(ibovespa_mensal, order=(1, 2, 1))
-    res = model.fit()
-    st.write(res.summary())
-    # Carregando seus dados
-    
-
 with tab3:
     st.markdown(
         """
