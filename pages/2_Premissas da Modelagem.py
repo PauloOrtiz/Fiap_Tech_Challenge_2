@@ -18,6 +18,28 @@ ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
 
 tab1, tab2 = st.tabs(["Estacionariedade", "??"])
 
+st.markdown("""
+    <style>
+    body {
+        color: #ffffff;
+        background-color: #4B8BBE;
+    }
+    h1 {
+        color: #CD8D00;
+        text-align: center;
+    }
+    h2 {
+        color: #306998;
+    }
+    h3 {
+        color: #E3A15D;
+    }
+    p{
+        text-indent: 40px;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
 with tab1:
     
 
