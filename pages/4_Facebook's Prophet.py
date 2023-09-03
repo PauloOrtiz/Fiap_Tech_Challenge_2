@@ -111,8 +111,6 @@ with tab2:
     xaxis_title='Anos',
     yaxis_title="Pontuação",
     xaxis=dict(
-        tickvals=pd.to_datetime([f'{year}-01-01' for year in unique_years]),  # Escolhe um ponto para cada ano único
-        ticktext=unique_years,  # Mostra apenas o ano
         tickangle=-45,  # Inclina os rótulos para melhor visualização
         title_font=dict(size=18, color='#CD8D00'),
         tickfont=dict(size=14, color='#333')
