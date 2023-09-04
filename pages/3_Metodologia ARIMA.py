@@ -244,6 +244,11 @@ with tab2:
 
 
 with tab3:
+
+    model = ARIMA(ibovespa, order=(0,1,0))
+    results = model.fit()
+    st.write(results.summary())
+
     train_size = int(0.80 * len(ibovespa))
     train_df = ibovespa.iloc[:train_size]
     test_df = ibovespa.iloc[train_size:]
