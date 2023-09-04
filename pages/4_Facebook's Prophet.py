@@ -233,9 +233,25 @@ with tab4:
     line=dict(color="red", width=2, dash="dash"),
     )
     fig.update_layout(
-    title='Resíduos do Modelo',
-    xaxis_title='Data',
-    yaxis_title='Resíduos',
-    legend_title='Legenda'
-    )   
+    title={
+    'text': "Resíduos do Modelo",
+    'y':0.95,
+    'x':0.5,
+    'xanchor': 'center',
+    'yanchor': 'top',
+    'font': {
+        'size': 20,
+        'color': '#306998'
+    }},xaxis_title='Data',
+    yaxis_title="Resíduos",
+    xaxis=dict(
+        tickangle=-45,  # Inclina os rótulos para melhor visualização
+        title_font=dict(size=18, color='#CD8D00'),
+        tickfont=dict(size=14, color='#333')
+    ),
+    template="plotly_dark",
+    yaxis=dict(
+        title_font=dict(size=18, color='#CD8D00'),
+        tickfont=dict(size=14, color='#333')
+    ))
     st.plotly_chart(fig)
