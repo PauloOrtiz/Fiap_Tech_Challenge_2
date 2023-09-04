@@ -264,10 +264,6 @@ with tab4:
         xaxis=dict(title='Resíduos'),
         yaxis=dict(title='Frequência'),
         template="plotly_dark",
-        yaxis=dict(
-            title_font=dict(size=18, color='#CD8D00'),
-            tickfont=dict(size=14, color='#333')
-        )
     )
 
 
