@@ -221,4 +221,21 @@ with tab3:
     )
 
 with tab4:
-    pass
+    residuals = y_true - y_pred
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=test_df['ds'], y=residuals, mode='lines', name='Residuals'))
+    fig.add_shape(
+    type="line",
+    x0=min(test_df['ds']),
+    x1=max(test_df['ds']),
+    y0=0,
+    y1=0,
+    line=dict(color="red", width=2, dash="dash"),
+    )
+    fig.update_layout(
+    title='Resíduos do Modelo',
+    xaxis_title='Data',
+    yaxis_title='Resíduos',
+    legend_title='Legenda'
+    )   
+    st.plotly_chart(fig)
