@@ -88,11 +88,7 @@ with tab2:
     2. **ACF e PACF**: Use as funções de autocorrelação (ACF) e autocorrelação parcial (PACF) para ter uma ideia inicial dos parâmetros.
     3. **Grid Search**: Teste diferentes combinações de parâmetros e escolha a que oferece o melhor desempenho, geralmente medido pelo AIC (Critério de Informação de Akaike) ou BIC (Critério de Informação Bayesiano).
     4. **Validação Cruzada**: Use a validação cruzada para garantir que o modelo escolhido tenha um bom desempenho em diferentes conjuntos de dados.
-
-    ## Ferramentas à Nossa Disposição
-
-    O pacote `prophet` fornece uma função `cross_validation` que pode ser usada para realizar a validação cruzada. Além disso, podemos usar `performance_metrics` para avaliar o desempenho do modelo em diferentes horizontes de previsão.
-
+    
     ## Vamos Começar!
 
     A seguir, vamos mergulhar nos dados e começar nossa busca pelo modelo SARIMA ideal para o Ibovespa. Acompanhe cada etapa, observe as métricas e junte-se a nós nesta jornada empolgante de descoberta.
