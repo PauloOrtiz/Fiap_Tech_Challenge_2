@@ -180,10 +180,28 @@ with tab3:
 
     # Definir os títulos e rótulos dos eixos
     fig.update_layout(
-        title='Valores Observados vs Valores Preditos',
-        xaxis_title='Número de Observações da Série',
-        yaxis_title='Pontuação',
-        legend_title='Legenda'
+    title={
+    'text': "Valores Observados vs Valores Preditos",
+    'y':0.95,
+    'x':0.5,
+    'xanchor': 'center',
+    'yanchor': 'top',
+    'font': {
+        'size': 20,
+        'color': '#306998'
+    }},xaxis_title='Número de Observações da Série',
+    yaxis_title="Pontuação`",
+    xaxis=dict(
+        tickangle=-45,  # Inclina os rótulos para melhor visualização
+        title_font=dict(size=18, color='#CD8D00'),
+        tickfont=dict(size=14, color='#333')
+    ),
+    template="plotly_dark",
+    yaxis=dict(
+        title_font=dict(size=18, color='#CD8D00'),
+        tickfont=dict(size=14, color='#333')
+    )
+    
     )
 
     # Exibir a figura no Streamlit
