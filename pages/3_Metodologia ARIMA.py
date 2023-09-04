@@ -251,7 +251,7 @@ with tab3:
     Em resumo, os resultados indicam que seu modelo ARIMA(0, 1, 0) com diferenciação de primeira ordem pode não ser o melhor modelo para seus dados, uma vez que o AIC não é muito baixo. Além disso, é importante verificar visualmente as previsões do modelo em relação aos dados reais para avaliar a qualidade da previsão.
     """)
 
-    model = ARIMA(ibovespa, order=(0,1,0))
+    model = ARIMA(ibovespa, order=(2,1,1))
     results = model.fit()
     st.write(results.summary())
 
