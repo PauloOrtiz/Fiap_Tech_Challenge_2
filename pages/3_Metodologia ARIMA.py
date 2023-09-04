@@ -289,16 +289,19 @@ with tab4:
     - **RMSE (Raiz do Erro Quadrático Médio)**: O RMSE é uma métrica que nos dá uma noção da magnitude dos erros. Com um valor de 2152.37, ele confirma o que o MAE já nos sugeriu sobre o tamanho dos desvios.
 
     - **MAPE (Erro Percentual Médio Absoluto)**: Talvez a métrica mais reveladora de todas, o MAPE nos dá uma perspectiva percentual dos erros. Um MAPE de 1.35% é impressionante! Isso significa que, em média, nossas previsões estão apenas 1.35% distantes dos valores reais.
-
-    ## Reflexão Final
-
-    Os resultados do ARIMA são promissores. Com um MAPE de apenas 1.35%, o modelo demonstra uma capacidade notável de prever a série temporal com precisão. No entanto, como sempre, é essencial manter uma abordagem crítica e considerar a possibilidade de ajustes e otimizações futuras.
+ 
 
     """)
 
     table_html = acuracia.to_html(index=False)
 
     st.write(table_html, unsafe_allow_html=True)
+
+    st.markdown("""
+    ## Reflexão Final
+
+    Os resultados do ARIMA são promissores. Com um MAPE de apenas 1.35%, o modelo demonstra uma capacidade notável de prever a série temporal com precisão. No entanto, como sempre, é essencial manter uma abordagem crítica e considerar a possibilidade de ajustes e otimizações futuras.
+    """)
 
 with tab5:
     model = sm.tsa.ARIMA(ibovespa['Fechamento'], order=(1, 1, 0))
