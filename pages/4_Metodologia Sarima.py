@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 import pandas as pd
 from statsmodels.tsa.statespace.sarimax import SARIMAX
-
+from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 st.set_page_config(page_title="Sarima", page_icon=":house:")
 
@@ -153,3 +153,30 @@ with tab3:
     
     Em resumo, este modelo representa uma ferramenta robusta e confiável para prever a série temporal em questão, e estamos confiantes em suas previsões para o futuro.
     """)    
+    
+with tab4: 
+    model = SARIMAX(ibovespa['Fechamento'], order=(0,1,0), seasonal_order=(1,0,1,12))
+    results = model.fit()
+    
+    forecast = results.get_forecast(steps=len(test_data))  # substitua test_data pelo seu conjunto de teste
+    mean_forecast = forecast.predicted_mean
+    
+    y_true = test_data  # substitua test_data pelo seu conjunto de teste
+    y_pred = mean_forecast
+
+    mae = mean_absolute_error(y_true, y_pred)
+    mse = mean_squared_error(y_true, y_pred)
+    rmse = np.sqrt(mse)
+    mape = np.mean(np.abs((y_true - y_pred) / y_true)) * 100
+    
+    st.write(f"MAE: {mae:.2f}")
+    st.write(f"MSE: {mse:.2f}")
+    st.write(f"RMSE: {rmse:.2f}")
+    st.write(f"MAPE: {mape:.2f}%")
+
+
+
+
+
+
+    
