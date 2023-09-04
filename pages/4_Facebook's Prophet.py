@@ -154,7 +154,9 @@ with tab2:
 
 
     components = model.plot_components(forecast)
-    st.plotly_chart(components)
+    fig = go.Figure(go.FigureWidget(components).to_dict())
+
+    st.plotly_chart(fig)
 
 
 
