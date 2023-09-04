@@ -10,6 +10,14 @@ import plotly.graph_objects as go
 
 st.set_page_config(page_title="Arima", page_icon=":house:")
 
+tabs_font_css = """
+<style>
+.st-b3{
+   display: flow;
+}
+</style>
+"""
+
 image = Image.open("./src/img/Arima.png")
 st.image(image)
 
