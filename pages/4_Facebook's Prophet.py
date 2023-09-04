@@ -88,7 +88,7 @@ with tab2:
     forecast = model.predict(future)
     
    
-    train_size = int(0.95 * len(ibovespa))
+    train_size = int(0.80 * len(ibovespa))
     train_df = ibovespa.iloc[:train_size]
     test_df = ibovespa.iloc[train_size:]
         
