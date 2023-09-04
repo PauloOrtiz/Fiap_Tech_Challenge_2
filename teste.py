@@ -47,4 +47,4 @@ results_df = results_df.sort_values(by='AIC', ascending=True)
 
 print(results_df)
 
-results_df.to_csv("./src/data/modelo_sarima.csv")
+results_df.to_csv("./src/data/modelo_sarima.csv", index=False)
