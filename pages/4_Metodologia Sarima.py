@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image
 import pandas as pd
+import numpy as np
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
@@ -155,6 +156,11 @@ with tab3:
     """)    
     
 with tab4: 
+    
+    train_size = int(0.80 * len(ibovespa))
+    train_data = ibovespa['Fechamento'].iloc[:train_size]
+    test_data = ibovespa['Fechamento'].iloc[train_size:]
+    
     model = SARIMAX(ibovespa['Fechamento'], order=(0,1,0), seasonal_order=(1,0,1,12))
     results = model.fit()
     
