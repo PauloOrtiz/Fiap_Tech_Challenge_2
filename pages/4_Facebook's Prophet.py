@@ -149,21 +149,8 @@ with tab2:
     )
     
     st.plotly_chart(fig)
-
          
     
-    
-
-    fig_trend = go.Figure()
-    fig_trend.add_trace(go.Scatter(x=forecast['ds'], y=forecast['trend'], mode='lines', name='Trend'))
-   
-    fig_trend.add_trace(go.Scatter(x=forecast['ds'], y=forecast['trend_lower'], mode='lines', name='Trend Lower', line=dict(dash='dash')))
-    fig_trend.add_trace(go.Scatter(x=forecast['ds'], y=forecast['trend_upper'], mode='lines', name='Trend Upper', line=dict(dash='dash')))
-
-    
-    st.plotly_chart(fig_trend)
-
-
 
 with tab3:
 
