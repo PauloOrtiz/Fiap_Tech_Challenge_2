@@ -129,7 +129,7 @@ with tab2:
     """)
     
     
-with tab4: 
+with tab3: 
     st.title("Análise do Modelo SARIMA Escolhido")
     st.markdown("""
         ## Introdução
