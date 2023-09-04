@@ -157,7 +157,7 @@ with tab3:
     
 with tab4: 
     
-    ttrain_size = int(0.80 * len(ibovespa))
+    train_size = int(0.80 * len(ibovespa))
     train_data = ibovespa['Fechamento'].iloc[:train_size]
     test_data = ibovespa['Fechamento'].iloc[train_size:]
 
