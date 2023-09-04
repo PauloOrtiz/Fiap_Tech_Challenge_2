@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image
 import pandas as pd
+from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 
 st.set_page_config(page_title="Sarimax", page_icon=":house:")
@@ -16,6 +17,11 @@ st.write(tabs_font_css, unsafe_allow_html=True)
 
 image = Image.open("./src/img/Sarima.png")
 st.image(image)
+
+ibovespa = pd.read_csv('./src/data/ibovespa2021.csv', sep=',')
+ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%Y-%m-%d')
+ibovespa.set_index('Data', inplace=True) 
+ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
 
 
 tab1, tab2, tab3, tab4, tab5 = st.tabs(["SARIMAX", "Escolha do modelo", "Modelo para previsão","Acurácia", "Diagnostico do Modelo"])
@@ -94,6 +100,16 @@ with tab2:
 
     A seguir, vamos mergulhar nos dados e começar nossa busca pelo modelo SARIMA ideal para o Ibovespa. Acompanhe cada etapa, observe as métricas e junte-se a nós nesta jornada empolgante de descoberta.
     """)
+    
+    model1 = SARIMAX(ibovespa['Fechamento'],order=(0,1,0), seasonal_order=(0,0,0,12)).fit(ds=-1)
+    st.write(model1)
+    model1 = SARIMAX(ibovespa['Fechamento'],order=(0,1,0), seasonal_order=(1,0,0,12)).fit(ds=-1)
+    st.write(model1)
+    model1 = SARIMAX(ibovespa['Fechamento'],order=(1,1,0), seasonal_order=(0,0,0,12)).fit(ds=-1)
+    st.write(model1)
+    model1 = SARIMAX(ibovespa['Fechamento'],order=(0,1,1), seasonal_order=(0,0,0,12)).fit(ds=-1)
+    st.write(model1)
+
     
     sarima = pd.read_csv('./src/data/modelo_sarima.csv', sep=',', index_col=None)
     st.table(sarima)
