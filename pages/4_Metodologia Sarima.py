@@ -191,7 +191,11 @@ with tab4:
     # Cálculo detalhado do MAPE
     errors = (y_true - y_pred) / y_true
     errors = errors.replace({np.inf: np.nan, -np.inf: np.nan})  # substitua infinitos por NaN
-    mape = np.mean(np.abs(errors)) * 100
+    def calculate_mape(y_true, y_pred):
+        return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
+
+    mape = calculate_mape(y_true, y_pred)
+    st.write((y_true - y_pred) / y_true)
 
     st.write(f"MAE: {mae:.2f}")
     st.write(f"MSE: {mse:.2f}")
