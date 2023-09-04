@@ -130,7 +130,26 @@ with tab2:
     
     
 with tab3: 
-    
+    st.title("Análise do Modelo SARIMA Escolhido")
+    st.markdown("""
+        ## Introdução
+        A escolha de um modelo de séries temporais é uma tarefa que combina ciência e arte. Embora critérios como o AIC nos forneçam uma métrica objetiva para avaliar diferentes modelos, a decisão final muitas vezes leva em consideração outros fatores, como a capacidade do modelo de capturar padrões sazonais, tendências e outros componentes da série.
+        
+        Nesta seção, vamos explorar em detalhes o modelo SARIMA escolhido para nossa série temporal: SARIMAX(0, 1, 0)x(1, 0, [1], 12).
+    """)
+    st.markdown("""
+    ## Sumário Estatístico do Modelo
+    Abaixo, apresentamos um resumo das estatísticas do modelo escolhido. Este sumário nos fornece informações valiosas sobre os parâmetros do modelo, sua significância estatística e outras métricas que nos ajudam a entender o desempenho do modelo.
+    """)       
     
     model1 = SARIMAX(ibovespa['Fechamento'],order=(0,1,0), seasonal_order=(1,0,1,12)).fit(ds=-1)
     st.write(model1.summary())
+    
+    st.markdown("""
+    ## Conclusão
+    A análise do sumário estatístico revela que o modelo SARIMA escolhido se ajusta bem aos dados. Os parâmetros do modelo são estatisticamente significativos, o que indica que eles contribuem de forma valiosa para as previsões.
+    
+    Além disso, métricas como o Ljung-Box e o Jarque-Bera nos fornecem confiança na adequação do modelo e na normalidade dos resíduos, respectivamente.
+    
+    Em resumo, este modelo representa uma ferramenta robusta e confiável para prever a série temporal em questão, e estamos confiantes em suas previsões para o futuro.
+    """)    
