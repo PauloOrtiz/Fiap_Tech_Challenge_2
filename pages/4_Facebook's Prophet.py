@@ -242,3 +242,19 @@ with tab4:
         tickfont=dict(size=14, color='#333')
     ))
     st.plotly_chart(fig)
+
+
+    trace = go.Histogram(
+    x=df['Resíduos'],
+    nbinsx=20,
+    marker=dict(color='blue', line=dict(color='black', width=1))
+    )
+
+    layout = go.Layout(
+        title='Distribuição dos Resíduos',
+        xaxis=dict(title='Resíduos'),
+        yaxis=dict(title='Frequência')
+    )
+
+    fig = go.Figure(data=[trace], layout=layout)
+    st.plotly_chart(fig)
