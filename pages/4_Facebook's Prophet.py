@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from prophet import Prophet
-import plotly.tools as tls
+from sklearn.metrics import mean_squared_error, mean_absolute_error
 
 
 
