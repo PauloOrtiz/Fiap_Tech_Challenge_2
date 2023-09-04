@@ -246,12 +246,21 @@ with tab2:
 with tab3:
 
     st.markdown("""
+                
+    # Modelo do Escolhido                
     Em resumo, os resultados indicam que seu modelo ARIMA(0, 1, 0) com diferenciação de primeira ordem pode não ser o melhor modelo para seus dados, uma vez que o AIC não é muito baixo. Além disso, é importante verificar visualmente as previsões do modelo em relação aos dados reais para avaliar a qualidade da previsão.
     """)
 
     model = ARIMA(ibovespa, order=(0,1,0))
     results = model.fit()
     st.write(results.summary())
+
+    st.markdown("""
+
+    Neste caso, o valor estimado de sigma2 é de 2.089e+06, o que significa que a variância dos resíduos é de aproximadamente 2.089 milhões. Isso indica a magnitude da dispersão dos erros em relação às previsões do modelo.
+
+    Uma variância dos resíduos alta pode indicar que o modelo não está capturando adequadamente a variabilidade nos dados ou que há heteroscedasticidade nos resíduos, o que significa que a variância dos erros muda ao longo do tempo.
+        """)
 
 
 
