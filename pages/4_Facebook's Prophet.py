@@ -225,6 +225,11 @@ with tab3:
     )
     
     )
+    
+
+    # Exibir a figura no Streamlit
+    st.plotly_chart(fig)
+
     st.write("""
     ## Métricas de Acurácia
 
@@ -235,10 +240,6 @@ with tab3:
     - **MAPE (Mean Absolute Percentage Error)**: É a média dos erros percentuais absolutos. Dá uma ideia da precisão em termos percentuais.
 
     """)
-
-    # Exibir a figura no Streamlit
-    st.plotly_chart(fig)
-
     table_html = acuracia.to_html(index=False)
 
     st.write(table_html, unsafe_allow_html=True)
