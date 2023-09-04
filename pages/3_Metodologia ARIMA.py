@@ -29,6 +29,7 @@ ibovespa = pd.read_csv('./src/data/ibovespa2021.csv', sep=',')
 ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%Y-%m-%d')
 ibovespa.set_index('Data', inplace=True) 
 ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
+acuracia = pd.read_csv('./src/data/Acuracia_arima.csv', sep=';', index_col=None)
 AIC_BIC = pd.read_csv('./src/data/df_AIC_BIC.csv', sep=';', index_col=None)
 
 
@@ -271,7 +272,9 @@ with tab3:
 
 
 with tab4:
-    pass
+    table_html = acuracia.to_html(index=False)
+
+    st.write(table_html, unsafe_allow_html=True)
 
 with tab5:
     model = sm.tsa.ARIMA(ibovespa['Fechamento'], order=(1, 1, 0))
