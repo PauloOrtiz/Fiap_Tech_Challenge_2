@@ -50,11 +50,11 @@ st.markdown("""
 
 with tab1:
     st.markdown("""
-    # SARIMAX: Uma Jornada Além do ARIMA
+    # SARIMA: Uma Jornada Além do ARIMA
 
     Quando nos aventuramos no mundo das séries temporais, rapidamente nos deparamos com o modelo ARIMA, uma ferramenta poderosa e flexível. No entanto, o universo da previsão é vasto e, às vezes, precisamos de algo mais robusto, algo que considere sazonalidades e variáveis exógenas. É aqui que o SARIMAX entra em cena.
 
-    ## O que é SARIMAX?
+    ## O que é SARIMA?
 
     O SARIMAX é uma extensão do ARIMA. O 'S' refere-se à sazonalidade, e o 'X' refere-se às variáveis exógenas. Em outras palavras, enquanto o ARIMA é excelente para prever séries temporais baseadas em seus próprios valores passados, o SARIMAX leva em consideração padrões sazonais e outras variáveis externas que podem influenciar a série.
 
