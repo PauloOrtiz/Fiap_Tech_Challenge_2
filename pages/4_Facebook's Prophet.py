@@ -263,14 +263,10 @@ with tab4:
         }},
         xaxis=dict(title='Resíduos'),
         yaxis=dict(title='Frequência'),
-        xaxis=dict(
-        tickangle=-45,  # Inclina os rótulos para melhor visualização
-        title_font=dict(size=18, color='#CD8D00'),
-        tickfont=dict(size=14, color='#333'),template="plotly_dark",
+        template="plotly_dark",
         yaxis=dict(
             title_font=dict(size=18, color='#CD8D00'),
             tickfont=dict(size=14, color='#333')
-        )
         )
     )
 
