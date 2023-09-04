@@ -310,7 +310,7 @@ with tab4:
         
         Outro fator a ser observado, é que os erros apresentam aleatoriedade, ou seja, não há como identificar padrões de sazonalidade ou tendência em sua série. 
         
-        Além disso, se a dispersão dos resíduos se ampliar ou estreitar à medida que você se move ao longo do eixo x, isso pode ser um sinal de heteroscedasticidade, o que significa que a variância dos erros não é constante. Esse comportamento também, em geral, não foi identificado na série através do gráfico
+        Além disso, se a dispersão dos resíduos se ampliar ou estreitar à medida que você se move ao longo do eixo x, isso pode ser um sinal de heteroscedasticidade, o que significa que a variância dos erros não é constante. Esse comportamento também, em geral, não foi identificado na série através do gráfico.
     """,unsafe_allow_html=True)
 
     
