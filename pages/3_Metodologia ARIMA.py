@@ -261,6 +261,10 @@ with tab3:
     results = model.fit()
     st.write(results.summary())
 
+    model = ARIMA(ibovespa, order=(0,1,0))
+    results = model.fit()
+    st.write(results.summary())
+
     st.markdown("""
 
     Neste caso, o valor estimado de sigma2 é de 2.089e+06, o que significa que a variância dos resíduos é de aproximadamente 2.089 milhões. Isso indica a magnitude da dispersão dos erros em relação às previsões do modelo.
