@@ -173,7 +173,7 @@ with tab4:
     mae = mean_absolute_error(y_true, y_pred)
     mse = mean_squared_error(y_true, y_pred)
     rmse = np.sqrt(mse)
-    mape = np.mean(np.abs((y_true - y_pred) / y_true)) * 100
+    mape = np.mean(np.abs((y_true - y_pred) / y_true.replace({0: np.nan}))) * 100
     
     st.write(f"MAE: {mae:.2f}")
     st.write(f"MSE: {mse:.2f}")
