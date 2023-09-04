@@ -85,15 +85,6 @@ with tab2:
     st.title("Previsão de Séries Temporais com Prophet")
 
     st.write("""
-    ## Introdução ao Prophet
-
-    Prophet é uma ferramenta de previsão de séries temporais desenvolvida pelo Facebook. 
-    É especialmente projetada para lidar com séries temporais que possuem padrões sazonais fortes e vários pontos de temporada.
-    Nesta análise, usaremos o Prophet para prever os pontos do Ibovespa.
-
-    """)
-
-    st.write("""
     ## Previsão com Prophet
 
     Abaixo, você pode ver a previsão feita pelo Prophet. Os dados de treinamento são mostrados em azul, enquanto a previsão é mostrada em vermelho.
