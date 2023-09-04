@@ -166,10 +166,32 @@ with tab2:
 
 with tab3:
 
+    y_pred = forecast['yhat'][train_size:]
+    y_true = test_df['y']
+
+    fig = go.Figure()
+
+    fig.add_trace(go.Scatter(x=x_indices, y=y_true, mode='lines', name='Valores Observados', line=dict(color='blue')))
+
+    # Adicionar os valores previstos
+    fig.add_trace(go.Scatter(x=x_indices, y=y_pred, mode='lines', name='Valores Preditos', line=dict(color='red')))
+
+    # Definir os títulos e rótulos dos eixos
+    fig.update_layout(
+        title='Valores Observados vs Valores Preditos',
+        xaxis_title='Número de Observações da Série',
+        yaxis_title='Pontuação',
+        legend_title='Legenda'
+    )
+
+    # Exibir a figura no Streamlit
+    st.plotly_chart(fig)
+
     table_html = acuracia.to_html(index=False)
 
-    # Exibindo o HTML no Streamlit
     st.write(table_html, unsafe_allow_html=True)
+
+    
 
 
     st.markdown(
