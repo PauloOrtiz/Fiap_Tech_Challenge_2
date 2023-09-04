@@ -299,6 +299,6 @@ with tab5:
     )
 
     # Exibir gráfico Plotly
-    fig.show()
+    st.plotly_chart(fig)
     
 
