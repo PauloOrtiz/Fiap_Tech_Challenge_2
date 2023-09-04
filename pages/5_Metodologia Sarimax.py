@@ -1,7 +1,11 @@
 import streamlit as st
+from PIL import Image
 
 
 st.set_page_config(page_title="Sarimax", page_icon=":house:")
+
+image = Image.open("./src/img/Sarima.png")
+st.image(image)
 
 
 tab1, tab2, tab3, tab4, tab5 = st.tabs(["SARIMAX", "Escolha do modelo", "Modelo para previsão","Acurácia", "Diagnostico do Modelo"])
