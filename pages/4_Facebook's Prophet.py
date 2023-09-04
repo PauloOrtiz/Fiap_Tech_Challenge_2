@@ -166,7 +166,11 @@ with tab2:
 
 with tab3:
 
-    st.table(acuracia)
+    table_html = acuracia.to_html(index=False)
+
+    # Exibindo o HTML no Streamlit
+    st.write(table_html, unsafe_allow_html=True)
+
 
     st.markdown(
         """
