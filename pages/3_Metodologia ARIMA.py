@@ -319,7 +319,8 @@ with tab5:
     model = ARIMA(ibovespa, order=(0,1,0))
     results = model.fit()
     results.plot_diagnostics(figsize=(15, 12))
-    plt.show()
+    plt.savefig("diagnostics.png")
+    st.image("diagnostics.png")
 
     fig, ax = plt.subplots(figsize=(15, 12))
     results.plot_diagnostics(ax=ax)
