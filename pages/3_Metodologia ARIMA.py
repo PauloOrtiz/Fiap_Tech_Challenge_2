@@ -262,7 +262,7 @@ with tab4:
     pass
 
 with tab5:
-    model = sm.tsa.ARIMA(ibovespa['y'], order=(1, 1, 0))
+    model = sm.tsa.ARIMA(ibovespa['Fechamento'], order=(1, 1, 0))
     results = model.fit()
 
     forecast = results.get_prediction(start=-25)
@@ -275,7 +275,7 @@ with tab5:
 
     fig = make_subplots(rows=1, cols=1)
     # Gráfico de linha para os valores observados
-    trace_observed = go.Scatter(x=ibovespa_t.index, y=ibovespa_t['y'], mode='lines', name='Observado')
+    trace_observed = go.Scatter(x=ibovespa_t.index, y=ibovespa_t['Fechamento'], mode='lines', name='Observado')
     fig.add_trace(trace_observed)
 
     # Gráfico de linha para a previsão
