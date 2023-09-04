@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from prophet import Prophet
 from sklearn.metrics import mean_squared_error, mean_absolute_error
+import numpy as np
 
 
 
@@ -168,6 +169,7 @@ with tab3:
 
     y_pred = forecast['yhat'][train_size:]
     y_true = test_df['y']
+    x_indices = np.arange(len(y_true))
 
     fig = go.Figure()
 
