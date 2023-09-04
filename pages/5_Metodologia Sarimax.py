@@ -4,6 +4,15 @@ from PIL import Image
 
 st.set_page_config(page_title="Sarimax", page_icon=":house:")
 
+tabs_font_css = """
+<style>
+.st-b3{
+   display: flow;
+}
+</style>
+"""
+st.write(tabs_font_css, unsafe_allow_html=True)
+
 image = Image.open("./src/img/Sarima.png")
 st.image(image)
 
