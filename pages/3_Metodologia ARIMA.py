@@ -290,13 +290,27 @@ with tab5:
 
     # Layout
     fig.update_layout(
-        title='Previsão do Ibovespa com Intervalo de Confiança',
-        xaxis_title='Data',
-        yaxis_title='Valor de Fechamento do Ibovespa',
-        showlegend=True,
-        height=600,
-        width=800
-    )
+    title={
+    'text': "Previsão do Ibovespa com Intervalo de Confiança",
+    'y':0.95,
+    'x':0.5,
+    'xanchor': 'center',
+    'yanchor': 'top',
+    'font': {
+        'size': 20,
+        'color': '#306998'
+    }},xaxis_title='Data',
+    yaxis_title="Valor de Fechamento do Ibovespa",
+    xaxis=dict(
+        tickangle=-45,  # Inclina os rótulos para melhor visualização
+        title_font=dict(size=18, color='#CD8D00'),
+        tickfont=dict(size=14, color='#333')
+    ),
+    template="plotly_dark",
+    yaxis=dict(
+        title_font=dict(size=18, color='#CD8D00'),
+        tickfont=dict(size=14, color='#333')
+    ))
 
     # Exibir gráfico Plotly
     st.plotly_chart(fig)
