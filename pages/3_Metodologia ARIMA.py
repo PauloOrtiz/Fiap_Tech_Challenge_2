@@ -17,6 +17,7 @@ tabs_font_css = """
 }
 </style>
 """
+st.write(tabs_font_css, unsafe_allow_html=True)
 
 image = Image.open("./src/img/Arima.png")
 st.image(image)
