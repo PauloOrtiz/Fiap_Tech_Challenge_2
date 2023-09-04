@@ -32,7 +32,7 @@ ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
 AIC_BIC = pd.read_csv('./src/data/df_AIC_BIC.csv', sep=';', index_col=None)
 
 
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["ARIMA", "Escolha do modelo", "Modelos para previsões","Acurácia", "Diagnostico do Modelo"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["ARIMA", "Escolha do modelo", "Modelo para previsão","Acurácia", "Diagnostico do Modelo"])
 
 with tab1:
     st.markdown("""
@@ -244,19 +244,36 @@ with tab2:
 
 
 with tab3:
-    st.markdown(
-        """
-        # Escolhendo Modelos
+    train_size = int(0.80 * len(ibovespa))
+    train_df = ibovespa.iloc[:train_size]
+    test_df = ibovespa.iloc[train_size:]
 
-        ## Modelo Arima 2 2 0
+    model = ARIMA(train_df['Fechamento'], order=(0, 1, 0))
+    model_fit = model.fit()
 
-        # Previsões e Erros
+    steps = 60
 
-        ## Tabelas 
+    forecast = model_fit.get_forecast(steps=steps)
+    mean_forecast = forecast.predicted_mean
 
-        ## Acuracia 
-        """
-    )
+    forecast_index = pd.date_range(start=test_df.index[-1], periods=steps + 1, freq='D')[1:]
+        
+    fig = go.Figure()
+
+    
+    fig.add_trace(go.Scatter(x=train_df.index, y=train_df['Fechamento'], mode='lines', name='Treino'))
+    fig.add_trace(go.Scatter(x= test_df.index, y= test_df ['Fechamento'], mode='lines', name='Teste'))
+
+    
+    fig.add_trace(go.Scatter(x=forecast_index, y=mean_forecast, mode='lines', name='Previsão', line=dict(color='red')))
+
+    
+    fig.update_layout(title='Previsão do Ibovespa com Modelo ARIMA',
+                    xaxis_title='Data',
+                    yaxis_title='Valor de Fechamento do Ibovespa')
+
+    
+    st.plotly_chart(fig)
 
 
 with tab4:
