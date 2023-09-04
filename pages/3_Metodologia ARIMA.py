@@ -20,7 +20,7 @@ ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
 AIC_BIC = pd.read_csv('./src/data/df_AIC_BIC.csv', sep=';', index_col=None)
 
 
-tab1, tab2, tab3 = st.tabs(["ARIMA", "Escolha do modelo", "Modelos"])
+tab1, tab2, tab3, tab4, tba5 = st.tabs(["ARIMA", "Escolha do modelo", "Modelos para previsões","Acurácia", "Diagnostico do Modelo"])
 
 with tab1:
     st.markdown("""
@@ -246,6 +246,12 @@ with tab3:
         """
     )
 
+
+with tab4:
+    pass
+
+with tab5:
+    pass
 
     
 
