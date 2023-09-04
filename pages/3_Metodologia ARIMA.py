@@ -7,6 +7,7 @@ from statsmodels.tsa.arima.model import ARIMA
 import statsmodels.api as sm      
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import matplotlib.pyplot as plt
 
 
 
@@ -314,5 +315,22 @@ with tab5:
 
     # Exibir gráfico Plotly
     st.plotly_chart(fig)
-    
+
+
+    fig, ax = plt.subplots(figsize=(15, 12))
+    results.plot_diagnostics(ax=ax)
+
+    # Converta o gráfico matplotlib em plotly
+    plotly_fig = make_subplots(rows=2, cols=2)
+
+    # Adicione cada subplot do matplotlib ao gráfico plotly
+    for i, subplot in enumerate(fig.axes):
+        plotly_fig.add_trace(go.Scatter(x=subplot.lines[0].get_xdata(),
+                                        y=subplot.lines[0].get_ydata(),
+                                        mode='lines'),
+                            row=i//2 + 1, col=i%2 + 1)
+
+    # Exiba o gráfico no Streamlit
+    st.plotly_chart(plotly_fig)
+        
 
