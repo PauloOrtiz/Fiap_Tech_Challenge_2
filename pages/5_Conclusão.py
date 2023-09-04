@@ -43,13 +43,11 @@ Avaliamos cada modelo com base em sua acurácia. Queríamos um modelo que não a
 
 ## A Revelação
 
-Sem mais delongas, vamos revelar o modelo vencedor. O modelo que, em nossa análise, provou ser o mais confiável e preciso em suas previsões. O modelo que recomendamos para prever o futuro da série temporal em questão é...
+Sem mais delongas, vamos revelar o modelo vencedor. O modelo que, em nossa análise, provou ser o mais confiável e preciso em suas previsões. Observando as métricas de acurácia, podemos concluir que o modelo tem um desempenho razoável. O MAPE de 7,788% indica que, em média, o modelo erra em cerca de 7,78% nas suas previsões. Em comparação, o ARIMA acerta em 2% somente, tornando nosso modelo escolhido superior em termos de precisão.
             
 """)
 
-st.markdown("""
-### Resultado em desenvolvimento - EM BREVE
-""")
+
 
 
 st.markdown("""
