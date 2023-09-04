@@ -17,7 +17,7 @@ ibovespa = pd.read_csv('./src/data/ibovespa2021.csv', sep=',')
 ibovespa['Data'] = pd.to_datetime(ibovespa['Data'],format='%Y-%m-%d')
 ibovespa = ibovespa.rename(columns={'Data':'ds'})
 ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
-acuracia = pd.read_csv('./src/data/ACURACIA_prophet.csv', sep=',')
+acuracia = pd.read_csv('./src/data/ACURACIA_prophet.csv', sep=';')
 
 
 tab1, tab2, tab3 = st.tabs(["Prophet", "Previsões e Decomposição", "Acurácia"])
