@@ -112,4 +112,7 @@ with tab2:
 
     
     sarima = pd.read_csv('./src/data/modelo_sarima.csv', sep=',', index_col=None)
-    st.table(sarima)
+    table_html = sarima.to_html(index=False)
+
+    # Exibindo o HTML no Streamlit
+    st.write(table_html, unsafe_allow_html=True)
