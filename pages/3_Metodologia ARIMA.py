@@ -3,8 +3,10 @@ from PIL import Image
 import pandas as pd
 from statsmodels.tsa.stattools import acf, pacf
 import numpy as np
-from statsmodels.tsa.arima.model import ARIMA       
+from statsmodels.tsa.arima.model import ARIMA 
+import statsmodels.api as sm      
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
 
 
@@ -260,7 +262,43 @@ with tab4:
     pass
 
 with tab5:
-    pass
+    model = sm.tsa.ARIMA(ibovespa['y'], order=(1, 1, 0))
+    results = model.fit()
 
+    forecast = results.get_prediction(start=-25)
+    mean_forecast = forecast.predicted_mean
+    confidence_intervals = forecast.conf_int()
+    lower_limits = confidence_intervals.loc[:, 'lower y']
+    upper_limits = confidence_intervals.loc[:, 'upper y']
+
+    ibovespa_t = ibovespa.loc['2023-05-01':]
+
+    fig = make_subplots(rows=1, cols=1)
+    # Gráfico de linha para os valores observados
+    trace_observed = go.Scatter(x=ibovespa_t.index, y=ibovespa_t['y'], mode='lines', name='Observado')
+    fig.add_trace(trace_observed)
+
+    # Gráfico de linha para a previsão
+    trace_forecast = go.Scatter(x=mean_forecast.index, y=mean_forecast.values, mode='lines', name='Previsão', line=dict(color='red'))
+    fig.add_trace(trace_forecast)
+
+    # Sombreamento da faixa de confiança
+    trace_confidence = go.Scatter(x=lower_limits.index, y=lower_limits, fill='tonexty', fillcolor='rgba(255, 0, 0, 0.2)',name='Lower Limit', line=dict(color='rgba(255, 0, 0, 0)'))
+    fig.add_trace(trace_confidence)
+    trace_confidence = go.Scatter(x=upper_limits.index, y=upper_limits, fill='tonexty', fillcolor='rgba(255, 0, 0, 0.2)',name='Upper Limit', line=dict(color='rgba(255, 0, 0, 0)'))
+    fig.add_trace(trace_confidence)
+
+    # Layout
+    fig.update_layout(
+        title='Previsão do Ibovespa com Intervalo de Confiança',
+        xaxis_title='Data',
+        yaxis_title='Valor de Fechamento do Ibovespa',
+        showlegend=True,
+        height=600,
+        width=800
+    )
+
+    # Exibir gráfico Plotly
+    fig.show()
     
 
