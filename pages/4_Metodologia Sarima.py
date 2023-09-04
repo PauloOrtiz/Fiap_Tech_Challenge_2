@@ -4,7 +4,7 @@ import pandas as pd
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 
-st.set_page_config(page_title="Sarimax", page_icon=":house:")
+st.set_page_config(page_title="Sarima", page_icon=":house:")
 
 tabs_font_css = """
 <style>
@@ -99,16 +99,21 @@ with tab2:
     ## Vamos Começar!
 
     A seguir, vamos mergulhar nos dados e começar nossa busca pelo modelo SARIMA ideal para o Ibovespa. Acompanhe cada etapa, observe as métricas e junte-se a nós nesta jornada empolgante de descoberta.
+   
+    ### Tabela de localização de
     """)
     
-    model1 = SARIMAX(ibovespa['Fechamento'],order=(0,1,0), seasonal_order=(0,0,0,12)).fit(ds=-1)
-    st.write(model1.summary())
-    model1 = SARIMAX(ibovespa['Fechamento'],order=(0,1,0), seasonal_order=(1,0,0,12)).fit(ds=-1)
-    st.write(model1.summary())
-    model1 = SARIMAX(ibovespa['Fechamento'],order=(0,1,0), seasonal_order=(0,0,1,12)).fit(ds=-1)
-    st.write(model1.summary())
-    model1 = SARIMAX(ibovespa['Fechamento'],order=(0,1,0), seasonal_order=(1,0,1,12)).fit(ds=-1)
-    st.write(model1.summary())
+    
+  
+    st.markdown("""                
+        ## Resultados do Modelo SARIMA
+        ### Análise dos Resultados SARIMA
+        A análise de séries temporais é uma ferramenta poderosa para prever tendências e padrões futuros. 
+        O modelo SARIMA, que combina o ARIMA com sazonalidade, é uma das abordagens mais populares para lidar com séries temporais sazonais.
+        
+        Abaixo, apresentamos os resultados de diferentes combinações de parâmetros sazonais para o modelo SARIMA, mantendo a parte ARIMA fixa em (0,1,0). 
+        Os critérios de informação AIC e BIC são usados para avaliar a qualidade de cada modelo. Em geral, modelos com valores AIC e BIC mais baixos são preferíveis.
+    """)
 
     
     sarima = pd.read_csv('./src/data/modelo_sarima.csv', sep=',', index_col=None)
@@ -116,3 +121,16 @@ with tab2:
 
     # Exibindo o HTML no Streamlit
     st.write(table_html, unsafe_allow_html=True)
+    
+    st.markdown("""
+    ### Observações:
+    - O modelo com os parâmetros sazonais `(0, 0, 0, 12)` apresenta o menor valor de AIC, sugerindo que pode ser o modelo mais adequado dentre os testados.
+    - É importante lembrar que, além dos critérios de informação, devemos considerar outros fatores, como a interpretabilidade do modelo e a validação em um conjunto de testes, ao escolher o modelo final.
+    """)
+    
+    
+with tab3: 
+    
+    
+    model1 = SARIMAX(ibovespa['Fechamento'],order=(0,1,0), seasonal_order=(1,0,1,12)).fit(ds=-1)
+    st.write(model1.summary())
