@@ -262,6 +262,14 @@ with tab3:
     )
 
 with tab4:
+
+    st.markdown("""
+    
+    # Analisando o comportamento dos Resíduos do Modelo
+
+    Com base na análise dos resíduos, podemos fazer uma avaliação geral do desempenho do modelo. Se os resíduos estiverem próximos da linha de referência zero e não houver padrões evidentes, isso sugere que o modelo está bem ajustado aos dados. Caso contrário, pode ser necessário reavaliar e ajustar o modelo.
+    """)
+
     residuals = y_true - y_pred
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=test_df['ds'], y=residuals, mode='lines', name='Residuals'))
@@ -297,32 +305,10 @@ with tab4:
     ))
     st.plotly_chart(fig)
 
-    df = pd.DataFrame({'Resíduos': residuals})
-    trace = go.Histogram(
-    x=df['Resíduos'],
-    nbinsx=20,
-    marker=dict(color='blue', line=dict(color='black', width=1))
-    )
-
-    layout = go.Layout(
-        title={
-        'text': "Distribuição dos Resíduos",
-        'y':0.95,
-        'x':0.5,
-        'xanchor': 'center',
-        'yanchor': 'top',
-        'font': {
-            'size': 20,
-            'color': '#306998'
-        }},
-        xaxis=dict(title='Resíduos'),
-        yaxis=dict(title='Frequência'),
-        template="plotly_dark",
-    )
-
-
-    fig = go.Figure(data=[trace], layout=layout)
-    st.plotly_chart(fig)
-
+    st.markdown("""
+    A linha horizontal vermelha tracejada em y=0 é uma linha de referência que indica onde os resíduos deveriam estar idealmente se o modelo fosse perfeito. Desvios significativos dos resíduos em relação a esta linha podem indicar problemas no modelo. Conforme observamos, em geral, os erros se comportam de maneira relativamente próxima ao eixo y=0. 
+Outro fator a ser observado, é que os erros apresentam aleatoriedade, ou seja, não há como identificar padrões de sazonalidade ou tendência em sua série. 
+Além disso, se a dispersão dos resíduos se ampliar ou estreitar à medida que você se move ao longo do eixo x, isso pode ser um sinal de heteroscedasticidade, o que significa que a variância dos erros não é constante. Esse comportamento também, em geral, não foi identificado na série através do gráfico
+    """)
 
     
