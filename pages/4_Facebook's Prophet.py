@@ -82,6 +82,24 @@ with tab1:
         
 with tab2:
     
+    st.title("Previsão de Séries Temporais com Prophet")
+
+    st.write("""
+    ## Introdução ao Prophet
+
+    Prophet é uma ferramenta de previsão de séries temporais desenvolvida pelo Facebook. 
+    É especialmente projetada para lidar com séries temporais que possuem padrões sazonais fortes e vários pontos de temporada.
+    Nesta análise, usaremos o Prophet para prever os pontos do Ibovespa.
+
+    """)
+
+    st.write("""
+    ## Previsão com Prophet
+
+    Abaixo, você pode ver a previsão feita pelo Prophet. Os dados de treinamento são mostrados em azul, enquanto a previsão é mostrada em vermelho.
+    """)
+
+
     ibovespa = ibovespa.rename(columns={"Fechamento": "y"})
     df = pd.DataFrame(ibovespa)
     model = Prophet()
@@ -127,6 +145,13 @@ with tab2:
 
     st.plotly_chart(fig)
 
+    st.write("""
+    ## Decomposição da Série Temporal
+
+    Uma das características mais úteis do Prophet é sua capacidade de decompor automaticamente uma série temporal em seus componentes. 
+    Isso inclui a tendência geral, sazonalidade anual e efeitos de feriados (se fornecidos).
+    Abaixo, você pode ver a decomposição da tendência e sazonalidade da série.
+    """)
 
 
     fig = make_subplots(rows=2, cols=1, subplot_titles=('Tendência', 'Sazonalidade'))
@@ -150,7 +175,13 @@ with tab2:
     
     st.plotly_chart(fig)
          
-    
+    st.write("""
+    ## Conclusão
+
+    Através do Prophet, conseguimos obter uma previsão robusta para os pontos do Ibovespa. 
+    A decomposição da série nos ajudou a entender melhor os componentes subjacentes da série temporal.
+    Esta análise pode ser estendida para prever mais pontos no futuro, ajustar hiperparâmetros ou incorporar mais informações, como feriados, para melhorar a previsão.
+    """)
 
 with tab3:
 
