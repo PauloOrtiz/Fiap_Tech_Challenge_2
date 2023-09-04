@@ -245,40 +245,14 @@ with tab2:
 
 with tab3:
 
+    st.markdown("""
+    Em resumo, os resultados indicam que seu modelo ARIMA(0, 1, 0) com diferenciação de primeira ordem pode não ser o melhor modelo para seus dados, uma vez que o AIC não é muito baixo. Além disso, é importante verificar visualmente as previsões do modelo em relação aos dados reais para avaliar a qualidade da previsão.
+    """)
+
     model = ARIMA(ibovespa, order=(0,1,0))
     results = model.fit()
     st.write(results.summary())
 
-    train_size = int(0.80 * len(ibovespa))
-    train_df = ibovespa.iloc[:train_size]
-    test_df = ibovespa.iloc[train_size:]
-
-    model = ARIMA(train_df['Fechamento'], order=(0, 1, 0))
-    model_fit = model.fit()
-
-    steps = 60
-
-    forecast = model_fit.get_forecast(steps=steps)
-    mean_forecast = forecast.predicted_mean
-
-    forecast_index = pd.date_range(start=test_df.index[-1], periods=steps + 1, freq='D')[1:]
-        
-    fig = go.Figure()
-
-    
-    fig.add_trace(go.Scatter(x=train_df.index, y=train_df['Fechamento'], mode='lines', name='Treino'))
-    fig.add_trace(go.Scatter(x= test_df.index, y= test_df ['Fechamento'], mode='lines', name='Teste'))
-
-    
-    fig.add_trace(go.Scatter(x=forecast_index, y=mean_forecast, mode='lines', name='Previsão', line=dict(color='red')))
-
-    
-    fig.update_layout(title='Previsão do Ibovespa com Modelo ARIMA',
-                    xaxis_title='Data',
-                    yaxis_title='Valor de Fechamento do Ibovespa')
-
-    
-    st.plotly_chart(fig)
 
 
 with tab4:
