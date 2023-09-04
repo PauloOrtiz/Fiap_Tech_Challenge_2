@@ -249,12 +249,29 @@ with tab4:
     nbinsx=20,
     marker=dict(color='blue', line=dict(color='black', width=1))
     )
-
-    layout = go.Layout(
-        title='Distribuição dos Resíduos',
-        xaxis=dict(title='Resíduos'),
-        yaxis=dict(title='Frequência')
-    )
+    
+    fig.update_layout(
+    title={
+    'text': "Distribuição dos Resíduos",
+    'y':0.95,
+    'x':0.5,
+    'xanchor': 'center',
+    'yanchor': 'top',
+    'font': {
+        'size': 20,
+        'color': '#306998'
+    }},xaxis_title='Resíduos',
+    yaxis_title="Frequência",
+    xaxis=dict(
+        tickangle=-45,  # Inclina os rótulos para melhor visualização
+        title_font=dict(size=18, color='#CD8D00'),
+        tickfont=dict(size=14, color='#333')
+    ),
+    template="plotly_dark",
+    yaxis=dict(
+        title_font=dict(size=18, color='#CD8D00'),
+        tickfont=dict(size=14, color='#333')
+    ))
 
     fig = go.Figure(data=[trace], layout=layout)
     st.plotly_chart(fig)
