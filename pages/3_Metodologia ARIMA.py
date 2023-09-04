@@ -247,8 +247,14 @@ with tab3:
 
     st.markdown("""
                 
-    # Modelo do Escolhido                
-    Em resumo, os resultados indicam que seu modelo ARIMA(0, 1, 0) com diferenciação de primeira ordem pode não ser o melhor modelo para seus dados, uma vez que o AIC não é muito baixo. Além disso, é importante verificar visualmente as previsões do modelo em relação aos dados reais para avaliar a qualidade da previsão.
+    # Modelo Escolhido
+
+    O modelo ARIMA(2, 1, 1) foi escolhido após uma série de testes e avaliações. Este modelo utiliza duas defasagens anteriores (AR=2), uma diferenciação de primeira ordem (I=1) e um termo de média móvel (MA=1). 
+
+    No entanto, é importante notar que, apesar de suas características, o AIC do modelo não é extremamente baixo. O Critério de Informação de Akaike (AIC) é uma métrica utilizada para comparar modelos. Quanto menor o AIC, melhor é o modelo em termos de qualidade de ajuste e parcimônia.
+
+    Dessa forma, mesmo que o ARIMA(2, 1, 1) tenha sido o modelo escolhido, é crucial avaliar visualmente suas previsões em relação aos dados reais. Esta etapa nos permite entender melhor a qualidade das previsões e identificar áreas de melhoria.
+
     """)
 
     model = ARIMA(ibovespa, order=(2,1,1))
