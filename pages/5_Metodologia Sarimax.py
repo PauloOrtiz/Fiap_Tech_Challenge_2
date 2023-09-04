@@ -27,6 +27,6 @@ st.markdown("""
             
 ## Essa pagina depende de como será o almoço do João amanhã para ser desenvolvida 
             
-### Aguadando o João Almoçar.
+### Aguardando o João Almoçar.
 
 """)
