@@ -4,6 +4,7 @@ import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from prophet import Prophet
+import plotly.tools as tls
 
 
 
@@ -147,16 +148,14 @@ with tab2:
     
     st.plotly_chart(fig)
 
+         
     
-       
-    def mpl_to_plotly(mpl_fig):
-        return go.Figure(go.FigureWidget(mpl_fig).to_dict())
-
+    
 
     components = model.plot_components(forecast)
-    fig = go.Figure(go.FigureWidget(components).to_dict())
-
-    st.plotly_chart(fig)
+    plotly_fig = tls.mpl_to_plotly(components)
+    
+    st.plotly_chart(plotly_fig)
 
 
 
