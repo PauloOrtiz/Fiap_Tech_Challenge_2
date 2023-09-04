@@ -325,36 +325,4 @@ with tab4:
     st.plotly_chart(fig)
 
 
-    from prophet.diagnostics import cross_validation, performance_metrics
-    df_cv = cross_validation(model, horizon='20 W', parallel='processes')
-    df_pm = performance_metrics(df_cv)
-    st.write(df_pm.head(10))
-
-    # Criar gráfico usando Plotly em go
-    fig = go.Figure()
-
-    # Adicionar dados ao gráfico
-    fig.add_trace(go.Scatter(x=df_cv['ds'], y=df_cv['yhat'], mode='lines', name='Previsão'))
-    fig.add_trace(go.Scatter(x=df_cv['ds'], y=df_cv['y'], mode='lines', name='Observado'))
-
-    # Configurar layout do gráfico
-    fig.update_layout(
-        title="Validação Cruzada: Observado vs Previsão",
-        xaxis_title="Data",
-        yaxis_title="Valor",
-        template="plotly_dark"
-    )
-
-    # Exibir gráfico no Streamlit
-    st.plotly_chart(fig)
-
-    # Métrica MAPE
-    fig_mape = go.Figure()
-    fig_mape.add_trace(go.Scatter(x=df_cv['ds'], y=df_cv['mape'], mode='lines', name='MAPE'))
-    fig_mape.update_layout(
-        title="Métrica MAPE ao longo do tempo",
-        xaxis_title="Data",
-        yaxis_title="MAPE",
-        template="plotly_dark"
-    )
-    st.plotly_chart(fig_mape)
+    
