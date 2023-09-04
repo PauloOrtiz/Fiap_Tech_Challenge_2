@@ -322,20 +322,6 @@ with tab5:
     plt.savefig("diagnostics.png")
     st.image("diagnostics.png")
 
-    fig, ax = plt.subplots(figsize=(15, 12))
-    results.plot_diagnostics(ax=ax)
-
-    # Converta o gráfico matplotlib em plotly
-    plotly_fig = make_subplots(rows=2, cols=2)
-
-    # Adicione cada subplot do matplotlib ao gráfico plotly
-    for i, subplot in enumerate(fig.axes):
-        plotly_fig.add_trace(go.Scatter(x=subplot.lines[0].get_xdata(),
-                                        y=subplot.lines[0].get_ydata(),
-                                        mode='lines'),
-                            row=i//2 + 1, col=i%2 + 1)
-
-    # Exiba o gráfico no Streamlit
-    st.plotly_chart(plotly_fig)
+    
         
 
