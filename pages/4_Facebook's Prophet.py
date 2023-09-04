@@ -235,6 +235,7 @@ with tab3:
 
     Para quantificar a precisão do modelo, usamos métricas de acurácia. Vamos entender o que cada métrica significa:
 
+    
     - **MAE (Mean Absolute Error)**: É a média dos erros absolutos. Dá uma ideia direta de quão errado são as previsões.
     - **MAPE (Mean Absolute Percentage Error)**: É a média dos erros percentuais absolutos. Dá uma ideia da precisão em termos percentuais.
 
