@@ -176,6 +176,19 @@ with tab2:
 
 with tab3:
 
+
+    st.title("Avaliação da Acurácia do Modelo")
+
+    st.write("""
+    ## Observados vs Preditos
+
+    Uma das maneiras mais diretas de avaliar a performance de um modelo de previsão é comparar os valores previstos com os valores reais observados. 
+    Isso nos dá uma visualização clara de onde o modelo está acertando e onde está errando. 
+    A proximidade entre as duas linhas (observada e prevista) indica a precisão do modelo. 
+    Uma sobreposição perfeita indicaria um modelo perfeito, o que raramente é o caso na prática.
+    """)
+
+
     y_pred = forecast['yhat'][train_size:]
     y_true = test_df['y']
     x_indices = np.arange(len(y_true))
@@ -212,6 +225,16 @@ with tab3:
     )
     
     )
+    st.write("""
+    ## Métricas de Acurácia
+
+    Para quantificar a precisão do modelo, usamos métricas de acurácia. Vamos entender o que cada métrica significa:
+
+    - **MSE (Mean Squared Error)**: É a média dos quadrados dos erros. Quanto maior o número, pior é o modelo. É útil porque penaliza grandes erros.
+    - **MAE (Mean Absolute Error)**: É a média dos erros absolutos. Dá uma ideia direta de quão errado são as previsões.
+    - **MAPE (Mean Absolute Percentage Error)**: É a média dos erros percentuais absolutos. Dá uma ideia da precisão em termos percentuais.
+
+    """)
 
     # Exibir a figura no Streamlit
     st.plotly_chart(fig)
@@ -220,7 +243,15 @@ with tab3:
 
     st.write(table_html, unsafe_allow_html=True)
 
-    
+    st.write("""
+    ## Conclusão
+
+    Observando as métricas de acurácia, podemos concluir que o modelo tem um desempenho razoável. 
+    O MAPE de 7,788% indica que, em média, o modelo erra em cerca de 7,78% nas suas previsões. 
+    Dependendo do contexto e da aplicação, esse nível de precisão pode ser considerado bom. 
+    No entanto, sempre há espaço para melhorias, e é importante considerar outras técnicas ou ajustes no modelo para melhorar ainda mais a acurácia.
+
+    """)
 
 
     st.markdown(
