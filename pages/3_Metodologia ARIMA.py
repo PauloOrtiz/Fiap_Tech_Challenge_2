@@ -272,6 +272,30 @@ with tab3:
 
 
 with tab4:
+    st.markdown("""
+                
+    # Avaliação do Modelo ARIMA
+
+    Ao mergulhar no universo da previsão de séries temporais, é essencial que cada modelo seja avaliado meticulosamente. O modelo ARIMA, conhecido por sua robustez e flexibilidade, foi uma de nossas escolhas estratégicas. E agora, após a análise, temos os resultados em mãos.
+
+    ## Métricas de Acurácia
+
+    As métricas de acurácia são a bússola que nos guia na avaliação de qualquer modelo de previsão. Elas nos fornecem uma visão quantitativa do desempenho do modelo:
+
+    - **MAE (Erro Médio Absoluto)**: Esta métrica nos dá uma média dos erros absolutos entre as previsões e os valores reais. Um MAE de 1622.46 indica que, em média, nossas previsões desviam-se em 1622.46 pontos dos valores reais.
+
+    - **MSE (Erro Quadrático Médio)**: O MSE é uma métrica que penaliza erros maiores mais do que erros menores. Um valor de 4632679.98 sugere que temos alguns desvios significativos, mas é uma métrica que deve ser interpretada em conjunto com outras.
+
+    - **RMSE (Raiz do Erro Quadrático Médio)**: O RMSE é uma métrica que nos dá uma noção da magnitude dos erros. Com um valor de 2152.37, ele confirma o que o MAE já nos sugeriu sobre o tamanho dos desvios.
+
+    - **MAPE (Erro Percentual Médio Absoluto)**: Talvez a métrica mais reveladora de todas, o MAPE nos dá uma perspectiva percentual dos erros. Um MAPE de 1.35% é impressionante! Isso significa que, em média, nossas previsões estão apenas 1.35% distantes dos valores reais.
+
+    ## Reflexão Final
+
+    Os resultados do ARIMA são promissores. Com um MAPE de apenas 1.35%, o modelo demonstra uma capacidade notável de prever a série temporal com precisão. No entanto, como sempre, é essencial manter uma abordagem crítica e considerar a possibilidade de ajustes e otimizações futuras.
+
+    """)
+
     table_html = acuracia.to_html(index=False)
 
     st.write(table_html, unsafe_allow_html=True)
