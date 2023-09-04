@@ -21,7 +21,7 @@ ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
 acuracia = pd.read_csv('./src/data/ACURACIA_prophet.csv', sep=';')
 
 
-tab1, tab2, tab3 = st.tabs(["Prophet", "Previsões e Decomposição", "Acurácia"])
+tab1, tab2, tab3, tab4 = st.tabs(["Prophet", "Previsões e Decomposição", "Acurácia", "Validação do Modelo"])
 
 with tab1:
     st.markdown("""
@@ -219,3 +219,6 @@ with tab3:
         
         """
     )
+
+with tab4:
+    pass

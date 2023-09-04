@@ -146,6 +146,8 @@ fig.update_layout(
         title_font=dict(size=18, color='#CD8D00'),
         tickfont=dict(size=14, color='#333')
     )
+    xaxis_title='Anos',
+    yaxis_title="Pontuação",
 )
 
 st.plotly_chart(fig)
