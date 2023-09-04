@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+import pandas as pd
 
 
 st.set_page_config(page_title="Sarimax", page_icon=":house:")
@@ -93,3 +94,6 @@ with tab2:
 
     A seguir, vamos mergulhar nos dados e começar nossa busca pelo modelo SARIMA ideal para o Ibovespa. Acompanhe cada etapa, observe as métricas e junte-se a nós nesta jornada empolgante de descoberta.
     """)
+    
+    sarima = pd.read_csv('./src/data/modelo_sarima.csv', sep=',')
+    st.table(sarima)
