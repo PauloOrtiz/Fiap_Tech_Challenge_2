@@ -250,15 +250,15 @@ with tab3:
                 
     # Modelo Escolhido
 
-    O modelo ARIMA(2, 1, 1) foi escolhido após uma série de testes e avaliações. Este modelo utiliza duas defasagens anteriores (AR=2), uma diferenciação de primeira ordem (I=1) e um termo de média móvel (MA=1). 
+    O modelo ARIMA(0, 1, 0) foi escolhido após uma série de testes e avaliações. Este modelo utiliza duas defasagens anteriores (AR=2), uma diferenciação de primeira ordem (I=1) e um termo de média móvel (MA=1). 
 
     No entanto, é importante notar que, apesar de suas características, o AIC do modelo não é extremamente baixo. O Critério de Informação de Akaike (AIC) é uma métrica utilizada para comparar modelos. Quanto menor o AIC, melhor é o modelo em termos de qualidade de ajuste e parcimônia.
 
-    Dessa forma, mesmo que o ARIMA(2, 1, 1) tenha sido o modelo escolhido, é crucial avaliar visualmente suas previsões em relação aos dados reais. Esta etapa nos permite entender melhor a qualidade das previsões e identificar áreas de melhoria.
+    Dessa forma, mesmo que o ARIMA(0, 1, 0) tenha sido o modelo escolhido, é crucial avaliar visualmente suas previsões em relação aos dados reais. Esta etapa nos permite entender melhor a qualidade das previsões e identificar áreas de melhoria.
 
     """)
 
-    model = ARIMA(ibovespa, order=(2,1,1))
+    model = ARIMA(ibovespa, order=(0,1,0))
     results = model.fit()
     st.write(results.summary())
     
@@ -304,7 +304,7 @@ with tab4:
     """)
 
 with tab5:
-    model = sm.tsa.ARIMA(ibovespa['Fechamento'], order=(1, 1, 0))
+    model = sm.tsa.ARIMA(ibovespa['Fechamento'], order=(0, 1, 0))
     results = model.fit()
 
     forecast = results.get_prediction(start=-25)
