@@ -268,8 +268,8 @@ with tab5:
     forecast = results.get_prediction(start=-25)
     mean_forecast = forecast.predicted_mean
     confidence_intervals = forecast.conf_int()
-    lower_limits = confidence_intervals.loc[:, 'lower y']
-    upper_limits = confidence_intervals.loc[:, 'upper y']
+    lower_limits = confidence_intervals.loc[:, 'lower Fechamento']
+    upper_limits = confidence_intervals.loc[:, 'upper Fechamento']
 
     ibovespa_t = ibovespa.loc['2023-05-01':]
 
