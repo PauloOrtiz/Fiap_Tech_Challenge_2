@@ -243,7 +243,7 @@ with tab4:
     ))
     st.plotly_chart(fig)
 
-
+    df = pd.DataFrame({'Resíduos': residuals})
     trace = go.Histogram(
     x=df['Resíduos'],
     nbinsx=20,
