@@ -19,7 +19,7 @@ ibovespa = ibovespa.rename(columns={'Data':'ds'})
 ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
 
 
-tab1, tab2, tab3 = st.tabs(["Prophet", "Previsões e Decomposição", "Modelos e Previsões"])
+tab1, tab2, tab3 = st.tabs(["Prophet", "Previsões e Decomposição", "Acurácia"])
 
 with tab1:
     st.markdown("""
