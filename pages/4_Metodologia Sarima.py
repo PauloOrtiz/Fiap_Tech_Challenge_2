@@ -157,29 +157,46 @@ with tab3:
     
 with tab4: 
     
-    train_size = int(0.80 * len(ibovespa))
+    ttrain_size = int(0.80 * len(ibovespa))
     train_data = ibovespa['Fechamento'].iloc[:train_size]
     test_data = ibovespa['Fechamento'].iloc[train_size:]
-    
+
     model = SARIMAX(ibovespa['Fechamento'], order=(0,1,0), seasonal_order=(1,0,1,12))
     results = model.fit()
-    
-    forecast = results.get_forecast(steps=len(test_data))  # substitua test_data pelo seu conjunto de teste
+
+    forecast = results.get_forecast(steps=len(test_data))
     mean_forecast = forecast.predicted_mean
-    
-    y_true = test_data  # substitua test_data pelo seu conjunto de teste
+
+    y_true = test_data
     y_pred = mean_forecast
 
+    # Verificações
+    zero_values = y_true[y_true == 0]
+    if len(zero_values) > 0:
+        st.write(f"Há {len(zero_values)} valores zero em 'y_true'")
+    else:
+        st.write("Não há valores zero em 'y_true'")
+
+    nan_inf_values = y_pred[np.isnan(y_pred) | np.isinf(y_pred)]
+    if len(nan_inf_values) > 0:
+        st.write(f"Há {len(nan_inf_values)} valores NaN ou infinitos em 'y_pred'")
+    else:
+        st.write("Não há valores NaN ou infinitos em 'y_pred'")
+
+    # Cálculo das métricas
     mae = mean_absolute_error(y_true, y_pred)
     mse = mean_squared_error(y_true, y_pred)
     rmse = np.sqrt(mse)
-    mape = np.mean(np.abs((y_true - y_pred) / y_true.replace({0: np.nan}))) * 100
-    
+
+    # Cálculo detalhado do MAPE
+    errors = (y_true - y_pred) / y_true
+    errors = errors.replace({np.inf: np.nan, -np.inf: np.nan})  # substitua infinitos por NaN
+    mape = np.mean(np.abs(errors)) * 100
+
     st.write(f"MAE: {mae:.2f}")
     st.write(f"MSE: {mse:.2f}")
     st.write(f"RMSE: {rmse:.2f}")
     st.write(f"MAPE: {mape:.2f}%")
-
 
 
 
