@@ -374,9 +374,9 @@ with tab5:
     st.write("""
     
     - **gráfico 1** -> Resíduos padronizados 1 passo a frente, não apresentam estrutura óbvia.
-    - **gráfico 2** ->  A distribuição de resíduos segue uma distribuição normal dos dados.
+    - **gráfico 2** -> Histograma - A distribuição dos resíduos está bem ajustada a distribuição Normal.
     - **gráfico 3** -> Normal Q-Q - Os pontos estão sobrepostos a linha vermelha, o que significa que o resíduos seguem uma distribuição normal.
-    - **gráfico 4** -> Mede o  ACF dos resíduos onde pelo menos 95% dos lags não podem ser significativos e estão dentro da faixa significância.
+    - **gráfico 4** -> Não apresenta lags signficativos, indicando que há independência residual.
     """,unsafe_allow_html=True)
 
     
