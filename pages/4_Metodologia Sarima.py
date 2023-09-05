@@ -106,8 +106,8 @@ with tab2:
     
   
     st.markdown("""                
-        ## Resultados do Modelo SARIMA
-        ### Análise dos Resultados SARIMA
+        ## Ajustando o Modelo SARIMA
+        ### Análisando os Critérios de informação
         A análise de séries temporais é uma ferramenta poderosa para prever tendências e padrões futuros. 
         O modelo SARIMA, que combina o ARIMA com sazonalidade, é uma das abordagens mais populares para lidar com séries temporais sazonais.
         
