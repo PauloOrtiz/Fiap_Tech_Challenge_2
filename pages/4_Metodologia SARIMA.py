@@ -196,8 +196,17 @@ with tab4:
     def calculate_mape(y_true, y_pred):
         return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
 
-    errors = y_true - y_pred
-    relative_errors = np.where(y_true != 0, errors / y_true, 0)  # Calcula o erro relativo apenas onde y_true não é zero
+    y_true_array = np.array(y_true)
+    y_pred_array = np.array(y_pred)
+
+    # Verifique se os shapes são iguais
+    if y_true_array.shape != y_pred_array.shape:
+        st.write("Erro: y_true e y_pred têm shapes diferentes!")
+        st.stop()
+
+    # Cálculo detalhado do MAPE
+    errors = y_true_array - y_pred_array
+    relative_errors = np.where(y_true_array != 0, errors / y_true_array, 0)  # Calcula o erro relativo apenas onde y_true não é zero
 
     # Calcular o MAPE
     mape = np.mean(np.abs(relative_errors)) * 100
@@ -206,6 +215,7 @@ with tab4:
     st.write(f"MSE: {mse:.2f}")
     st.write(f"RMSE: {rmse:.2f}")
     st.write(f"MAPE: {mape:.2f}%")
+    
 
 
 
