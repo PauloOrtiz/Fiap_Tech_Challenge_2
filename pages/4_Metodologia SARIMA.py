@@ -165,7 +165,7 @@ with tab4:
     Ao explorar os vastos oceanos da análise de séries temporais, nos deparamos com uma nova bússola: o modelo SARIMA. Este modelo, com sua capacidade de capturar sazonalidades e tendências, prometeu nos guiar com precisão através das águas turbulentas da previsão.
     """)
 
-    st.image("path_to_some_image.jpg", caption="Nossa jornada com SARIMA.", use_column_width=True)  # Se você tiver uma imagem que se encaixe na narrativa
+   
 
     st.write("""
     Ao confiar em nossa bússola de métricas de acurácia, descobrimos o seguinte sobre o SARIMA:
