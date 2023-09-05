@@ -48,13 +48,34 @@ Avaliamos cada modelo com base em sua acurácia. Queríamos um modelo que não a
 
 ## A Revelação
 
-Sem mais delongas, vamos revelar o modelo vencedor. O modelo que, em nossa análise, provou ser o mais confiável e preciso em suas previsões. Observando as métricas de acurácia, podemos concluir que o modelo tem um desempenho razoável. O MAPE de 7,788% indica que, em média, o modelo erra em cerca de 7,78% nas suas previsões. Em comparação, o ARIMA acerta em 2% somente, tornando nosso modelo escolhido superior em termos de precisão.
             
+""")
+
+
+st.write("""
+Ao embarcar nesta jornada de análise e previsão, navegamos por mares de dados, enfrentamos tempestades de incertezas e exploramos diferentes horizontes modelados por ARIMA, SARIMA e Prophet. Cada modelo com sua própria essência, cada um com sua promessa de precisão. Mas qual deles realmente se destacou? Qual deles nos mostrou o caminho mais claro para o futuro?
+""")
+
+st.write("""
+Ao olhar para o nosso farol de orientação - as métricas de acurácia - vemos uma história se desenrolar.
 """)
 
 table_html = conclusao.to_html(index=False)
 
 st.write(table_html, unsafe_allow_html=True)
+
+st.write("""
+O modelo ARIMA(0,1,0) brilha intensamente com um MAPE de apenas 1,35%. Isso nos diz que, em sua jornada através do tempo, ele desviou de seu curso verdadeiro por apenas 1,35%. Em comparação, o SARIMA(0,1,0)(1,0,1,12) e o Prophet, embora valentes em suas tentativas, desviaram-se por 10,16% e 7,79% respectivamente.
+""")
+
+st.write("""
+Assim, com o vento a nosso favor e as estrelas alinhadas, declaramos o ARIMA(0,1,0) como nosso fiel guia nesta jornada de previsão. Ele não apenas nos mostrou o caminho, mas o fez com a maior precisão entre todos os competidores.
+""")
+
+st.write("""
+Agradecemos a todos os modelos por sua valiosa contribuição e a você, nosso estimado leitor, por nos acompanhar nesta incrível viagem. Que as previsões do ARIMA(0,1,0) iluminem nosso caminho adiante!
+""")
+
 
 st.markdown("""
 ## O Caminho à Frente
