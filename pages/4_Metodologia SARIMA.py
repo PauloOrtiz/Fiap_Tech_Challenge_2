@@ -158,63 +158,40 @@ with tab3:
     """)    
     
 with tab4: 
+
+    st.title("Navegando com SARIMA: Uma Odisseia de Previsão")
+
+    st.write("""
+    Ao explorar os vastos oceanos da análise de séries temporais, nos deparamos com uma nova bússola: o modelo SARIMA. Este modelo, com sua capacidade de capturar sazonalidades e tendências, prometeu nos guiar com precisão através das águas turbulentas da previsão.
+    """)
+
+    st.image("path_to_some_image.jpg", caption="Nossa jornada com SARIMA.", use_column_width=True)  # Se você tiver uma imagem que se encaixe na narrativa
+
+    st.write("""
+    Ao confiar em nossa bússola de métricas de acurácia, descobrimos o seguinte sobre o SARIMA:
+    """)
+
+    acuracia = pd.read_csv('./src/data/Acuracia_sarima.csv', sep=';', index_col=None)
     
-    train_size = int(0.80 * len(ibovespa))
-    train_data = ibovespa['Fechamento'].iloc[:train_size]
-    test_data = ibovespa['Fechamento'].iloc[train_size:]
+    table_html = acuracia.to_html(index=False)
 
-    model = SARIMAX(ibovespa['Fechamento'], order=(0,1,0), seasonal_order=(1,0,1,12))
-    results = model.fit()
+    st.write(table_html, unsafe_allow_html=True)
 
-    forecast = results.get_forecast(steps=len(test_data))
-    mean_forecast = forecast.predicted_mean
+    st.write("""
+    - **MAE (Erro Médio Absoluto)**: Com um valor de 10747.79, o SARIMA nos indica que, em média, nossas previsões desviam-se em 10747.79 pontos dos valores reais.
+    - **MSE (Erro Quadrático Médio)**: Um MSE de 159373754.04 sugere que, enquanto o SARIMA é poderoso, ainda temos alguns desvios significativos.
+    - **RMSE (Raiz do Erro Quadrático Médio)**: Com um RMSE de 12624.33, ele nos dá uma ideia da magnitude dos erros.
+    - **MAPE (Erro Percentual Médio Absoluto)**: Um MAPE de 10.16% nos mostra que, em média, nossas previsões com SARIMA estão 10.16% distantes dos valores reais.
+    """)
 
-    y_true = test_data
-    y_pred = mean_forecast
+    st.write("""
+    Embora o SARIMA não tenha a precisão afiada do ARIMA, ele ainda é um guia valioso em nossa jornada. Um MAPE de 10.16% é uma conquista notável, considerando a complexidade e volatilidade dos dados financeiros.
+    """)
 
-    # Verificações
-    zero_values = y_true[y_true == 0]
-    if len(zero_values) > 0:
-        st.write(f"Há {len(zero_values)} valores zero em 'y_true'")
-    else:
-        st.write("Não há valores zero em 'y_true'")
-
-    nan_inf_values = y_pred[np.isnan(y_pred) | np.isinf(y_pred)]
-    if len(nan_inf_values) > 0:
-        st.write(f"Há {len(nan_inf_values)} valores NaN ou infinitos em 'y_pred'")
-    else:
-        st.write("Não há valores NaN ou infinitos em 'y_pred'")
-
-    # Cálculo das métricas
-    mae = mean_absolute_error(y_true, y_pred)
-    mse = mean_squared_error(y_true, y_pred)
-    rmse = np.sqrt(mse)
-
-    # Cálculo detalhado do MAPE
-    errors = (y_true - y_pred) / y_true
-    errors = errors.replace({np.inf: np.nan, -np.inf: np.nan})  # substitua infinitos por NaN
-    def calculate_mape(y_true, y_pred):
-        return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
-
-    y_true_array = np.array(y_true)
-    y_pred_array = np.array(y_pred)
-
-    # Verifique se os shapes são iguais
-    if y_true_array.shape != y_pred_array.shape:
-        st.write("Erro: y_true e y_pred têm shapes diferentes!")
-        st.stop()
-
-    # Cálculo detalhado do MAPE
-    errors = y_true_array - y_pred_array
-    relative_errors = np.where(y_true_array != 0, errors / y_true_array, 0)  # Calcula o erro relativo apenas onde y_true não é zero
-
-    # Calcular o MAPE
-    mape = np.mean(np.abs(relative_errors)) * 100
-
-    st.write(f"MAE: {mae:.2f}")
-    st.write(f"MSE: {mse:.2f}")
-    st.write(f"RMSE: {rmse:.2f}")
-    st.write(f"MAPE: {mape:.2f}%")
+    st.write("""
+    A jornada com SARIMA nos ensinou a importância da adaptabilidade e da consideração das sazonalidades. Enquanto navegamos em direção a novos horizontes, mantemos a mente aberta para novas descobertas e otimizações.
+    """)
+    
     
 
 
