@@ -178,10 +178,10 @@ with tab4:
     st.write(table_html, unsafe_allow_html=True)
 
     st.write("""
-    - **MAE (Erro Médio Absoluto)**: Com um valor de 10747.79, o SARIMA nos indica que, em média, nossas previsões desviam-se em 10747.79 pontos dos valores reais.
-    - **MSE (Erro Quadrático Médio)**: Um MSE de 159373754.04 sugere que, enquanto o SARIMA é poderoso, ainda temos alguns desvios significativos.
-    - **RMSE (Raiz do Erro Quadrático Médio)**: Com um RMSE de 12624.33, ele nos dá uma ideia da magnitude dos erros.
-    - **MAPE (Erro Percentual Médio Absoluto)**: Um MAPE de 10.16% nos mostra que, em média, nossas previsões com SARIMA estão 10.16% distantes dos valores reais.
+    - **MAE (Erro Médio Absoluto)**: Com um valor de 10.747,79, o SARIMA nos indica que, em média, nossas previsões desviam-se em 10747.79 pontos dos valores reais.
+    - **MSE (Erro Quadrático Médio)**: Um MSE de 159.373.754,04 sugere que, enquanto o SARIMA é poderoso, ainda temos alguns desvios significativos.
+    - **RMSE (Raiz do Erro Quadrático Médio)**: Com um RMSE de 12.624,33, ele nos dá uma ideia da magnitude dos erros.
+    - **MAPE (Erro Percentual Médio Absoluto)**: Um MAPE de 10,16% nos mostra que, em média, nossas previsões com SARIMA estão 10.16% distantes dos valores reais.
     """)
 
     st.write("""
