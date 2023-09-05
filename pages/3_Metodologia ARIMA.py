@@ -33,7 +33,7 @@ acuracia = pd.read_csv('./src/data/Acuracia_arima.csv', sep=';', index_col=None)
 AIC_BIC = pd.read_csv('./src/data/df_AIC_BIC.csv', sep=';', index_col=None)
 
 
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["ARIMA", "Escolha do modelo", "Modelo para previsão","Acurácia", "Diagnostico do Modelo"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["ARIMA", "Escolha do modelo", "Modelo para previsão","Acurácia", "Diagnóstico do Modelo"])
 
 with tab1:
     st.markdown("""
@@ -305,7 +305,7 @@ with tab4:
 
 with tab5:
 
-    st.title("Analise dos resíduos")
+    st.title("Análise dos resíduos")
 
     st.markdown(""" 
     Para diagnosticar nosso modelo ficamos no resíduo dos dados de treinamento
