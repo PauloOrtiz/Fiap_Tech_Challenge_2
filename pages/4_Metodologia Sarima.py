@@ -134,7 +134,7 @@ with tab3:
         ## Introdução
         A escolha de um modelo de séries temporais é uma tarefa que combina ciência e arte. Embora critérios como o AIC nos forneçam uma métrica objetiva para avaliar diferentes modelos, a decisão final muitas vezes leva em consideração outros fatores, como a capacidade do modelo de capturar padrões sazonais, tendências e outros componentes da série.
         
-        Nesta seção, vamos explorar em detalhes o modelo SARIMA escolhido para nossa série temporal: SARIMAX(0, 1, 0)x(1, 0, [1], 12).
+        Nesta seção, vamos explorar em detalhes o modelo SARIMA escolhido para nossa série temporal: SARIMA(0, 1, 0)x(1, 0, 1, 12).
     """)
     st.markdown("""
     ## Sumário Estatístico do Modelo
