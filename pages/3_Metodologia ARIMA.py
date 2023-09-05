@@ -304,6 +304,14 @@ with tab4:
     """)
 
 with tab5:
+
+    st.title("Analise dos resíduos")
+
+    st.markdown(""" 
+    Para diagnosticar nosso modelo ficamos no resÃ­duo dos dados de treinamento
+    Residuos sÃ£o a diferenÃ§a entre o nosso modelo previsto 1 passo a frente e os valores reais da sÃ©rie temporal
+    """)
+
     model = sm.tsa.ARIMA(ibovespa['Fechamento'], order=(0, 1, 0))
     results = model.fit()
 
@@ -362,6 +370,15 @@ with tab5:
     results.plot_diagnostics(figsize=(15, 12))
     plt.savefig("diagnostics.png")
     st.image("diagnostics.png")
+
+    st.write("""
+    
+    - **gráfico 1** -> Residuos padronizados 1 passo a frente, não apresentam estrutura obvia.
+    - **gráfico 2** ->  Distribuição normal de resíduos - A distribuição de resíduos esta bem ajustada a distribuição normal dos dados.
+    - **gráfico 3** ->  Normal Q-Q - Os pontos estão sobrepostos a linha vermelha, o que significa que o resíduos seguem um distribuição normal.
+    - **gráfico 4** -> Mede o  ACF dos resíduos onde pelo menos 95% dos lags não podem ser significativos e estão dentro da faixa significância
+
+    """,unsafe_allow_html=True)
 
     
         
