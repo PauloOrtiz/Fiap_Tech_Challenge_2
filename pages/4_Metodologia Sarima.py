@@ -101,7 +101,6 @@ with tab2:
 
     A seguir, vamos mergulhar nos dados e começar nossa busca pelo modelo SARIMA ideal para o Ibovespa. Acompanhe cada etapa, observe as métricas e junte-se a nós nesta jornada empolgante de descoberta.
    
-    ### Tabela de localização de
     """)
     
     
