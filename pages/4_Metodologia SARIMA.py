@@ -212,7 +212,11 @@ with tab6:
     model_s1 = SARIMAX(ibovespa['Fechamento'], order=(0, 1, 0), seasonal_order=(1, 0, 1, 12)).fit(dis=-1)
 
     st.title("Analise dos resíduos")
-    
+
+    st.markdown("""
+    Para realizar o diagnóstico do modelo SARIMA, utilizamos os mesmos artifícios gráficos de quando avaliamos o modelo ARIMA. Abaixo plotamos os gráficos que nos ajudarão a validar as previsões e o modelo que melhor se ajustou aos nossos dados.
+    """)
+
     model_s1.plot_diagnostics(figsize=(15, 12))
     plt.savefig("diagnostics.png")
     st.image("diagnostics.png")
