@@ -1,7 +1,12 @@
 import streamlit as st
 from PIL import Image
+import pandas as pd
+
+
 
 st.set_page_config(page_title="Conclusão", page_icon=":house:")
+
+conclusao = pd.read_csv('./src/data/Tabela_Metricas_Conclusao.csv', sep=';')
 
 image = Image.open("./src/img/Conclusao.png")
 st.image(image)
@@ -47,6 +52,7 @@ Sem mais delongas, vamos revelar o modelo vencedor. O modelo que, em nossa anál
             
 """)
 
+table_html = conclusao.to_html(index=False)
 
 
 
