@@ -308,8 +308,8 @@ with tab5:
     st.title("Analise dos resíduos")
 
     st.markdown(""" 
-    Para diagnosticar nosso modelo ficamos no resÃ­duo dos dados de treinamento
-    Residuos sÃ£o a diferenÃ§a entre o nosso modelo previsto 1 passo a frente e os valores reais da sÃ©rie temporal
+    Para diagnosticar nosso modelo ficamos no resíduo dos dados de treinamento
+    Residuos são a diferença entre o nosso modelo previsto 1 passo a frente e os valores reais da série temporal
     """)
 
     model = sm.tsa.ARIMA(ibovespa['Fechamento'], order=(0, 1, 0))
