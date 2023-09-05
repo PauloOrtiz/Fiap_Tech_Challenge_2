@@ -108,8 +108,7 @@ with tab2:
     st.markdown("""                
         ## Ajustando o Modelo SARIMA
         ### Análisando os Critérios de informação
-        A análise de séries temporais é uma ferramenta poderosa para prever tendências e padrões futuros. 
-        O modelo SARIMA, que combina o ARIMA com sazonalidade, é uma das abordagens mais populares para lidar com séries temporais sazonais.
+        
         
         Abaixo, apresentamos os resultados de diferentes combinações de parâmetros sazonais para o modelo SARIMA, mantendo a parte ARIMA fixa em (0,1,0). 
         Os critérios de informação AIC e BIC são usados para avaliar a qualidade de cada modelo. Em geral, modelos com valores AIC e BIC mais baixos são preferíveis.
