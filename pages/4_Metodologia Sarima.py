@@ -151,6 +151,8 @@ with tab3:
     
     Além disso, métricas como o Ljung-Box e o Jarque-Bera nos fornecem confiança na adequação do modelo e na normalidade dos resíduos, respectivamente.
     
+    Neste caso, o valor do Ljung-Box é de 1.53, indicando que não há autocorrelação significativa nos resíduos, porém, o teste Jarque-Bera mostrou que os resíduos não seguem uma distribuição normal. Apesar disso, seguimos para analisar a acurácia e diagnóstico detalhado do modelo.
+    
     Em resumo, este modelo representa uma ferramenta robusta e confiável para prever a série temporal em questão, e estamos confiantes em suas previsões para o futuro.
     """)    
     
