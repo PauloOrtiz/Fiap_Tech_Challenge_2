@@ -1,12 +1,12 @@
-# Análise de Séries Temporais com ARIMA e SARIMA
+# Análise de Séries Temporais com ARIMA, SARIMA e Prophet
 
-Este projeto se concentra na análise de séries temporais usando modelos ARIMA e SARIMA. Através de uma abordagem detalhada e metódica, exploramos os dados da Bovespa para prever tendências futuras.
+Este projeto se concentra na análise de séries temporais usando modelos ARIMA, SARIMA e Prophet. Através de uma abordagem detalhada e metódica, exploramos os dados da Bovespa para prever tendências futuras.
 
 ## Conteúdo
 
 1. **Introdução**
     - Breve visão geral da análise de séries temporais e sua importância.
-    - Apresentação dos modelos ARIMA e SARIMA.
+    - Apresentação dos modelos ARIMA, SARIMA e Prophet.
 
 2. **Preparação de Dados**
     - Limpeza e transformação dos dados.
@@ -21,8 +21,13 @@ Este projeto se concentra na análise de séries temporais usando modelos ARIMA 
     - Escolha do modelo SARIMA.
     - Avaliação detalhada das métricas de acurácia.
 
-5. **Conclusão**
-    - Comparação dos modelos ARIMA e SARIMA.
+5. **Modelagem Prophet**
+    - Introdução ao Prophet e sua aplicação.
+    - Escolha do modelo Prophet.
+    - Avaliação das métricas de acurácia.
+
+6. **Conclusão**
+    - Comparação dos modelos ARIMA, SARIMA e Prophet.
     - Insights e reflexões finais.
 
 ## Ferramentas Utilizadas
@@ -31,6 +36,7 @@ Este projeto se concentra na análise de séries temporais usando modelos ARIMA 
 - **Streamlit**: Para criar uma interface interativa e visualizar os resultados.
 - **Plotly**: Para visualizações interativas.
 - **Statsmodels**: Biblioteca Python para modelagem estatística.
+- **Prophet**: Biblioteca para previsões de séries temporais.
 
 ## Como Executar
 
