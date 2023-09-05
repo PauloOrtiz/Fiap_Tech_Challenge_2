@@ -218,15 +218,15 @@ with tab6:
 
     # Gráfico interativo dos resíduos ao longo do tempo
     fig1 = px.line(x=residuals.index, y=residuals, title='Resíduos do Modelo SARIMA')
-    fig1.update_xaxes(title='Período')
-    fig1.update_yaxes(title='Resíduos')
+    fig1.update_xaxes(title='Período', title_font=dict(size=18, color='#CD8D00'), tickfont=dict(size=14, color='#333'))
+    fig1.update_yaxes(title='Resíduos', title_font=dict(size=18, color='#CD8D00'), tickfont=dict(size=14, color='#333'))
     fig1.update_layout(width=800, height=400)
     st.plotly_chart(fig1)
 
     # Histograma interativo dos resíduos
     fig2 = px.histogram(x=residuals, nbins=30, title='Histograma dos Resíduos do Modelo SARIMA')
-    fig2.update_xaxes(title='Resíduos')
-    fig2.update_yaxes(title='Frequência')
+    fig2.update_xaxes(title='Resíduos', title_font=dict(size=18, color='#CD8D00'), tickfont=dict(size=14, color='#333'))
+    fig2.update_yaxes(title='Frequência', title_font=dict(size=18, color='#CD8D00'), tickfont=dict(size=14, color='#333'))
     fig2.update_layout(width=600, height=400)
     st.plotly_chart(fig2)
 
@@ -234,12 +234,42 @@ with tab6:
     acf_vals = sm.tsa.acf(residuals, nlags=40)
     fig3 = go.Figure()
     fig3.add_trace(go.Bar(x=list(range(41)), y=acf_vals, name='ACF'))
-    fig3.update_layout(title='Função de Autocorrelação dos Resíduos', xaxis_title='Lag', yaxis_title='ACF', width=800, height=400)
+    fig3.update_layout(
+        title={
+            'text': 'ACF (Autocorrelation Function)',
+            'y':0.95,
+            'x':0.5,
+            'xanchor': 'center',
+            'yanchor': 'top',
+            'font': {
+                'size': 20,
+                'color': '#306998'
+            }
+        },
+        xaxis=dict(title='Lag', title_font=dict(size=18, color='#CD8D00'), tickfont=dict(size=14, color='#333')),
+        yaxis=dict(title='ACF', title_font=dict(size=18, color='#CD8D00'), tickfont=dict(size=14, color='#333')),
+        width=800, height=400
+    )
     st.plotly_chart(fig3)
 
     # Gráfico interativo da função de autocorrelação parcial dos resíduos
     pacf_vals = sm.tsa.pacf(residuals, nlags=40)
     fig4 = go.Figure()
     fig4.add_trace(go.Bar(x=list(range(41)), y=pacf_vals, name='PACF'))
-    fig4.update_layout(title='Função de Autocorrelação Parcial dos Resíduos', xaxis_title='Lag', yaxis_title='PACF', width=800, height=400)
+    fig4.update_layout(
+        title={
+            'text': 'PACF (Partial Autocorrelation Function)',
+            'y':0.95,
+            'x':0.5,
+            'xanchor': 'center',
+            'yanchor': 'top',
+            'font': {
+                'size': 20,
+                'color': '#306998'
+            }
+        },
+        xaxis=dict(title='Lag', title_font=dict(size=18, color='#CD8D00'), tickfont=dict(size=14, color='#333')),
+        yaxis=dict(title='PACF', title_font=dict(size=18, color='#CD8D00'), tickfont=dict(size=14, color='#333')),
+        width=800, height=400
+    )
     st.plotly_chart(fig4)
