@@ -3,6 +3,9 @@ from PIL import Image
 import pandas as pd
 import numpy as np
 from statsmodels.tsa.statespace.sarimax import SARIMAX
+import plotly.graph_objects as go
+import plotly.express as px
+import statsmodels.api as sm
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 st.set_page_config(page_title="Sarima", page_icon=":house:")
@@ -206,5 +209,37 @@ with tab4:
 
 
 
+with tab5:
+    # Ajuste do modelo SARIMA
+    model_s1 = SARIMAX(ibovespa['Fechamento'], order=(0, 1, 0), seasonal_order=(1, 0, 1, 12)).fit(dis=-1)
 
-    
+    # Obtenha os resíduos do modelo
+    residuals = model_s1.resid
+
+    # Gráfico interativo dos resíduos ao longo do tempo
+    fig1 = px.line(x=residuals.index, y=residuals, title='Resíduos do Modelo SARIMA')
+    fig1.update_xaxes(title='Período')
+    fig1.update_yaxes(title='Resíduos')
+    fig1.update_layout(width=800, height=400)
+    st.plotly_chart(fig1)
+
+    # Histograma interativo dos resíduos
+    fig2 = px.histogram(x=residuals, nbins=30, title='Histograma dos Resíduos do Modelo SARIMA')
+    fig2.update_xaxes(title='Resíduos')
+    fig2.update_yaxes(title='Frequência')
+    fig2.update_layout(width=600, height=400)
+    st.plotly_chart(fig2)
+
+    # Gráfico interativo da função de autocorrelação dos resíduos
+    acf_vals = sm.tsa.acf(residuals, nlags=40)
+    fig3 = go.Figure()
+    fig3.add_trace(go.Bar(x=list(range(41)), y=acf_vals, name='ACF'))
+    fig3.update_layout(title='Função de Autocorrelação dos Resíduos', xaxis_title='Lag', yaxis_title='ACF', width=800, height=400)
+    st.plotly_chart(fig3)
+
+    # Gráfico interativo da função de autocorrelação parcial dos resíduos
+    pacf_vals = sm.tsa.pacf(residuals, nlags=40)
+    fig4 = go.Figure()
+    fig4.add_trace(go.Bar(x=list(range(41)), y=pacf_vals, name='PACF'))
+    fig4.update_layout(title='Função de Autocorrelação Parcial dos Resíduos', xaxis_title='Lag', yaxis_title='PACF', width=800, height=400)
+    st.plotly_chart(fig4)
