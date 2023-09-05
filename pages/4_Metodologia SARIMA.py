@@ -196,11 +196,11 @@ with tab4:
     def calculate_mape(y_true, y_pred):
         return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
 
-    APEs = np.abs((y_true - y_pred) / y_true) * 100
-    APEs = APEs[~np.isnan(APEs) & ~np.isinf(APEs)]  # Remova NaNs e infinitos
+    errors = y_true - y_pred
+    relative_errors = np.where(y_true != 0, errors / y_true, 0)  # Calcula o erro relativo apenas onde y_true não é zero
 
-    mape = np.mean(APEs)
-
+    # Calcular o MAPE
+    mape = np.mean(np.abs(relative_errors)) * 100
 
     st.write(f"MAE: {mae:.2f}")
     st.write(f"MSE: {mse:.2f}")
