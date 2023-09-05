@@ -25,7 +25,7 @@ ibovespa.set_index('Data', inplace=True)
 ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
 
 
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["SARIMAX", "Escolha do modelo", "Modelo para previsão","Acurácia", "Diagnostico do Modelo"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["SARIMA", "Escolha do modelo", "Modelo para previsão","Acurácia", "Diagnostico do Modelo"])
 
 st.markdown("""
         <style>
@@ -53,29 +53,29 @@ with tab1:
     st.markdown("""
     # SARIMA: Uma Jornada Além do ARIMA
 
-    Quando nos aventuramos no mundo das séries temporais, rapidamente nos deparamos com o modelo ARIMA, uma ferramenta poderosa e flexível. No entanto, o universo da previsão é vasto e, às vezes, precisamos de algo mais robusto, algo que considere sazonalidades e variáveis exógenas. É aqui que o SARIMAX entra em cena.
+    Quando nos aventuramos no mundo das séries temporais, rapidamente nos deparamos com o modelo ARIMA, uma ferramenta poderosa e flexível. No entanto, o universo da previsão é vasto e, às vezes, precisamos de algo mais robusto, algo que considere sazonalidades e variáveis exógenas. É aqui que o SARIMA entra em cena.
 
     ## O que é SARIMA?
 
-    O SARIMAX é uma extensão do ARIMA. O 'S' refere-se à sazonalidade, e o 'X' refere-se às variáveis exógenas. Em outras palavras, enquanto o ARIMA é excelente para prever séries temporais baseadas em seus próprios valores passados, o SARIMAX leva em consideração padrões sazonais e outras variáveis externas que podem influenciar a série.
+    O SARIMA é uma extensão do ARIMA. O 'S' refere-se à sazonalidade. Em outras palavras, enquanto o ARIMA é excelente para prever séries temporais baseadas em seus próprios valores passados, o SARIMA leva em consideração padrões sazonais e outras variáveis externas que podem influenciar a série.
 
     ## A Fórmula Mágica
 
-    A beleza do SARIMAX reside em sua capacidade de combinar diferentes componentes:
+    A beleza do SARIMA reside em sua capacidade de combinar diferentes componentes:
 
     - **AR (AutoRegressivo)**: Baseia-se na relação entre uma observação e um número de observações defasadas.
     - **I (Integrado)**: Usa a diferenciação das observações para tornar a série temporal estacionária.
     - **MA (Média Móvel)**: Baseia-se na relação entre uma observação e um erro residual proveniente de uma média móvel aplicada a observações defasadas.
     - **Sazonalidade**: Captura padrões que se repetem em intervalos fixos.
-    - **Variáveis Exógenas**: Incorpora fatores externos que podem influenciar a série.
+    
 
-    ## Por que SARIMAX para o Ibovespa?
+    ## Por que SARIMA para o Ibovespa?
 
-    O Ibovespa, como principal indicador do mercado de ações brasileiro, é influenciado por uma miríade de fatores. Além de suas próprias flutuações históricas, ele é afetado por eventos econômicos, políticos e globais. A sazonalidade, como os padrões de fim de ano ou eventos recorrentes, também pode desempenhar um papel. O SARIMAX, com sua capacidade de considerar todas essas nuances, é uma escolha natural para uma análise aprofundada do Ibovespa.
+    O Ibovespa, como principal indicador do mercado de ações brasileiro, é influenciado por uma miríade de fatores. Além de suas próprias flutuações históricas, ele é afetado por eventos econômicos, políticos e globais. A sazonalidade, como os padrões de fim de ano ou eventos recorrentes, também pode desempenhar um papel. O SARIMA, com sua capacidade de considerar todas essas nuances, é uma escolha natural para uma análise aprofundada do Ibovespa.
 
     ## Embarque Nesta Jornada
 
-    Convido você a se juntar a nós nesta exploração detalhada do Ibovespa através das lentes do SARIMAX. Vamos descobrir os segredos escondidos nos dados, desvendar padrões e, esperançosamente, lançar luz sobre o futuro deste índice crucial.
+    Convido você a se juntar a nós nesta exploração detalhada do Ibovespa através das lentes do SARIMA. Vamos descobrir os segredos escondidos nos dados, desvendar padrões e, esperançosamente, lançar luz sobre o futuro deste índice crucial.
     """, unsafe_allow_html=True)
     
 with tab2:
@@ -136,7 +136,7 @@ with tab3:
         ## Introdução
         A escolha de um modelo de séries temporais é uma tarefa que combina ciência e arte. Embora critérios como o AIC nos forneçam uma métrica objetiva para avaliar diferentes modelos, a decisão final muitas vezes leva em consideração outros fatores, como a capacidade do modelo de capturar padrões sazonais, tendências e outros componentes da série.
         
-        Nesta seção, vamos explorar em detalhes o modelo SARIMA escolhido para nossa série temporal: SARIMAX(0, 1, 0)x(1, 0, [1], 12).
+        Nesta seção, vamos explorar em detalhes o modelo SARIMA escolhido para nossa série temporal: SARIMA(0, 1, 0)x(1, 0, [1], 12).
     """)
     st.markdown("""
     ## Sumário Estatístico do Modelo
