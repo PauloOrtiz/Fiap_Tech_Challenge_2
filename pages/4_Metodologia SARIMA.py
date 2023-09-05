@@ -28,7 +28,7 @@ ibovespa.set_index('Data', inplace=True)
 ibovespa['Fechamento'] = pd.to_numeric(ibovespa['Fechamento'], errors='coerce')
 
 
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["SARIMA", "Escolha do modelo", "Modelo para previsão","Acurácia", "Diagnostico do Modelo"])
+tab1, tab2, tab3, tab4, tab6 = st.tabs(["SARIMA", "Escolha do modelo", "Modelo para previsão","Acurácia", "Diagnostico do Modelo"])
 
 st.markdown("""
         <style>
@@ -209,7 +209,7 @@ with tab4:
 
 
 
-with tab5:
+with tab6:
     # Ajuste do modelo SARIMA
     model_s1 = SARIMAX(ibovespa['Fechamento'], order=(0, 1, 0), seasonal_order=(1, 0, 1, 12)).fit(dis=-1)
 
