@@ -196,8 +196,13 @@ with tab4:
     def calculate_mape(y_true, y_pred):
         return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
 
-    mape = calculate_mape(y_true, y_pred)
-    st.write((y_true - y_pred) / y_true)
+    inf_values = errors[np.isinf(errors)]
+    if len(inf_values) > 0:
+        st.write(f"Há {len(inf_values)} valores infinitos nos erros relativos")
+    else:
+        st.write("Não há valores infinitos nos erros relativos")
+
+    mape = np.mean(np.abs(errors)) * 100
 
     st.write(f"MAE: {mae:.2f}")
     st.write(f"MSE: {mse:.2f}")
