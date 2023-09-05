@@ -211,6 +211,7 @@ with tab6:
     # Ajuste do modelo SARIMA
     model_s1 = SARIMAX(ibovespa['Fechamento'], order=(0, 1, 0), seasonal_order=(1, 0, 1, 12)).fit(dis=-1)
 
+    st.title("Analise dos resíduos")
     
     model_s1.plot_diagnostics(figsize=(15, 12))
     plt.savefig("diagnostics.png")
