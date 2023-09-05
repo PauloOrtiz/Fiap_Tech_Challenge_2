@@ -143,6 +143,23 @@ with tab3:
     
     model1 = SARIMAX(ibovespa['Fechamento'],order=(0,1,0), seasonal_order=(1,0,1,12)).fit(ds=-1)
     st.write(model1.summary())
+    model1 = SARIMAX(ibovespa['Fechamento'],order=(0,1,0), seasonal_order=(1, 0, 0, 12)).fit(ds=-1)
+    st.write(model1.summary())
+    model1 = SARIMAX(ibovespa['Fechamento'],order=(0,1,0), seasonal_order=((0, 0, 1, 12)).fit(ds=-1))
+    st.write(model1.summary())
+    model1 = SARIMAX(ibovespa['Fechamento'],order=(0,1,0), seasonal_order=(0, 0, 0, 12)).fit(ds=-1)
+    st.write(model1.summary())
+    model1 = SARIMAX(ibovespa['Fechamento'],order=(0,1,0), seasonal_order=(1, 0, 1, 12)).fit(ds=-1)
+    st.write(model1.summary())
+    model1 = SARIMAX(ibovespa['Fechamento'],order=(0,1,0), seasonal_order=(1, 1, 1, 12)).fit(ds=-1)
+    st.write(model1.summary())
+    model1 = SARIMAX(ibovespa['Fechamento'],order=(0,1,0), seasonal_order=(0, 1, 1, 12)).fit(ds=-1)
+    st.write(model1.summary())
+    model1 = SARIMAX(ibovespa['Fechamento'],order=(0,1,0), seasonal_order=(1, 1, 0, 12)).fit(ds=-1)
+    st.write(model1.summary())
+    model1 = SARIMAX(ibovespa['Fechamento'],order=(0,1,0), seasonal_order=(0, 1, 0, 12)).fit(ds=-1)
+    st.write(model1.summary())
+
     
     st.markdown("""
     ## Conclusão
