@@ -54,7 +54,7 @@ Sem mais delongas, vamos revelar o modelo vencedor. O modelo que, em nossa anál
 
 table_html = conclusao.to_html(index=False)
 
-
+st.write(table_html, unsafe_allow_html=True)
 
 st.markdown("""
 ## O Caminho à Frente
