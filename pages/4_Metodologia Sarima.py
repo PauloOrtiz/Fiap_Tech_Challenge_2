@@ -140,7 +140,10 @@ with tab3:
     ## Sumário Estatístico do Modelo
     Abaixo, apresentamos um resumo das estatísticas do modelo escolhido. Este sumário nos fornece informações valiosas sobre os parâmetros do modelo, sua significância estatística e outras métricas que nos ajudam a entender o desempenho do modelo.
     """)       
-        
+    st.title("Modelo Antigo")
+    model1 = SARIMAX(ibovespa['Fechamento'],order=(0,1,0), seasonal_order=(1, 0, 1, 12)).fit(ds=-1)
+    st.write(model1.summary())
+    st.title("Modelo Novo")
     model1 = SARIMAX(ibovespa['Fechamento'],order=(0,1,0), seasonal_order=(0, 1, 0, 12)).fit(ds=-1)
     st.write(model1.summary())
 
