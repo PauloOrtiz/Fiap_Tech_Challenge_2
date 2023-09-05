@@ -220,4 +220,11 @@ with tab6:
     model_s1.plot_diagnostics(figsize=(15, 12))
     plt.savefig("diagnostics.png")
     st.image("diagnostics.png")
+
+    st.markdown("""
+    - **Gráfico 1**:  Como podemos observar, os resíduos apresentam comportamento aleatório;
+    - **Gráfico 2**: Histograma dos Resíduos - Em relação à distribuição dos resíduos, pode-se observar que se assemelham à distribuição Normal;
+    - **Gráfico 3**: Normal Q-Q - Os pontos estão sobrepostos a linha vermelha, o que indica que o resíduos seguem uma distribuição Normal;
+    - **Gráfico 4**: Mede o  ACF dos resíduos onde pelo menos 95% dos lags não podem ser significativos e estão dentro da faixa significância.
+    """,unsafe_allow_html=True)
     
